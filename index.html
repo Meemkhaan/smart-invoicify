@@ -1,0 +1,1570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Smart Invoicify — Proposals, Quotes & Invoices in One Place</title>
+<meta name="description" content="Team workspace for proposals, quotations, invoices, profit reports, project sites, and client delivery — email, WhatsApp, and public links. Built for Reach Solutions."/>
+<meta property="og:title" content="Smart Invoicify — Proposals, Quotes & Invoices"/>
+<meta property="og:description" content="Team workspace for proposals, quotations, invoices, profit reports, and client delivery — by email, WhatsApp, and secure public links."/>
+<meta property="og:url" content="https://meemkhaan.github.io/smart-invoicify/"/>
+<meta name="theme-color" content="#1a6b4a"/>
+<link rel="icon" href="favicon/favicon.ico" sizes="any"/>
+<link rel="icon" href="favicon/favicon.svg" type="image/svg+xml"/>
+<link rel="icon" href="favicon/favicon-96x96.png" sizes="96x96" type="image/png"/>
+<link rel="apple-touch-icon" href="favicon/apple-touch-icon.png"/>
+<link rel="manifest" href="favicon/site.webmanifest"/>
+<link rel="canonical" href="https://meemkhaan.github.io/smart-invoicify/"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --white:#ffffff;
+  --off:#f7f7f5;
+  --off2:#f0efe9;
+  --ink:#0a0a09;
+  --ink2:#3d3d38;
+  --ink3:#8a8a82;
+  --ink4:#b8b8b0;
+  --rule:#e8e8e2;
+  --accent:#1a6b4a;
+  --accent-lt:#e8f3ee;
+  --accent-mid:#2d9968;
+  --amber:#c47c2b;
+  --amber-lt:#fdf3e7;
+  --blue:#1e4fa3;
+  --blue-lt:#eef2fb;
+  --red:#c0392b;
+  --red-lt:#fdecea;
+  --r:14px;
+  --r-sm:8px;
+  --r-lg:22px;
+  --r-xl:32px;
+  --serif:'Instrument Serif',Georgia,serif;
+  --sans:'Figtree',system-ui,sans-serif;
+  --shadow-sm:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
+  --shadow-md:0 4px 16px rgba(0,0,0,.07),0 2px 6px rgba(0,0,0,.04);
+  --shadow-lg:0 20px 60px rgba(0,0,0,.10),0 8px 24px rgba(0,0,0,.06);
+  --shadow-xl:0 40px 100px rgba(0,0,0,.13),0 16px 40px rgba(0,0,0,.08);
+}
+
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--white);color:var(--ink);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* ── UTILITIES ── */
+.container{max-width:1100px;margin:0 auto;padding:0 32px}
+.container-wide{max-width:1280px;margin:0 auto;padding:0 32px}
+
+/* ── NAV ── */
+nav{
+  position:sticky;top:0;z-index:200;
+  background:rgba(255,255,255,.85);
+  backdrop-filter:blur(24px) saturate(180%);
+  -webkit-backdrop-filter:blur(24px) saturate(180%);
+  border-bottom:1px solid var(--rule);
+}
+.nav-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  max-width:1100px;margin:0 auto;padding:0 32px;height:60px;
+}
+.logo{
+  display:flex;align-items:center;gap:9px;
+  text-decoration:none;color:var(--ink);
+  font-family:var(--sans);font-size:15px;font-weight:600;letter-spacing:-.01em;
+}
+.logo-mark{
+  width:30px;height:30px;border-radius:8px;
+  background:var(--accent);display:flex;align-items:center;justify-content:center;
+}
+.logo-mark svg{width:16px;height:16px}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:14px;color:var(--ink2);text-decoration:none;font-weight:400;transition:color .15s}
+.nav-links a:hover{color:var(--ink)}
+.nav-actions{display:flex;align-items:center;gap:8px}
+.nav-toggle{
+  display:none;background:none;border:1px solid var(--rule);
+  border-radius:8px;padding:8px 10px;font-size:18px;line-height:1;
+  cursor:pointer;color:var(--ink2);
+}
+.mobile-nav{
+  display:none;border-top:1px solid var(--rule);background:var(--white);
+  padding:12px 20px 16px;
+}
+.mobile-nav.open{display:block}
+.mobile-nav a{
+  display:block;padding:10px 0;font-size:15px;color:var(--ink2);
+  text-decoration:none;border-bottom:1px solid var(--off);
+}
+.mobile-nav a:last-child{border-bottom:none}
+.mobile-nav-actions{display:flex;flex-direction:column;gap:8px;margin-top:12px;padding-top:12px;border-top:1px solid var(--rule)}
+
+/* ── BUTTONS ── */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  font-family:var(--sans);font-weight:500;font-size:14px;
+  border-radius:100px;padding:10px 22px;
+  text-decoration:none;cursor:pointer;border:none;transition:all .18s ease;
+  white-space:nowrap;
+}
+.btn-primary{background:var(--ink);color:var(--white)}
+.btn-primary:hover{background:#222}
+.btn-ghost{background:transparent;color:var(--ink2);border:1px solid var(--rule)}
+.btn-ghost:hover{background:var(--off);color:var(--ink);border-color:var(--rule)}
+.btn-accent{background:var(--accent);color:var(--white)}
+.btn-accent:hover{background:#155c3d}
+.btn-lg{font-size:15px;padding:14px 32px;border-radius:100px}
+.btn-arrow::after{content:'→';margin-left:2px}
+
+/* ── SECTIONS ── */
+.section{padding:120px 0}
+.section-sm{padding:80px 0}
+
+/* ── EYEBROW ── */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:18px;
+}
+.eyebrow::before{content:'';width:16px;height:1px;background:var(--accent);display:block}
+
+/* ══════════════════════════════════════════════
+   HERO
+══════════════════════════════════════════════ */
+.hero{
+  padding:100px 0 0;
+  background:var(--white);
+  overflow:hidden;
+  position:relative;
+}
+.hero::before{
+  content:'';
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 50% at 60% 0%,rgba(26,107,74,.04) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-text{max-width:680px;margin:0 auto;text-align:center;position:relative;z-index:1}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  background:var(--accent-lt);border:1px solid rgba(26,107,74,.15);
+  border-radius:100px;padding:6px 14px 6px 8px;
+  font-size:12px;font-weight:500;color:var(--accent);
+  margin-bottom:28px;
+}
+.hero-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+h1.hero-h{
+  font-family:var(--serif);
+  font-size:clamp(3rem,6vw,5rem);
+  line-height:1.07;letter-spacing:-.02em;
+  color:var(--ink);
+  margin-bottom:22px;
+}
+h1.hero-h em{font-style:italic;color:var(--accent)}
+.hero-sub{
+  font-size:clamp(1rem,2vw,1.18rem);
+  color:var(--ink2);line-height:1.7;
+  max-width:520px;margin:0 auto 36px;
+}
+.hero-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.hero-proof{
+  display:flex;align-items:center;justify-content:center;
+  gap:20px;margin-top:36px;
+  font-size:13px;color:var(--ink3);
+  padding-bottom:36px;
+}
+.hero-proof-sep{width:3px;height:3px;border-radius:50%;background:var(--ink4)}
+
+/* Dashboard mockup container */
+.hero-visual-wrap{
+  position:relative;margin-top:64px;
+  padding:0 24px;
+}
+.hero-screen{
+  background:var(--off);
+  border:1px solid var(--rule);
+  border-radius:var(--r-xl) var(--r-xl) 0 0;
+  overflow:hidden;
+  box-shadow:var(--shadow-xl);
+  max-width:960px;margin:0 auto;
+  position:relative;
+}
+.screen-bar{
+  background:var(--white);
+  border-bottom:1px solid var(--rule);
+  padding:14px 20px;
+  display:flex;align-items:center;gap:12px;
+}
+.screen-dots{display:flex;gap:6px}
+.sd{width:11px;height:11px;border-radius:50%}
+.sd-r{background:#ff5f57}.sd-y{background:#febc2e}.sd-g{background:#28c840}
+.screen-url{
+  flex:1;background:var(--off);border-radius:6px;
+  padding:5px 12px;font-size:11px;color:var(--ink3);
+  text-align:center;
+}
+.screen-body{padding:24px;display:flex;flex-direction:column;gap:16px}
+
+/* Sidebar + main */
+.screen-layout{display:flex;gap:16px}
+.screen-sidebar{
+  width:180px;flex-shrink:0;
+  background:var(--white);border:1px solid var(--rule);
+  border-radius:var(--r);padding:16px 12px;
+  display:flex;flex-direction:column;gap:4px;
+}
+.sb-logo{
+  display:flex;align-items:center;gap:7px;
+  padding:4px 8px 16px;
+  font-size:13px;font-weight:600;color:var(--ink);
+  border-bottom:1px solid var(--rule);margin-bottom:8px;
+}
+.sb-logo-m{width:22px;height:22px;border-radius:5px;background:var(--accent)}
+.sb-item{
+  display:flex;align-items:center;gap:8px;
+  padding:7px 10px;border-radius:7px;
+  font-size:12px;color:var(--ink2);cursor:default;
+}
+.sb-item.active{background:var(--accent-lt);color:var(--accent);font-weight:500}
+.sb-dot{width:14px;height:14px;border-radius:4px;background:var(--off2);flex-shrink:0}
+.sb-dot.g{background:rgba(26,107,74,.2)}
+.screen-main{flex:1;display:flex;flex-direction:column;gap:14px}
+
+/* Stats row */
+.dash-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.dash-stat{
+  background:var(--white);border:1px solid var(--rule);
+  border-radius:var(--r);padding:16px;
+}
+.ds-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--ink3)}
+.ds-val{font-size:24px;font-weight:600;font-family:var(--sans);color:var(--ink);margin-top:4px;letter-spacing:-.02em}
+.ds-sub{font-size:11px;margin-top:3px;font-weight:500}
+.ds-sub.up{color:var(--accent-mid)}
+.ds-sub.warn{color:var(--amber)}
+
+/* Chart area */
+.dash-chart-wrap{
+  background:var(--white);border:1px solid var(--rule);
+  border-radius:var(--r);padding:18px;
+}
+.chart-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.chart-ttl{font-size:12px;font-weight:600;color:var(--ink)}
+.chart-period{font-size:10px;color:var(--ink3);background:var(--off);border-radius:4px;padding:3px 8px}
+.chart-bars{display:flex;align-items:flex-end;gap:5px;height:72px}
+.cb{flex:1;border-radius:3px 3px 0 0;min-height:8px}
+.cb-default{background:var(--off2)}
+.cb-med{background:rgba(26,107,74,.25)}
+.cb-hi{background:var(--accent)}
+.chart-labels{display:flex;gap:5px;margin-top:6px}
+.cl{flex:1;font-size:9px;color:var(--ink4);text-align:center}
+
+/* Invoice list */
+.dash-invlist{
+  background:var(--white);border:1px solid var(--rule);
+  border-radius:var(--r);overflow:hidden;
+}
+.invlist-head{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:12px 16px;border-bottom:1px solid var(--rule);
+}
+.invlist-ttl{font-size:12px;font-weight:600;color:var(--ink)}
+.invlist-action{font-size:11px;color:var(--accent)}
+.inv-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 16px;border-bottom:1px solid var(--rule);
+}
+.inv-row:last-child{border-bottom:none}
+.inv-left{display:flex;align-items:center;gap:10px}
+.inv-av{
+  width:28px;height:28px;border-radius:7px;
+  font-size:10px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.av-g{background:var(--accent-lt);color:var(--accent)}
+.av-a{background:var(--amber-lt);color:var(--amber)}
+.av-b{background:var(--blue-lt);color:var(--blue)}
+.inv-name{font-size:12px;font-weight:500;color:var(--ink)}
+.inv-num{font-size:10px;color:var(--ink3)}
+.inv-right{text-align:right}
+.inv-amt{font-size:12px;font-weight:600;color:var(--ink)}
+.pill{display:inline-block;font-size:10px;font-weight:600;padding:2px 8px;border-radius:100px;margin-top:2px}
+.pill-g{background:var(--accent-lt);color:var(--accent)}
+.pill-a{background:var(--amber-lt);color:var(--amber)}
+.pill-b{background:var(--blue-lt);color:var(--blue)}
+
+/* Floating invoice card */
+.hero-float-card{
+  position:absolute;bottom:-28px;right:8%;
+  width:240px;
+  background:var(--white);
+  border:1px solid var(--rule);
+  border-radius:var(--r-lg);
+  box-shadow:var(--shadow-lg);
+  padding:20px;
+  z-index:10;
+}
+.fc-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px}
+.fc-title{font-size:12px;font-weight:600;color:var(--ink);line-height:1.3}
+.fc-num{font-size:10px;color:var(--ink3);margin-top:2px}
+.fc-status{background:var(--accent-lt);color:var(--accent);font-size:10px;font-weight:700;padding:3px 9px;border-radius:100px}
+.fc-divider{height:1px;background:var(--rule);margin:12px 0}
+.fc-row{display:flex;justify-content:space-between;font-size:11px;padding:3px 0}
+.fc-row-label{color:var(--ink3)}
+.fc-row-val{color:var(--ink);font-weight:500}
+.fc-total{display:flex;justify-content:space-between;margin-top:10px;padding-top:10px;border-top:1px solid var(--rule)}
+.fc-total-label{font-size:11px;font-weight:600;color:var(--ink)}
+.fc-total-val{font-size:16px;font-weight:600;color:var(--accent);letter-spacing:-.02em}
+.fc-actions{display:flex;gap:6px;margin-top:14px}
+.fc-btn{flex:1;text-align:center;font-size:10px;font-weight:600;padding:6px;border-radius:7px;cursor:default}
+.fc-btn-p{background:var(--accent);color:var(--white)}
+.fc-btn-s{background:var(--off);color:var(--ink2)}
+
+/* ══════════════════════════════════════════════
+   LOGOS / SOCIAL PROOF STRIP
+══════════════════════════════════════════════ */
+.proof-strip{
+  border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+  padding:32px 0;background:var(--white);
+  margin-top:64px;
+}
+.proof-inner{
+  display:flex;align-items:center;justify-content:center;
+  gap:48px;flex-wrap:wrap;
+  max-width:1100px;margin:0 auto;padding:0 32px;
+}
+.proof-stat{text-align:center}
+.ps-num{font-size:1.8rem;font-weight:600;color:var(--ink);letter-spacing:-.03em}
+.ps-label{font-size:12px;color:var(--ink3);margin-top:2px}
+.proof-sep{width:1px;height:36px;background:var(--rule)}
+
+/* ── PRODUCT OVERVIEW (GitHub) ── */
+.overview-strip{
+  padding:56px 0;background:var(--off);
+  border-bottom:1px solid var(--rule);
+}
+.overview-inner{
+  max-width:720px;margin:0 auto;padding:0 32px;text-align:center;
+}
+.overview-inner h2{
+  font-family:var(--serif);font-size:clamp(1.75rem,3.5vw,2.25rem);
+  line-height:1.15;letter-spacing:-.02em;margin-bottom:12px;
+}
+.overview-inner p{color:var(--ink2);font-size:.95rem;line-height:1.7;margin-bottom:24px}
+
+/* ══════════════════════════════════════════════
+   PROBLEM → SOLUTION
+══════════════════════════════════════════════ */
+.pain-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:2px;
+  border:1px solid var(--rule);border-radius:var(--r-lg);overflow:hidden;
+  margin-top:64px;
+  background:var(--rule);
+}
+.pain-cell{
+  background:var(--white);padding:44px 40px;
+  position:relative;
+}
+.pain-cell.solution{background:var(--off)}
+.pain-tag{
+  font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:4px 12px;border-radius:100px;
+  display:inline-block;margin-bottom:20px;
+}
+.pain-tag.p{background:var(--red-lt);color:var(--red)}
+.pain-tag.s{background:var(--accent-lt);color:var(--accent)}
+.pain-icon{font-size:2rem;margin-bottom:14px;display:block}
+.pain-h{font-family:var(--serif);font-size:1.3rem;line-height:1.25;color:var(--ink);margin-bottom:10px}
+.pain-p{font-size:.9rem;color:var(--ink2);line-height:1.65}
+
+/* ══════════════════════════════════════════════
+   FEATURE BENTO GRID
+══════════════════════════════════════════════ */
+.bento{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  grid-template-rows:auto auto;
+  gap:16px;margin-top:64px;
+}
+.bento-card{
+  background:var(--off);
+  border:1px solid var(--rule);
+  border-radius:var(--r-lg);
+  padding:32px;
+  position:relative;overflow:hidden;
+  transition:box-shadow .2s,border-color .2s;
+}
+.bento-card:hover{box-shadow:var(--shadow-md);border-color:#d4d4cc}
+.bento-card.wide{grid-column:span 2}
+.bento-card.tall{grid-row:span 2}
+.bento-card.accent-card{background:var(--ink);border-color:var(--ink)}
+.bento-card.accent-card .bc-title{color:var(--white)}
+.bento-card.accent-card .bc-desc{color:rgba(255,255,255,.55)}
+.bento-card.green-card{background:var(--accent);border-color:var(--accent)}
+.bento-card.green-card .bc-title{color:var(--white)}
+.bento-card.green-card .bc-desc{color:rgba(255,255,255,.65)}
+.bc-icon{font-size:1.6rem;margin-bottom:18px;display:block}
+.bc-title{font-size:1.05rem;font-weight:600;color:var(--ink);margin-bottom:8px;line-height:1.3}
+.bc-desc{font-size:.875rem;color:var(--ink2);line-height:1.6}
+.bc-tag{
+  position:absolute;top:24px;right:24px;
+  font-size:10px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
+  padding:3px 10px;border-radius:100px;
+}
+.bc-tag.new{background:var(--accent-lt);color:var(--accent)}
+
+/* Mini Telegram mockup inside bento */
+.tg-mock{
+  margin-top:20px;background:var(--white);border-radius:10px;
+  padding:14px;border:1px solid var(--rule);
+}
+.tg-msg{font-size:11px;padding:6px 10px;border-radius:8px;display:inline-block;line-height:1.5;max-width:90%}
+.tg-msg.cmd{background:var(--blue-lt);color:var(--blue);font-weight:600}
+.tg-msg.reply{background:var(--off);color:var(--ink2);margin-top:6px;margin-left:auto;display:block;text-align:left}
+.tg-msg-wrap{display:flex;flex-direction:column;gap:4px}
+
+/* Mini chart for reports bento */
+.mini-chart{margin-top:18px;display:flex;align-items:flex-end;gap:4px;height:56px}
+.mc-bar{flex:1;border-radius:3px 3px 0 0}
+.mc-g{background:var(--accent)}
+.mc-a{background:rgba(26,107,74,.3)}
+.mc-l{background:var(--off2)}
+.mc-labels{display:flex;gap:4px;margin-top:5px}
+.mc-l-item{flex:1;font-size:8px;color:var(--ink4);text-align:center}
+
+/* Roles inside bento */
+.roles-mini{display:flex;flex-direction:column;gap:8px;margin-top:16px}
+.role-row{
+  display:flex;align-items:center;gap:10px;
+  background:var(--white);border-radius:8px;padding:10px 14px;
+  border:1px solid var(--rule);
+}
+.role-av{width:28px;height:28px;border-radius:50%;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.rr-name{font-size:12px;font-weight:500;color:var(--ink)}
+.rr-role{font-size:10px;color:var(--ink3)}
+
+/* ══════════════════════════════════════════════
+   HOW IT WORKS
+══════════════════════════════════════════════ */
+.how-grid{
+  display:grid;grid-template-columns:repeat(6,1fr);gap:0;
+  margin-top:64px;position:relative;
+}
+.how-grid::after{
+  content:'';position:absolute;
+  top:26px;left:calc(100%/12);right:calc(100%/12);
+  height:1px;background:var(--rule);z-index:0;
+}
+.how-step{
+  display:flex;flex-direction:column;align-items:center;
+  text-align:center;padding:0 12px;position:relative;z-index:1;
+}
+.hs-circle{
+  width:52px;height:52px;border-radius:50%;
+  background:var(--white);border:1px solid var(--rule);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;margin-bottom:14px;
+  box-shadow:var(--shadow-sm);
+}
+.hs-label{font-size:11px;font-weight:500;color:var(--ink2);line-height:1.45}
+
+/* ══════════════════════════════════════════════
+   SHOWCASE SECTION (Big mockup)
+══════════════════════════════════════════════ */
+.showcase{background:var(--off);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.showcase-inner{
+  display:grid;grid-template-columns:1fr 1.5fr;gap:80px;
+  align-items:center;
+}
+.showcase-text{}
+.showcase-h{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.15;letter-spacing:-.02em;margin-bottom:16px}
+.showcase-p{font-size:.95rem;color:var(--ink2);line-height:1.7;margin-bottom:28px}
+.feature-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.feature-list li{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:.9rem;color:var(--ink2);line-height:1.5;
+}
+.fl-check{
+  width:20px;height:20px;border-radius:50%;
+  background:var(--accent-lt);color:var(--accent);
+  font-size:11px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;
+}
+
+/* Quotation editor mockup */
+.qe-mock{
+  background:var(--white);border:1px solid var(--rule);border-radius:var(--r-lg);
+  overflow:hidden;box-shadow:var(--shadow-lg);
+}
+.qe-topbar{
+  background:var(--off);border-bottom:1px solid var(--rule);
+  padding:12px 18px;display:flex;align-items:center;justify-content:space-between;
+}
+.qe-title-row{display:flex;align-items:center;gap:8px}
+.qe-back{font-size:12px;color:var(--ink3);}
+.qe-ttl{font-size:13px;font-weight:600;color:var(--ink)}
+.qe-status{font-size:10px;font-weight:700;padding:3px 10px;border-radius:100px;background:var(--amber-lt);color:var(--amber)}
+.qe-actions-bar{display:flex;gap:6px}
+.qe-btn{font-size:10px;padding:5px 12px;border-radius:6px;cursor:default;font-weight:500}
+.qe-btn-p{background:var(--accent);color:var(--white)}
+.qe-btn-s{background:var(--off);border:1px solid var(--rule);color:var(--ink2)}
+.qe-body{padding:20px;display:flex;gap:16px}
+.qe-left{flex:1}
+.qe-right{width:168px;flex-shrink:0}
+.qe-section-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--ink3);margin-bottom:8px}
+.qe-client-card{
+  background:var(--off);border:1px solid var(--rule);border-radius:var(--r-sm);
+  padding:12px;margin-bottom:12px;
+}
+.qe-client-name{font-size:12px;font-weight:600;color:var(--ink)}
+.qe-client-sub{font-size:10px;color:var(--ink3)}
+.qe-items{border:1px solid var(--rule);border-radius:var(--r-sm);overflow:hidden;margin-bottom:12px}
+.qe-item-head{
+  display:grid;grid-template-columns:1fr 60px 60px 70px;
+  background:var(--off);padding:6px 10px;
+  border-bottom:1px solid var(--rule);
+}
+.qe-ih{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ink3)}
+.qe-item-row{
+  display:grid;grid-template-columns:1fr 60px 60px 70px;
+  padding:8px 10px;border-bottom:1px solid var(--rule);
+  font-size:11px;color:var(--ink2);
+}
+.qe-item-row:last-child{border-bottom:none}
+.qe-item-name{color:var(--ink);font-weight:500}
+.qe-item-num{text-align:right}
+.qe-summ{background:var(--off);border:1px solid var(--rule);border-radius:var(--r-sm);padding:12px}
+.qe-summ-row{display:flex;justify-content:space-between;font-size:11px;padding:3px 0}
+.qe-summ-label{color:var(--ink3)}
+.qe-summ-val{color:var(--ink);font-weight:500}
+.qe-summ-total{
+  display:flex;justify-content:space-between;
+  padding-top:8px;margin-top:8px;border-top:1px solid var(--rule);
+  font-size:13px;font-weight:700;color:var(--ink);
+}
+.qe-notes{background:var(--off);border:1px solid var(--rule);border-radius:var(--r-sm);padding:12px}
+.qe-notes-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ink3);margin-bottom:5px}
+.qe-notes-text{font-size:10px;color:var(--ink3);line-height:1.5}
+
+/* ══════════════════════════════════════════════
+   REPORTS SHOWCASE
+══════════════════════════════════════════════ */
+.reports-mock{
+  background:var(--white);border:1px solid var(--rule);border-radius:var(--r-lg);
+  overflow:hidden;box-shadow:var(--shadow-lg);
+}
+.rm-top{
+  background:var(--off);border-bottom:1px solid var(--rule);
+  padding:14px 20px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.rm-ttl{font-size:13px;font-weight:600;color:var(--ink)}
+.rm-pills{display:flex;gap:4px}
+.rm-pill{font-size:10px;padding:4px 10px;border-radius:6px;cursor:default;font-weight:500}
+.rm-pill.on{background:var(--ink);color:var(--white)}
+.rm-pill.off{background:var(--off);color:var(--ink2);border:1px solid var(--rule)}
+.rm-body{padding:18px;display:flex;flex-direction:column;gap:14px}
+.rm-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.rm-stat{background:var(--off);border-radius:var(--r-sm);padding:12px}
+.rm-stat-label{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--ink3)}
+.rm-stat-val{font-size:20px;font-weight:600;color:var(--ink);margin-top:4px;letter-spacing:-.02em}
+.rm-stat-sub{font-size:10px;font-weight:500;margin-top:2px}
+.rm-chart{background:var(--off);border-radius:var(--r-sm);padding:14px}
+.rm-chart-head{display:flex;justify-content:space-between;margin-bottom:12px}
+.rm-chart-ttl{font-size:11px;font-weight:600;color:var(--ink)}
+.rm-bars{display:flex;align-items:flex-end;gap:3px;height:60px}
+.rmb{flex:1;border-radius:2px 2px 0 0}
+.rmb-r{background:var(--accent)}
+.rmb-c{background:rgba(196,124,43,.5)}
+.rmb-e{background:var(--off2)}
+.rm-legend{display:flex;gap:14px;margin-top:8px}
+.rm-leg-item{display:flex;align-items:center;gap:5px;font-size:10px;color:var(--ink3)}
+.rm-leg-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0}
+
+/* ══════════════════════════════════════════════
+   SECURITY
+══════════════════════════════════════════════ */
+.delivery-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+  margin-top:48px;
+}
+.delivery-card{
+  border:1px solid var(--rule);border-radius:var(--r-lg);
+  padding:28px 24px;background:var(--white);
+}
+.delivery-card h3{font-size:1rem;font-weight:600;margin:12px 0 8px}
+.delivery-card p{font-size:.875rem;color:var(--ink2);line-height:1.65}
+.delivery-icon{font-size:1.6rem;display:block}
+.delivery-link{
+  display:inline-block;margin-top:12px;font-size:.8rem;font-weight:600;
+  color:var(--accent);text-decoration:none;
+}
+.delivery-link:hover{text-decoration:underline}
+.audience-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+  margin-top:48px;
+}
+.audience-card{
+  border:1px solid var(--rule);border-radius:var(--r-lg);
+  padding:32px 28px;background:var(--white);
+}
+.audience-card h3{font-size:1.05rem;font-weight:600;margin-bottom:8px}
+.audience-card p{font-size:.875rem;color:var(--ink2);line-height:1.65}
+.audience-role{
+  font-size:.7rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:.08em;color:var(--accent);margin-bottom:12px;
+}
+.security-row{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+  margin-top:64px;
+}
+.sec-card{
+  border:1px solid var(--rule);border-radius:var(--r-lg);
+  padding:36px 32px;
+}
+.sec-icon{font-size:1.8rem;margin-bottom:16px;display:block}
+.sec-h{font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:8px}
+.sec-p{font-size:.875rem;color:var(--ink2);line-height:1.65}
+
+/* ══════════════════════════════════════════════
+   PRICING
+══════════════════════════════════════════════ */
+.pricing-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:20px;
+  max-width:740px;margin:64px auto 0;
+}
+.price-card{
+  border:1px solid var(--rule);border-radius:var(--r-lg);
+  padding:40px;position:relative;
+  transition:box-shadow .2s;
+}
+.price-card:hover{box-shadow:var(--shadow-md)}
+.price-card.featured{border:1.5px solid var(--accent);background:var(--off)}
+.price-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--ink3);margin-bottom:12px}
+.price-card.featured .price-eyebrow{color:var(--accent)}
+.price-num{font-size:2.8rem;font-weight:600;color:var(--ink);letter-spacing:-.04em}
+.price-num sup{font-size:1rem;vertical-align:super;letter-spacing:0}
+.price-sub{font-size:.85rem;color:var(--ink3);margin-top:4px}
+.price-divider{height:1px;background:var(--rule);margin:24px 0}
+.price-features{list-style:none;display:flex;flex-direction:column;gap:10px}
+.price-features li{display:flex;gap:9px;font-size:.875rem;color:var(--ink2);align-items:flex-start}
+.pf-ck{color:var(--accent);font-weight:700;flex-shrink:0}
+.price-cta{margin-top:28px}
+.featured-badge{
+  position:absolute;top:-12px;left:50%;transform:translateX(-50%);
+  background:var(--accent);color:var(--white);
+  font-size:11px;font-weight:700;letter-spacing:.06em;
+  padding:4px 16px;border-radius:100px;white-space:nowrap;
+}
+
+/* ══════════════════════════════════════════════
+   FAQ
+══════════════════════════════════════════════ */
+.faq-wrap{max-width:680px;margin:64px auto 0}
+.faq-item{border-bottom:1px solid var(--rule)}
+.faq-q{
+  width:100%;background:none;border:none;cursor:pointer;
+  text-align:left;padding:22px 0;
+  font-family:var(--sans);font-size:.95rem;font-weight:500;color:var(--ink);
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+}
+.faq-q-icon{
+  width:24px;height:24px;border-radius:50%;border:1px solid var(--rule);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  font-size:16px;color:var(--ink3);transition:transform .2s,background .2s;
+}
+.faq-item.open .faq-q-icon{transform:rotate(45deg);background:var(--ink);border-color:var(--ink);color:var(--white)}
+.faq-a{font-size:.875rem;color:var(--ink2);line-height:1.7;padding-bottom:22px;display:none}
+.faq-item.open .faq-a{display:block}
+
+/* ══════════════════════════════════════════════
+   CTA FINAL
+══════════════════════════════════════════════ */
+.cta-final{
+  background:var(--ink);
+  padding:120px 0;text-align:center;position:relative;overflow:hidden;
+}
+.cta-final::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 80% at 50% -20%,rgba(45,153,104,.15) 0%,transparent 70%);
+  pointer-events:none;
+}
+.cta-h{
+  font-family:var(--serif);
+  font-size:clamp(2.5rem,5vw,4rem);
+  line-height:1.08;letter-spacing:-.02em;
+  color:var(--white);
+  max-width:640px;margin:0 auto 22px;
+}
+.cta-h em{font-style:italic;color:rgba(45,153,104,.9)}
+.cta-sub{font-size:1.05rem;color:rgba(255,255,255,.5);max-width:460px;margin:0 auto 40px;line-height:1.65}
+.cta-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-white{background:var(--white);color:var(--ink)}
+.btn-white:hover{background:var(--off)}
+.btn-ghost-white{background:transparent;color:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.15)}
+.btn-ghost-white:hover{color:var(--white);border-color:rgba(255,255,255,.3)}
+
+/* ══════════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════════ */
+footer{border-top:1px solid var(--rule);padding:60px 0 40px;background:var(--white)}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px}
+.footer-brand p{font-size:.875rem;color:var(--ink3);margin-top:14px;line-height:1.65;max-width:260px}
+.footer-col h4{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--ink3);margin-bottom:16px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col a{font-size:.875rem;color:var(--ink2);text-decoration:none;transition:color .15s}
+.footer-col a:hover{color:var(--ink)}
+.footer-bottom{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-top:48px;padding-top:24px;border-top:1px solid var(--rule);
+  font-size:.75rem;color:var(--ink3);
+}
+
+/* ══════════════════════════════════════════════
+   ANIMATIONS
+══════════════════════════════════════════════ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+.au{animation:fadeUp .65s cubic-bezier(.22,1,.36,1) both}
+.d1{animation-delay:.05s}.d2{animation-delay:.12s}.d3{animation-delay:.2s}.d4{animation-delay:.28s}.d5{animation-delay:.36s}
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════════ */
+@media(max-width:1000px){
+  .showcase-inner{grid-template-columns:1fr}
+  .bento{grid-template-columns:1fr 1fr}
+  .bento-card.wide{grid-column:span 2}
+  .bento-card.tall{grid-row:auto}
+}
+@media(max-width:760px){
+  .hero-float-card{display:none}
+  .pain-grid{grid-template-columns:1fr}
+  .bento{grid-template-columns:1fr}
+  .bento-card.wide{grid-column:span 1}
+  .how-grid{grid-template-columns:repeat(3,1fr);gap:24px}
+  .how-grid::after{display:none}
+  .delivery-grid,.audience-grid{grid-template-columns:1fr}
+  .security-row{grid-template-columns:1fr}
+  .pricing-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .proof-inner{gap:28px}
+  .proof-sep{display:none}
+  .nav-links{display:none}
+  .nav-actions{display:none}
+  .nav-toggle{display:inline-flex;margin-left:auto}
+  .container,.container-wide{padding:0 20px}
+}
+@media(max-width:480px){
+  .dash-stats{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .screen-sidebar{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="5" height="5" rx="1.2" fill="white"/><rect x="9" y="2" width="5" height="5" rx="1.2" fill="white" opacity=".55"/><rect x="2" y="9" width="5" height="5" rx="1.2" fill="white" opacity=".55"/><rect x="9" y="9" width="5" height="5" rx="1.2" fill="white" opacity=".25"/></svg>
+      </div>
+      Smart Invoicify
+    </a>
+    <ul class="nav-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#delivery">Client delivery</a></li>
+      <li><a href="#how-it-works">How it works</a></li>
+      <li><a href="#use-cases">Editor &amp; reports</a></li>
+      <li><a href="#audience">Who it's for</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="https://smart-invoicify.vercel.app/login" class="btn btn-ghost">Sign in</a>
+      <a href="https://demo-smart-invoicify.vercel.app/demo/request" class="btn btn-primary">Request demo</a>
+    </div>
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Open menu">☰</button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+    <a href="#features">Features</a>
+    <a href="#delivery">Client delivery</a>
+    <a href="#how-it-works">How it works</a>
+    <a href="#use-cases">Editor &amp; reports</a>
+    <a href="#audience">Who it's for</a>
+    <a href="#faq">FAQ</a>
+    <div class="mobile-nav-actions">
+      <a href="https://smart-invoicify.vercel.app/login" class="btn btn-ghost" style="width:100%">Sign in</a>
+      <a href="https://demo-smart-invoicify.vercel.app/demo/request" class="btn btn-primary" style="width:100%">Request demo</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-text">
+      <div class="hero-badge au"><div class="hero-badge-dot"></div>Live at smart-invoicify.vercel.app</div>
+      <h1 class="hero-h au d1">
+        Proposals, quotes,<br/>and invoices —<br/><em>one workspace.</em>
+      </h1>
+      <p class="hero-sub au d2">Built for service and project-based teams: branded PDFs, payments, profit by project, stock and expenses — with optional Telegram alerts from your phone.</p>
+      <div class="hero-actions au d3">
+        <a href="https://demo-smart-invoicify.vercel.app/demo/request" class="btn btn-primary btn-lg btn-arrow">Request demo access</a>
+        <a href="https://smart-invoicify.vercel.app/login" class="btn btn-ghost btn-lg">Sign in</a>
+      </div>
+      <div class="hero-proof au d4">
+        <span>Admin + staff roles</span>
+        <div class="hero-proof-sep"></div>
+        <span>PKR-ready · GST on documents</span>
+        <div class="hero-proof-sep"></div>
+        <span>No public sign-up</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dashboard visual -->
+  <div class="hero-visual-wrap au d5">
+    <div class="hero-screen">
+      <div class="screen-bar">
+        <div class="screen-dots"><div class="sd sd-r"></div><div class="sd sd-y"></div><div class="sd sd-g"></div></div>
+        <div class="screen-url">smart-invoicify.vercel.app / dashboard</div>
+      </div>
+      <div class="screen-body">
+        <div class="screen-layout">
+          <div class="screen-sidebar">
+            <div class="sb-logo"><div class="sb-logo-m"></div>Reach Solutions</div>
+            <div class="sb-item active"><div class="sb-dot g"></div>Dashboard</div>
+            <div class="sb-item"><div class="sb-dot"></div>Proposals</div>
+            <div class="sb-item"><div class="sb-dot"></div>Quotations</div>
+            <div class="sb-item"><div class="sb-dot"></div>Invoices</div>
+            <div class="sb-item"><div class="sb-dot"></div>Reports</div>
+            <div class="sb-item"><div class="sb-dot"></div>Clients</div>
+            <div class="sb-item" style="margin-top:auto"><div class="sb-dot"></div>Settings</div>
+          </div>
+          <div class="screen-main">
+            <div class="dash-stats">
+              <div class="dash-stat">
+                <div class="ds-label">Revenue</div>
+                <div class="ds-val">PKR 4.8M</div>
+                <div class="ds-sub up">↑ 18% this month</div>
+              </div>
+              <div class="dash-stat">
+                <div class="ds-label">Outstanding</div>
+                <div class="ds-val">PKR 940K</div>
+                <div class="ds-sub warn">4 invoices pending</div>
+              </div>
+              <div class="dash-stat">
+                <div class="ds-label">Net profit</div>
+                <div class="ds-val">PKR 3.1M</div>
+                <div class="ds-sub up">64.5% margin</div>
+              </div>
+            </div>
+            <div class="dash-chart-wrap">
+              <div class="chart-head">
+                <span class="chart-ttl">Monthly Revenue</span>
+                <span class="chart-period">Last 8 months</span>
+              </div>
+              <div class="chart-bars">
+                <div class="cb cb-default" style="height:42%"></div>
+                <div class="cb cb-med" style="height:55%"></div>
+                <div class="cb cb-default" style="height:47%"></div>
+                <div class="cb cb-med" style="height:66%"></div>
+                <div class="cb cb-default" style="height:51%"></div>
+                <div class="cb cb-med" style="height:72%"></div>
+                <div class="cb cb-med" style="height:62%"></div>
+                <div class="cb cb-hi" style="height:89%"></div>
+              </div>
+              <div class="chart-labels">
+                <div class="cl">Sep</div><div class="cl">Oct</div><div class="cl">Nov</div><div class="cl">Dec</div>
+                <div class="cl">Jan</div><div class="cl">Feb</div><div class="cl">Mar</div><div class="cl">Apr</div>
+              </div>
+            </div>
+            <div class="dash-invlist">
+              <div class="invlist-head">
+                <span class="invlist-ttl">Recent Documents</span>
+                <span class="invlist-action">View all →</span>
+              </div>
+              <div class="inv-row">
+                <div class="inv-left">
+                  <div class="inv-av av-g">AC</div>
+                  <div><div class="inv-name">Acme Corp</div><div class="inv-num">INV-2041 · Invoice</div></div>
+                </div>
+                <div class="inv-right"><div class="inv-amt">$4,200</div><div class="pill pill-g">Paid</div></div>
+              </div>
+              <div class="inv-row">
+                <div class="inv-left">
+                  <div class="inv-av av-a">NX</div>
+                  <div><div class="inv-name">Nexus Studio</div><div class="inv-num">QUOT-0198 · Quotation</div></div>
+                </div>
+                <div class="inv-right"><div class="inv-amt">PKR 1.2M</div><div class="pill pill-a">Sent</div></div>
+              </div>
+              <div class="inv-row">
+                <div class="inv-left">
+                  <div class="inv-av av-b">BL</div>
+                  <div><div class="inv-name">Blueshift Labs</div><div class="inv-num">PROP-0044 · Proposal</div></div>
+                </div>
+                <div class="inv-right"><div class="inv-amt">PKR 785K</div><div class="pill pill-b">Draft</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating invoice card -->
+    <div class="hero-float-card">
+      <div class="fc-head">
+        <div>
+          <div class="fc-title">Web Redesign Project</div>
+          <div class="fc-num">INV-2041 · Acme Corp</div>
+        </div>
+        <div class="fc-status">Paid</div>
+      </div>
+      <div class="fc-divider"></div>
+      <div class="fc-row"><span class="fc-row-label">Design</span><span class="fc-row-val">PKR 180K</span></div>
+      <div class="fc-row"><span class="fc-row-label">Development</span><span class="fc-row-val">PKR 210K</span></div>
+      <div class="fc-row"><span class="fc-row-label">GST (18%)</span><span class="fc-row-val">PKR 70K</span></div>
+      <div class="fc-row"><span class="fc-row-label">Project site</span><span class="fc-row-val">DHA Phase 6</span></div>
+      <div class="fc-total">
+        <span class="fc-total-label">Total</span>
+        <span class="fc-total-val">PKR 420K</span>
+      </div>
+      <div class="fc-actions">
+        <div class="fc-btn fc-btn-p">Email PDF</div>
+        <div class="fc-btn fc-btn-s">WhatsApp</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROOF STRIP ═══ -->
+<div class="proof-strip">
+  <div class="proof-inner">
+    <div class="proof-stat"><div class="ps-num">3-in-1</div><div class="ps-label">Proposals · quotes · invoices</div></div>
+    <div class="proof-sep"></div>
+    <div class="proof-stat"><div class="ps-num">PKR</div><div class="ps-label">Local currency &amp; GST on documents</div></div>
+    <div class="proof-sep"></div>
+    <div class="proof-stat"><div class="ps-num">Licensed</div><div class="ps-label">Commercial software · lead-gated demo</div></div>
+    <div class="proof-sep"></div>
+    <div class="proof-stat" style="display:flex;align-items:center;gap:10px">
+      <span style="font-size:1rem">🔒</span>
+      <div><div style="font-size:.8rem;font-weight:600;color:var(--ink)">Supabase RLS</div><div class="ps-label">Per-organization data isolation</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ PRODUCT OVERVIEW (public GitHub — no source code) ═══ -->
+<section class="overview-strip" id="overview">
+  <div class="overview-inner">
+    <div class="eyebrow" style="justify-content:center">Resources</div>
+    <h2>Product overview on GitHub</h2>
+    <p>Feature summaries, screenshots, and licensing information live in our public repository. Application source code is proprietary and provided only to licensed customers.</p>
+    <a href="https://github.com/Meemkhaan/smart-invoicify" class="btn btn-accent btn-lg" target="_blank" rel="noopener">View product overview on GitHub →</a>
+  </div>
+</section>
+
+<!-- ═══ PROBLEM / SOLUTION ═══ -->
+<section class="section" id="problem">
+  <div class="container">
+    <div class="eyebrow">The problem</div>
+    <h2 style="font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);line-height:1.12;letter-spacing:-.02em;max-width:560px">
+      Your workflow is scattered.<br/><em style="font-style:italic;color:var(--ink2)">Your money is invisible.</em>
+    </h2>
+    <div class="pain-grid">
+      <div class="pain-cell">
+        <div class="pain-tag p">Before</div>
+        <span class="pain-icon">🔀</span>
+        <h3 class="pain-h">Scattered tools, no single source of truth</h3>
+        <p class="pain-p">Email threads, Word docs, spreadsheets, and accounting software — none of them talk to each other. You spend hours chasing your own data.</p>
+      </div>
+      <div class="pain-cell solution">
+        <div class="pain-tag s">After</div>
+        <span class="pain-icon">📊</span>
+        <h3 class="pain-h">One platform for the full document lifecycle</h3>
+        <p class="pain-p">Proposal → quote → invoice → payment → profit — everything lives in Smart Invoicify, and your team always works from the same data.</p>
+      </div>
+      <div class="pain-cell">
+        <div class="pain-tag p">Before</div>
+        <span class="pain-icon">⌛</span>
+        <h3 class="pain-h">Formatting PDFs and chasing payments manually</h3>
+        <p class="pain-p">You're re-entering data, formatting documents by hand, and sending reminder emails that slip through the cracks — on repeat.</p>
+      </div>
+      <div class="pain-cell solution">
+        <div class="pain-tag s">After</div>
+        <span class="pain-icon">⚡</span>
+        <h3 class="pain-h">Generate, send, and track in seconds</h3>
+        <p class="pain-p">One click generates a branded PDF. Share via email, WhatsApp, or public link. Telegram alerts you the moment a document is viewed or paid.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FEATURES BENTO ═══ -->
+<section class="section" id="features" style="background:var(--off);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)">
+  <div class="container">
+    <div class="eyebrow">Features</div>
+    <h2 style="font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);line-height:1.12;letter-spacing:-.02em;max-width:520px">
+      Built for how service<br/>teams <em style="font-style:italic">actually</em> work
+    </h2>
+    <div class="bento">
+
+      <!-- Row 1 -->
+      <div class="bento-card accent-card">
+        <span class="bc-icon">📄</span>
+        <div class="bc-title">Branded PDF Documents</div>
+        <div class="bc-desc">Proposals, quotations, and invoices — your logo, your colors, your signature. Share by email, WhatsApp, or a permanent public link.</div>
+      </div>
+
+      <div class="bento-card wide">
+        <span class="bc-icon">📈</span>
+        <div class="bc-title">Reports &amp; Profit Analytics</div>
+        <div class="bc-desc">Sales and profit dashboards broken down by product, package, and project. See where your margin comes from — in real time.</div>
+        <div class="mini-chart">
+          <div class="mc-bar mc-l" style="height:35%"></div>
+          <div class="mc-bar mc-a" style="height:52%"></div>
+          <div class="mc-bar mc-l" style="height:42%"></div>
+          <div class="mc-bar mc-a" style="height:68%"></div>
+          <div class="mc-bar mc-l" style="height:55%"></div>
+          <div class="mc-bar mc-g" style="height:78%"></div>
+          <div class="mc-bar mc-g" style="height:90%"></div>
+        </div>
+        <div class="mc-labels">
+          <div class="mc-l-item">Oct</div><div class="mc-l-item">Nov</div><div class="mc-l-item">Dec</div>
+          <div class="mc-l-item">Jan</div><div class="mc-l-item">Feb</div><div class="mc-l-item">Mar</div>
+          <div class="mc-l-item">Apr</div>
+        </div>
+      </div>
+
+      <!-- Row 2 -->
+      <div class="bento-card">
+        <span class="bc-icon">✈️</span>
+        <div class="bc-title">Telegram Integration</div>
+        <div class="bc-desc">Optional alerts and read-only commands — <code style="font-size:.8rem;background:var(--off2);padding:1px 5px;border-radius:4px">/summary</code>, <code style="font-size:.8rem;background:var(--off2);padding:1px 5px;border-radius:4px">/invoice</code>, <code style="font-size:.8rem;background:var(--off2);padding:1px 5px;border-radius:4px">/remind</code>, plus overdue digest cron.</div>
+        <div class="tg-mock">
+          <div class="tg-msg-wrap">
+            <span class="tg-msg cmd">/remind</span>
+            <span class="tg-msg reply">⏰ 3 overdue<br/>INV-2041 · PKR 420K · 12d<br/>INV-2038 · PKR 85K · 5d</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bento-card">
+        <span class="bc-icon">👥</span>
+        <div class="bc-title">Team Workspace</div>
+        <div class="bc-desc">Admins and staff collaborate on shared clients, catalog, and documents. Role-based access with Supabase RLS — no public sign-up.</div>
+        <div class="roles-mini">
+          <div class="role-row">
+            <div class="role-av" style="background:var(--accent-lt);color:var(--accent)">A</div>
+            <div><div class="rr-name">Admin</div><div class="rr-role">Settings · users · backup · activity log</div></div>
+          </div>
+          <div class="role-row">
+            <div class="role-av" style="background:var(--blue-lt);color:var(--blue)">S</div>
+            <div><div class="rr-name">Staff</div><div class="rr-role">Documents · Clients · Catalog</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bento-card green-card">
+        <span class="bc-icon">📋</span>
+        <div class="bc-title">Activity log</div>
+        <div class="bc-desc">Dedicated <code style="font-size:.8rem;background:rgba(255,255,255,.2);padding:1px 5px;border-radius:4px">/activity-log</code> page with plain-language summaries — who changed what, and when.</div>
+      </div>
+
+      <!-- Row 3 -->
+      <div class="bento-card wide">
+        <span class="bc-icon">🏗️</span>
+        <div class="bc-title">Projects, stock &amp; operations</div>
+        <div class="bc-desc">Tag documents to project sites, track stock movements, log expenses and labor, and tie profit to real job costs — not just line-item revenue.</div>
+      </div>
+
+      <div class="bento-card">
+        <div class="bc-tag new">Optional</div>
+        <span class="bc-icon">🤖</span>
+        <div class="bc-title">AI assistance</div>
+        <div class="bc-desc">Groq or OpenAI-compatible APIs polish proposal copy and suggest catalog items. Bring your own key in Settings → Integrations.</div>
+      </div>
+
+      <div class="bento-card">
+        <span class="bc-icon">🗂️</span>
+        <div class="bc-title">Clients &amp; catalog</div>
+        <div class="bc-desc">Clients, products, and reusable quote packages. One catalog powers every proposal, quotation, and invoice.</div>
+      </div>
+
+      <div class="bento-card">
+        <span class="bc-icon">📱</span>
+        <div class="bc-title">Responsive &amp; themed</div>
+        <div class="bc-desc">Desktop and mobile layouts with bottom navigation on phones. Light and dark themes across the app.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CLIENT DELIVERY ═══ -->
+<section class="section" id="delivery">
+  <div class="container">
+    <div class="eyebrow">Client delivery</div>
+    <h2 style="font-family:var(--serif);font-size:clamp(2rem,4vw,2.8rem);line-height:1.12;letter-spacing:-.02em;max-width:560px">
+      Send documents the way<br/>clients <em style="font-style:italic">actually</em> respond
+    </h2>
+    <p style="color:var(--ink2);margin-top:14px;font-size:.95rem;line-height:1.7;max-width:520px">Branded PDFs plus three delivery channels — without asking clients to create an account.</p>
+    <div class="delivery-grid">
+      <div class="delivery-card">
+        <span class="delivery-icon">✉️</span>
+        <h3>SMTP email</h3>
+        <p>Send PDFs from your organization with improved templates and clear error feedback when SMTP is misconfigured.</p>
+      </div>
+      <div class="delivery-card">
+        <span class="delivery-icon">💬</span>
+        <h3>WhatsApp (wa.me)</h3>
+        <p>One-tap WhatsApp share and overdue payment reminders with a pre-filled message — no self-hosted gateway required.</p>
+      </div>
+      <div class="delivery-card">
+        <span class="delivery-icon">🔗</span>
+        <h3>Public view links</h3>
+        <p>Share a secure <code style="font-size:.78rem;background:var(--off2);padding:1px 5px;border-radius:4px">/s/{token}</code> link so clients open the document in the browser. Optional view tracking for admins.</p>
+        <a class="delivery-link" href="https://demo-smart-invoicify.vercel.app/demo/request">Request demo access →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ HOW IT WORKS ═══ -->
+<section class="section" id="how-it-works">
+  <div class="container">
+    <div style="text-align:center;max-width:560px;margin:0 auto">
+      <div class="eyebrow" style="justify-content:center">How it works</div>
+      <h2 style="font-family:var(--serif);font-size:clamp(2rem,4vw,2.8rem);line-height:1.12;letter-spacing:-.02em">From setup to paid — in one place</h2>
+      <p style="color:var(--ink2);margin-top:14px;font-size:.95rem;line-height:1.7">A clear, repeatable workflow that turns proposals into payments — no spreadsheet juggling required.</p>
+    </div>
+    <div class="how-grid">
+      <div class="how-step"><div class="hs-circle">🏢</div><div class="hs-label">Company setup<br/>&amp; branding</div></div>
+      <div class="how-step"><div class="hs-circle">👤</div><div class="hs-label">Add clients<br/>&amp; catalog</div></div>
+      <div class="how-step"><div class="hs-circle">📝</div><div class="hs-label">Create proposal<br/>or quote</div></div>
+      <div class="how-step"><div class="hs-circle">📤</div><div class="hs-label">Send &amp;<br/>track status</div></div>
+      <div class="how-step"><div class="hs-circle">🧾</div><div class="hs-label">Convert to<br/>invoice</div></div>
+      <div class="how-step"><div class="hs-circle">📊</div><div class="hs-label">Payments<br/>&amp; reports</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ QUOTATION EDITOR SHOWCASE ═══ -->
+<section class="section showcase" id="use-cases">
+  <div class="container">
+    <div class="showcase-inner">
+      <div class="showcase-text">
+        <div class="eyebrow">Document editor</div>
+        <h2 class="showcase-h">Quote accurately.<br/>Invoice instantly.</h2>
+        <p class="showcase-p">Build quotes with catalog line items, apply tax, add payment terms, and track every status — from draft to approved to paid — without switching apps.</p>
+        <ul class="feature-list">
+          <li><div class="fl-check">✓</div>Pull items directly from your product catalog</li>
+          <li><div class="fl-check">✓</div>Auto-calculate totals, tax, and discounts</li>
+          <li><div class="fl-check">✓</div>Track draft → sent → approved → invoiced</li>
+          <li><div class="fl-check">✓</div>Convert a quote to invoice in one click</li>
+          <li><div class="fl-check">✓</div>Export branded PDF with your logo &amp; signature</li>
+        </ul>
+      </div>
+      <div class="qe-mock">
+        <div class="qe-topbar">
+          <div class="qe-title-row">
+            <span class="qe-back">← Documents /</span>
+            <span class="qe-ttl">QUOT-0198</span>
+            <div class="qe-status">Sent</div>
+          </div>
+          <div class="qe-actions-bar">
+            <div class="qe-btn qe-btn-s">Preview PDF</div>
+            <div class="qe-btn qe-btn-s">Send</div>
+            <div class="qe-btn qe-btn-p">Convert to Invoice</div>
+          </div>
+        </div>
+        <div class="qe-body">
+          <div class="qe-left">
+            <div class="qe-section-label">Client</div>
+            <div class="qe-client-card">
+              <div class="qe-client-name">Nexus Studio</div>
+              <div class="qe-client-sub">nexus@studio.com · +1 555 0192</div>
+            </div>
+            <div class="qe-section-label">Line items</div>
+            <div class="qe-items">
+              <div class="qe-item-head">
+                <div class="qe-ih">Description</div>
+                <div class="qe-ih" style="text-align:right">Qty</div>
+                <div class="qe-ih" style="text-align:right">Rate</div>
+                <div class="qe-ih" style="text-align:right">Amount</div>
+              </div>
+              <div class="qe-item-row">
+                <div class="qe-item-name">Brand strategy</div>
+                <div class="qe-item-num">1</div>
+                <div class="qe-item-num">$3,500</div>
+                <div class="qe-item-num">$3,500</div>
+              </div>
+              <div class="qe-item-row">
+                <div class="qe-item-name">UI/UX Design</div>
+                <div class="qe-item-num">1</div>
+                <div class="qe-item-num">$4,800</div>
+                <div class="qe-item-num">$4,800</div>
+              </div>
+              <div class="qe-item-row">
+                <div class="qe-item-name">Frontend dev</div>
+                <div class="qe-item-num">2</div>
+                <div class="qe-item-num">$1,800</div>
+                <div class="qe-item-num">$3,600</div>
+              </div>
+            </div>
+          </div>
+          <div class="qe-right">
+            <div class="qe-section-label">Summary</div>
+            <div class="qe-summ">
+              <div class="qe-summ-row"><span class="qe-summ-label">Subtotal</span><span class="qe-summ-val">$11,900</span></div>
+              <div class="qe-summ-row"><span class="qe-summ-label">Tax (4.2%)</span><span class="qe-summ-val">$500</span></div>
+              <div class="qe-summ-total"><span>Total</span><span>$12,400</span></div>
+            </div>
+            <div style="margin-top:12px">
+              <div class="qe-section-label">Notes</div>
+              <div class="qe-notes">
+                <div class="qe-notes-text">Valid for 30 days. 50% deposit required to begin work. Final payment due on delivery.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ REPORTS SHOWCASE ═══ -->
+<section class="section" style="background:var(--white)">
+  <div class="container">
+    <div class="showcase-inner" style="grid-template-columns:1.5fr 1fr">
+      <div class="reports-mock">
+        <div class="rm-top">
+          <span class="rm-ttl">Profit Report</span>
+          <div class="rm-pills">
+            <div class="rm-pill on">Monthly</div>
+            <div class="rm-pill off">Quarterly</div>
+            <div class="rm-pill off">Annual</div>
+          </div>
+        </div>
+        <div class="rm-body">
+          <div class="rm-stats">
+            <div class="rm-stat">
+              <div class="rm-stat-label">Revenue</div>
+              <div class="rm-stat-val">$48.2K</div>
+              <div class="rm-stat-sub" style="color:var(--accent-mid)">↑ 18%</div>
+            </div>
+            <div class="rm-stat">
+              <div class="rm-stat-label">Cost</div>
+              <div class="rm-stat-val">$17.1K</div>
+              <div class="rm-stat-sub" style="color:var(--ink3)">35.5%</div>
+            </div>
+            <div class="rm-stat">
+              <div class="rm-stat-label">Profit</div>
+              <div class="rm-stat-val" style="color:var(--accent)">$31.1K</div>
+              <div class="rm-stat-sub" style="color:var(--accent-mid)">64.5%</div>
+            </div>
+          </div>
+          <div class="rm-chart">
+            <div class="rm-chart-head">
+              <span class="rm-chart-ttl">Revenue vs Cost vs Profit</span>
+            </div>
+            <div class="rm-bars">
+              <div class="rmb rmb-r" style="height:48%"></div>
+              <div class="rmb rmb-c" style="height:22%"></div>
+              <div class="rmb rmb-e" style="height:4%"></div>
+              <div class="rmb rmb-r" style="height:60%"></div>
+              <div class="rmb rmb-c" style="height:27%"></div>
+              <div class="rmb rmb-e" style="height:4%"></div>
+              <div class="rmb rmb-r" style="height:55%"></div>
+              <div class="rmb rmb-c" style="height:24%"></div>
+              <div class="rmb rmb-e" style="height:4%"></div>
+              <div class="rmb rmb-r" style="height:72%"></div>
+              <div class="rmb rmb-c" style="height:30%"></div>
+              <div class="rmb rmb-e" style="height:4%"></div>
+              <div class="rmb rmb-r" style="height:80%"></div>
+              <div class="rmb rmb-c" style="height:34%"></div>
+              <div class="rmb rmb-e" style="height:4%"></div>
+              <div class="rmb rmb-r" style="height:90%"></div>
+              <div class="rmb rmb-c" style="height:36%"></div>
+              <div class="rmb rmb-e" style="height:4%"></div>
+            </div>
+            <div class="rm-legend">
+              <div class="rm-leg-item"><div class="rm-leg-dot" style="background:var(--accent)"></div>Revenue</div>
+              <div class="rm-leg-item"><div class="rm-leg-dot" style="background:rgba(196,124,43,.5)"></div>Cost</div>
+              <div class="rm-leg-item"><div class="rm-leg-dot" style="background:var(--off2)"></div>Other</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="showcase-text">
+        <div class="eyebrow">Reports</div>
+        <h2 class="showcase-h">See profit, not just revenue</h2>
+        <p class="showcase-p">Real-time dashboards break down sales and profit by product, package, and project. No more month-end surprises — just clear numbers when you need them.</p>
+        <ul class="feature-list">
+          <li><div class="fl-check">✓</div>Profit by product, package, or project</li>
+          <li><div class="fl-check">✓</div>Outstanding balances and aging view</li>
+          <li><div class="fl-check">✓</div>Payment history and collection rate</li>
+          <li><div class="fl-check">✓</div>Export aging &amp; outstanding to CSV</li>
+          <li><div class="fl-check">✓</div>Overdue reminders via WhatsApp from invoice screens</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECURITY ═══ -->
+<section class="section" style="background:var(--off);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)">
+  <div class="container">
+    <div style="text-align:center;max-width:540px;margin:0 auto">
+      <div class="eyebrow" style="justify-content:center">Security</div>
+      <h2 style="font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.15;letter-spacing:-.02em">Your data stays yours</h2>
+      <p style="color:var(--ink2);margin-top:12px;font-size:.95rem">Enterprise-grade security baked in from day one — not bolted on later.</p>
+    </div>
+    <div class="security-row">
+      <div class="sec-card">
+        <span class="sec-icon">🔒</span>
+        <h3 class="sec-h">Row-Level Security</h3>
+        <p class="sec-p">Supabase RLS ensures complete data isolation between teams. Your clients, documents, and reports are never visible to anyone outside your organization.</p>
+      </div>
+      <div class="sec-card">
+        <span class="sec-icon">🛡️</span>
+        <h3 class="sec-h">Encrypted at Rest</h3>
+        <p class="sec-p">All files and sensitive data are encrypted in storage. Every PDF attachment and document export is handled through Supabase's secure storage layer.</p>
+      </div>
+      <div class="sec-card">
+        <span class="sec-icon">📋</span>
+        <h3 class="sec-h">Full Audit Log</h3>
+        <p class="sec-p">Every action is logged on a dedicated activity log page with plain-language summaries — who did what, and when. Admins only.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHO IT'S FOR ═══ -->
+<section class="section" id="audience" style="background:var(--off);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)">
+  <div class="container">
+    <div style="text-align:center;max-width:560px;margin:0 auto">
+      <div class="eyebrow" style="justify-content:center">Who it's for</div>
+      <h2 style="font-family:var(--serif);font-size:clamp(2rem,4vw,2.8rem);line-height:1.12;letter-spacing:-.02em">One app, three perspectives</h2>
+      <p style="color:var(--ink2);margin-top:14px;font-size:.95rem;line-height:1.7">Smart Invoicify is a private team workspace — not a public SaaS signup. Admins invite users; everyone shares the same clients and documents.</p>
+    </div>
+    <div class="audience-grid">
+      <div class="audience-card">
+        <div class="audience-role">Owners &amp; admins</div>
+        <h3>Configure &amp; govern</h3>
+        <p>Company branding, bank details, team users, backup &amp; restore, Telegram and AI keys, and the activity log — organized in tabbed Settings.</p>
+      </div>
+      <div class="audience-card">
+        <div class="audience-role">Staff</div>
+        <h3>Run day-to-day sales</h3>
+        <p>Proposals, quotations, invoices, clients, catalog, expenses, and document delivery — without access to admin-only settings.</p>
+      </div>
+      <div class="audience-card">
+        <div class="audience-role">Finance &amp; managers</div>
+        <h3>Track money clearly</h3>
+        <p>Payments, outstanding balances, profit by project, stock and cost visibility — plus CSV export from reports when you need spreadsheets.</p>
+      </div>
+    </div>
+    <div class="pricing-grid" style="margin-top:56px">
+      <div class="price-card featured">
+        <div class="featured-badge">Try it free</div>
+        <div class="price-eyebrow">Interactive demo</div>
+        <div class="price-num" style="font-size:1.35rem">Verify email → sandbox</div>
+        <div class="price-sub">Lead form · sample PKR data · Telegram in Settings</div>
+        <div class="price-divider"></div>
+        <ul class="price-features">
+          <li><span class="pf-ck">✓</span>Submit your work email on the demo site</li>
+          <li><span class="pf-ck">✓</span>Confirm via inbox, then explore the full app</li>
+          <li><span class="pf-ck">✓</span>Connect your Telegram chat ID for live alerts</li>
+        </ul>
+        <div class="price-cta">
+          <a href="https://demo-smart-invoicify.vercel.app/demo/request" class="btn btn-accent" style="width:100%">Request demo access →</a>
+        </div>
+      </div>
+      <div class="price-card">
+        <div class="price-eyebrow">Production</div>
+        <div class="price-num" style="font-size:1.75rem">smart-invoicify.vercel.app</div>
+        <div class="price-sub">Reach Solutions team workspace</div>
+        <div class="price-divider"></div>
+        <ul class="price-features">
+          <li><span class="pf-ck">✓</span>Admin-created accounts only</li>
+          <li><span class="pf-ck">✓</span>Full product for your organization</li>
+        </ul>
+        <div class="price-cta">
+          <a href="https://smart-invoicify.vercel.app/login" class="btn btn-ghost" style="width:100%">Sign in</a>
+        </div>
+      </div>
+      <div class="price-card">
+        <div class="price-eyebrow">License &amp; purchase</div>
+        <div class="price-num">Reach Solutions</div>
+        <div class="price-sub">Proprietary · deployment for licensed organizations</div>
+        <div class="price-divider"></div>
+        <ul class="price-features">
+          <li><span class="pf-ck">✓</span>Evaluate via interactive demo first</li>
+          <li><span class="pf-ck">✓</span>Licensed deployment on your Supabase + Vercel</li>
+          <li><span class="pf-ck">✓</span>SMTP, Telegram, and AI integrations</li>
+          <li><span class="pf-ck">✓</span>Implementation support from Reach Solutions</li>
+        </ul>
+        <div class="price-cta">
+          <a href="mailto:info@reachsolutions.pk?subject=Smart%20Invoicify%20licensing" class="btn btn-accent" style="width:100%">Contact for licensing →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section class="section" id="faq" style="background:var(--off);border-top:1px solid var(--rule)">
+  <div class="container" style="text-align:center">
+    <div class="eyebrow" style="justify-content:center">FAQ</div>
+    <h2 style="font-family:var(--serif);font-size:clamp(2rem,4vw,2.8rem);line-height:1.12;letter-spacing:-.02em">Questions, answered</h2>
+  </div>
+  <div class="faq-wrap">
+    <div class="faq-item open">
+      <button class="faq-q">How do I get the interactive demo? <div class="faq-q-icon">+</div></button>
+      <div class="faq-a">Open <a href="https://demo-smart-invoicify.vercel.app/demo/request">Request demo access</a>, submit your name and work email, and confirm via the link we send you. After verification you enter the sandbox with sample data. Optional: opt in to product updates for our newsletter.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Can anyone sign up on the live site? <div class="faq-q-icon">+</div></button>
+      <div class="faq-a">No. Public registration is disabled on production. An admin creates user accounts from Settings → Team. The demo is separate and uses email verification instead of open sign-up.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How do clients view a document without logging in? <div class="faq-q-icon">+</div></button>
+      <div class="faq-a">Generate a public share link (<code>/s/{token}</code>) from the document toolbar. Clients open it in the browser — no account required. You can also email the PDF or open WhatsApp with a pre-filled message.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How long does setup take? <div class="faq-q-icon">+</div></button>
+      <div class="faq-a">After you license Smart Invoicify, Reach Solutions helps with deployment on your Supabase and Vercel, migrations, branding, and first users. Most licensed teams send their first quotation within the same day of go-live.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Can my whole team use it at the same time? <div class="faq-q-icon">+</div></button>
+      <div class="faq-a">Yes. Smart Invoicify is a team workspace — admins and staff work concurrently on shared data. Role-based permissions ensure everyone has exactly the right level of access.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How is my data protected? <div class="faq-q-icon">+</div></button>
+      <div class="faq-a">Data isolation is enforced at the database level with Supabase Row-Level Security. Your clients, documents, and reports are completely invisible to any other organization. All files are encrypted at rest and in transit.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Can I use my own branding on documents? <div class="faq-q-icon">+</div></button>
+      <div class="faq-a">Absolutely. Upload your logo, set your company defaults, and add your signature in Settings. Every generated PDF will automatically reflect your brand identity.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Is the Telegram bot required? <div class="faq-q-icon">+</div></button>
+      <div class="faq-a">Completely optional. Documents, reports, and the activity log work without Telegram. Enable it in Settings → Integrations for alerts and commands like <code>/summary</code>, <code>/invoice INV-001</code>, and <code>/remind</code> for overdue balances.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Can I export my data? <div class="faq-q-icon">+</div></button>
+      <div class="faq-a">Yes. Documents export as PDFs, and Smart Invoicify includes a built-in backup &amp; restore feature. Your data belongs to you — always.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Does it work on mobile? <div class="faq-q-icon">+</div></button>
+      <div class="faq-a">Fully responsive with a mobile-optimized layout including bottom navigation on phones. Light and dark themes are supported on all devices.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FINAL CTA ═══ -->
+<section class="cta-final">
+  <div class="container">
+    <h2 class="cta-h">Proposals to profit —<br/><em>without the spreadsheet maze.</em></h2>
+    <p class="cta-sub">Try the lead-gated sandbox, then contact Reach Solutions to license Smart Invoicify for your organization.</p>
+    <div class="cta-actions">
+      <a href="https://demo-smart-invoicify.vercel.app/demo/request" class="btn btn-white btn-lg btn-arrow">Request demo access</a>
+      <a href="mailto:info@reachsolutions.pk?subject=Smart%20Invoicify%20licensing" class="btn btn-ghost-white btn-lg">Contact for licensing</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo" style="font-size:14px">
+          <div class="logo-mark" style="width:26px;height:26px;border-radius:7px">
+            <svg viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="5" height="5" rx="1.2" fill="white"/><rect x="9" y="2" width="5" height="5" rx="1.2" fill="white" opacity=".55"/><rect x="2" y="9" width="5" height="5" rx="1.2" fill="white" opacity=".55"/><rect x="9" y="9" width="5" height="5" rx="1.2" fill="white" opacity=".25"/></svg>
+          </div>
+          Smart Invoicify
+        </a>
+        <p>Team workspace for proposals, quotations, and invoices. Built by <strong>Reach Solutions</strong> for service and project-based businesses.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#delivery">Client delivery</a></li>
+          <li><a href="#how-it-works">How it works</a></li>
+          <li><a href="https://smart-invoicify.vercel.app/">Live app ↗</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="https://github.com/Meemkhaan/smart-invoicify" target="_blank" rel="noopener">Product overview on GitHub</a></li>
+          <li><a href="https://demo-smart-invoicify.vercel.app/demo/request">Request demo</a></li>
+          <li><a href="#audience">Who it's for</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Stack</h4>
+        <ul>
+          <li><a href="https://nextjs.org/" target="_blank" rel="noopener">Next.js 15</a></li>
+          <li><a href="https://supabase.com/" target="_blank" rel="noopener">Supabase</a></li>
+          <li><a href="https://vercel.com/" target="_blank" rel="noopener">Vercel</a></li>
+          <li><a href="#faq">Security &amp; RLS</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Smart Invoicify · Reach Solutions</span>
+      <span>Next.js 15 · React 19 · TypeScript · Supabase · Tailwind CSS 4</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
+// Scroll-triggered fade-up for bento cards and sections
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(el => {
+    if (el.isIntersecting) {
+      el.target.style.opacity = '1';
+      el.target.style.transform = 'translateY(0)';
+      observer.unobserve(el.target);
+    }
+  });
+}, {threshold: 0.1, rootMargin:'0px 0px -40px 0px'});
+
+const navToggle = document.getElementById('nav-toggle');
+const mobileNav = document.getElementById('mobile-nav');
+if (navToggle && mobileNav) {
+  navToggle.addEventListener('click', () => {
+    const open = mobileNav.classList.toggle('open');
+    mobileNav.setAttribute('aria-hidden', open ? 'false' : 'true');
+  });
+  mobileNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileNav.classList.remove('open');
+      mobileNav.setAttribute('aria-hidden', 'true');
+    });
+  });
+}
+
+document.querySelectorAll('.bento-card, .pain-cell, .sec-card, .price-card, .how-step, .delivery-card, .audience-card').forEach((el, i) => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(18px)';
+  el.style.transition = `opacity .5s ease ${(i % 4) * 0.07}s, transform .5s cubic-bezier(.22,1,.36,1) ${(i % 4) * 0.07}s`;
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
