@@ -26,6 +26,8 @@
   --bg:#111009;
   --bg2:#18150f;
   --bg3:#201c14;
+  --surface:#27221a;
+  --surface2:#312b20;
   --accentGold:#e8a930;
   --accentGold2:#f5c860;
   --text:#f5eedc;
@@ -74,7 +76,7 @@ body{
     var(--bg);
   color:var(--ink);
   font-size:16px;
-  line-height:1.6;
+  line-height:1.65;
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden
 }
@@ -107,12 +109,12 @@ nav{
 .nav-hidden{transform:translateY(-120%)}
 .nav-inner{
   display:flex;align-items:center;justify-content:space-between;
-  max-width:1100px;margin:0 auto;padding:0 32px;height:60px;
+  max-width:1140px;margin:0 auto;padding:0 32px;height:64px;
 }
 .logo{
   display:flex;align-items:center;gap:9px;
   text-decoration:none;color:var(--ink);
-  font-family:var(--sans);font-size:15px;font-weight:600;letter-spacing:-.01em;
+  font-family:var(--sans);font-size:15px;font-weight:500;letter-spacing:-.01em;
 }
 .logo-mark{
   width:30px;height:30px;border-radius:8px;
@@ -121,7 +123,7 @@ nav{
   display:flex;align-items:center;justify-content:center;
 }
 .logo-mark svg{width:16px;height:16px}
-.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links{display:flex;gap:32px;list-style:none}
 .nav-links a{font-size:14px;color:var(--ink2);text-decoration:none;font-weight:400;transition:color .15s, text-shadow .18s}
 .nav-links a:hover{color:var(--ink)}
 .nav-actions{display:flex;align-items:center;gap:8px}
@@ -152,11 +154,10 @@ nav{
 }
 .btn:active{transform:translateY(1px) scale(.99)}
 .btn-primary{
-  background:linear-gradient(180deg, rgba(245,200,96,.98), rgba(232,169,48,.92));
-  color:#1a140a;
-  box-shadow:0 18px 44px rgba(232,169,48,.10);
+  background:var(--accentGold);
+  color:#110e07;
 }
-.btn-primary:hover{filter:saturate(110%);box-shadow:0 22px 60px rgba(232,169,48,.14)}
+.btn-primary:hover{background:var(--accentGold2);box-shadow:0 0 32px rgba(232,169,48,.30)}
 .btn-ghost{background:rgba(255,220,130,.04);color:var(--ink2);border:1px solid var(--border08)}
 .btn-ghost:hover{background:rgba(255,220,130,.06);color:var(--ink);border-color:var(--border16);box-shadow:var(--glow)}
 .btn-accent{background:rgba(255,220,130,.06);color:var(--ink);border:1px solid var(--border16);box-shadow:var(--glow)}
@@ -247,12 +248,16 @@ h1.hero-h em{font-style:italic;color:var(--accent)}
 }
 .hero-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
 .hero-proof{
-  display:flex;align-items:center;justify-content:center;
+  display:inline-flex;align-items:center;justify-content:center;
   gap:20px;margin-top:36px;
-  font-size:13px;color:var(--ink3);
-  padding-bottom:36px;
+  font-size:12px;color:var(--ink3);
+  padding:12px 20px;
+  background:var(--surface);
+  border:1px solid var(--border08);
+  border-radius:100px;
+  margin-bottom:64px;
 }
-.hero-proof-sep{width:3px;height:3px;border-radius:50%;background:var(--ink4)}
+.hero-proof-sep{width:1px;height:14px;background:var(--border16)}
 
 /* Dashboard mockup container */
 .hero-visual-wrap{
@@ -441,10 +446,10 @@ h1.hero-h em{font-style:italic;color:var(--accent)}
   background:var(--rule);
 }
 .pain-cell{
-  background:var(--white);padding:44px 40px;
+  background:var(--surface);padding:44px 40px;
   position:relative;
 }
-.pain-cell.solution{background:var(--off)}
+.pain-cell.solution{background:var(--surface2)}
 .pain-tag{
   font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
   padding:4px 12px;border-radius:100px;
@@ -466,14 +471,14 @@ h1.hero-h em{font-style:italic;color:var(--accent)}
   gap:16px;margin-top:64px;
 }
 .bento-card{
-  background:var(--off);
-  border:1px solid var(--rule);
+  background:var(--surface);
+  border:1px solid var(--border08);
   border-radius:var(--r-lg);
   padding:32px;
   position:relative;overflow:hidden;
   transition:box-shadow .2s,border-color .2s;
 }
-.bento-card:hover{box-shadow:var(--shadow-md);border-color:#d4d4cc}
+.bento-card:hover{box-shadow:var(--shadow-md), var(--glow);border-color:var(--border16)}
 .bento-card.wide{grid-column:span 2}
 .bento-card.tall{grid-row:span 2}
 .bento-card.accent-card{background:var(--ink);border-color:var(--ink)}
@@ -494,8 +499,8 @@ h1.hero-h em{font-style:italic;color:var(--accent)}
 
 /* Mini Telegram mockup inside bento */
 .tg-mock{
-  margin-top:20px;background:var(--white);border-radius:10px;
-  padding:14px;border:1px solid var(--rule);
+  margin-top:20px;background:rgba(17,16,9,.35);border-radius:10px;
+  padding:14px;border:1px solid var(--border08);
 }
 .tg-msg{font-size:11px;padding:6px 10px;border-radius:8px;display:inline-block;line-height:1.5;max-width:90%}
 .tg-msg.cmd{background:var(--blue-lt);color:var(--blue);font-weight:600}
@@ -515,8 +520,8 @@ h1.hero-h em{font-style:italic;color:var(--accent)}
 .roles-mini{display:flex;flex-direction:column;gap:8px;margin-top:16px}
 .role-row{
   display:flex;align-items:center;gap:10px;
-  background:var(--white);border-radius:8px;padding:10px 14px;
-  border:1px solid var(--rule);
+  background:rgba(17,16,9,.35);border-radius:8px;padding:10px 14px;
+  border:1px solid var(--border08);
 }
 .role-av{width:28px;height:28px;border-radius:50%;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .rr-name{font-size:12px;font-weight:500;color:var(--ink)}
