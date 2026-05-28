@@ -534,7 +534,7 @@ h1.hero-h em{font-style:italic;color:var(--accent)}
   display:grid;grid-template-columns:1fr 1.5fr;gap:80px;
   align-items:center;
 }
-.showcase-text{}
+.showcase-text{display:block}
 .showcase-h{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.15;letter-spacing:-.02em;margin-bottom:16px}
 .showcase-p{font-size:.95rem;color:var(--ink2);line-height:1.7;margin-bottom:28px}
 .feature-list{list-style:none;display:flex;flex-direction:column;gap:10px}
@@ -1636,11 +1636,11 @@ footer{border-top:1px solid var(--rule);padding:60px 0 40px;background:var(--whi
     if (!el || el.dataset.split === '1') return;
     const html = el.innerHTML;
     const tokens = html
-      .replace(/<br\\s*\\/>/gi, ' <br/> ')
-      .split(/(\\s+)/);
+      .replace(/<br\s*\/>/gi, ' <br/> ')
+      .split(/(\s+)/);
     const out = tokens.map(t => {
       if (!t) return '';
-      if (/^\\s+$/.test(t)) return t;
+      if (/^\s+$/.test(t)) return t;
       if (t.toLowerCase() === '<br/>' || t.toLowerCase() === '<br>') return '<br/>';
       return `<span class="w">${t}</span>`;
     }).join('');
