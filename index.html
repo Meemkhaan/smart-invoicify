@@ -217,6 +217,31 @@
             box-shadow: 0 10px 20px rgba(0, 74, 198, 0.15);
         }
 
+        .ai-spotlight {
+            background: linear-gradient(135deg, #f5f3ff 0%, #eef2ff 45%, #faf5ff 100%);
+            border: 2px solid rgba(124, 58, 237, 0.45);
+            box-shadow: 0 8px 32px rgba(99, 102, 241, 0.12);
+        }
+        .ai-feature-card {
+            border: 2px solid rgba(124, 58, 237, 0.35);
+            background: linear-gradient(160deg, #ffffff 0%, #f5f3ff 100%);
+            box-shadow: 0 12px 28px rgba(99, 102, 241, 0.1);
+        }
+        .ai-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 9999px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: #5b21b6;
+            background: linear-gradient(90deg, #ede9fe, #e0e7ff);
+            border: 1px solid rgba(124, 58, 237, 0.35);
+        }
+
         /* FAQ Smooth Transition */
         .faq-content {
             display: grid;
@@ -246,8 +271,8 @@
                 opacity: 1 !important;
             }
             .reveal { opacity: 1; transform: none; }
-        }
-    </style>
+}
+</style>
 </head>
 <body class="bg-background text-on-surface font-body-md overflow-x-hidden">
 <!-- TopNavBar -->
@@ -255,13 +280,14 @@
 <nav class="flex justify-between items-center h-16 md:h-20 px-4 md:px-8 max-w-[1200px] mx-auto">
 <div class="font-headline-sm text-lg md:text-headline-sm font-bold text-on-surface cursor-pointer">Smart Invoicify</div>
 <div class="hidden md:flex gap-8 items-center">
-<a class="nav-link text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">Features</a>
+<a class="nav-link text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#features">Features</a>
+<a class="nav-link text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#ai-writing">AI</a>
 <a class="nav-link text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">Pricing</a>
 <a class="nav-link text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">FAQ</a>
-</div>
+      </div>
 <div class="flex items-center gap-4">
 <a class="bg-primary-container text-on-primary px-4 md:px-6 py-2 rounded-full font-label-sm btn-lift text-sm md:text-base" href="https://demo-smart-invoicify.vercel.app/demo/request">Start free</a>
-</div>
+  </div>
 </nav>
 </header>
 <main>
@@ -275,25 +301,33 @@
                 </div>
 <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-typography-charcoal tracking-tight">
                     Quotes and invoices made simple.
-                </h1>
+      </h1>
 <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
-                    Create professional quotations and invoices in minutes. Export beautiful PDFs, track your work, and get updates on Telegram—without the paperwork headache.
+                    Describe your job in plain words — AI helps you build <strong>professional proposals, quotations, and invoices</strong> with the right scope, line items, and terms. No writing degree required.
                 </p>
 <div class="flex flex-col sm:flex-row gap-4">
 <a class="bg-primary-container px-8 py-4 rounded-full text-center text-on-primary font-label-sm font-bold shadow-lg btn-lift" href="https://demo-smart-invoicify.vercel.app/demo/request">Start free</a>
 <button type="button" class="bg-transparent border border-border-subtle px-8 py-4 rounded-full text-typography-charcoal font-label-sm font-bold hover:bg-surface-container-low transition-all" onclick="document.getElementById('how-it-works')?.scrollIntoView({behavior:'smooth'})">See how it works</button>
-</div>
+      </div>
 <div class="flex flex-wrap gap-3 pt-2">
 <div class="benefit-chip">
 <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">picture_as_pdf</span>
                         Professional PDF documents
-                    </div>
+      </div>
+<div class="benefit-chip" style="border-color: rgba(124,58,237,0.4); background: linear-gradient(90deg,#faf5ff,#eef2ff);">
+<span class="material-symbols-outlined text-[#6d28d9]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                        AI writes like a pro — you describe the job
+    </div>
 <div class="benefit-chip">
-<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
-                        AI help when you’re in a hurry
-                    </div>
-</div>
-</div>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+                        Chart of accounts built in
+    </div>
+<div class="benefit-chip">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">shopping_cart</span>
+                        Purchase orders &amp; stock
+    </div>
+  </div>
+      </div>
 <div class="relative group reveal stagger-2">
 <div class="absolute -inset-4 bg-primary/5 rounded-3xl blur-3xl group-hover:bg-primary/10 transition-all duration-500"></div>
 <div class="relative bg-white rounded-xl border border-border-subtle shadow-2xl overflow-hidden aspect-video md:aspect-[4/3] animate-float">
@@ -303,19 +337,51 @@
 <div class="flex flex-col items-center gap-2">
 <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-2xl animate-pulse-soft">
 <span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
-</div>
+          </div>
 <span class="text-white font-bold text-sm bg-black/20 px-3 py-1 rounded-full backdrop-blur-sm">Watch it in action</span>
-</div>
-</div>
+              </div>
+              </div>
 <!-- Floating Telegram Bubble Overlay -->
 <div class="absolute bottom-4 right-4 md:bottom-8 md:right-8 bg-[#229ED9] text-white p-3 md:p-4 rounded-2xl shadow-xl flex items-center gap-3 animate-bounce">
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">send</span>
 <div class="text-[10px] md:text-xs text-left">
 <p class="font-bold">Quote Approved!</p>
 <p class="opacity-80">Check your dashboard</p>
+              </div>
+            </div>
+              </div>
+              </div>
+              </div>
+</section>
+<!-- AI Section -->
+<section class="py-12 md:py-16 px-4 md:px-8" id="ai-writing">
+<div class="max-w-[1200px] mx-auto">
+<div class="ai-spotlight rounded-2xl p-6 md:p-10 reveal">
+<div class="text-center mb-8">
+<span class="ai-badge mb-4"><span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1">auto_awesome</span> AI built in</span>
+<h2 class="font-headline-md text-2xl md:text-headline-md text-typography-charcoal mt-4 mb-3">Anyone can create documents that look professional</h2>
+<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+You do not need perfect English or years of quoting experience. Type how you would explain the job to a friend — Smart Invoicify turns it into clear scope, notes, terms, and line items for <strong>proposals</strong>, <strong>quotations</strong>, and <strong>invoices</strong>.
+</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+<div class="bg-white rounded-xl p-5 border border-border-subtle interactive-card">
+<span class="material-symbols-outlined text-[#6d28d9] mb-3 text-[28px]" style="font-variation-settings:'FILL' 1">edit_note</span>
+<h4 class="font-headline-sm mb-2">1. Describe the work</h4>
+<p class="text-sm text-on-surface-variant">Example: “6kW solar, panels, inverter, install, training.”</p>
+</div>
+<div class="bg-white rounded-xl p-5 border border-border-subtle interactive-card">
+<span class="material-symbols-outlined text-[#6d28d9] mb-3 text-[28px]" style="font-variation-settings:'FILL' 1">auto_awesome</span>
+<h4 class="font-headline-sm mb-2">2. Tap Polish with AI</h4>
+<p class="text-sm text-on-surface-variant">Professional wording for scope, notes, and payment terms — ready to review and edit.</p>
+</div>
+<div class="bg-white rounded-xl p-5 border border-border-subtle interactive-card">
+<span class="material-symbols-outlined text-[#6d28d9] mb-3 text-[28px]" style="font-variation-settings:'FILL' 1">playlist_add</span>
+<h4 class="font-headline-sm mb-2">3. Suggest line items</h4>
+<p class="text-sm text-on-surface-variant">AI builds a full price list from your catalog — products, labor, and services included.</p>
 </div>
 </div>
-</div>
+<p class="text-center text-sm text-on-surface-variant mt-6">AI is optional — your team can configure it in Settings. Works on proposals, quotations, invoices, products, and quote packages.</p>
 </div>
 </div>
 </section>
@@ -327,46 +393,46 @@
 <p class="font-body-lg text-base md:text-body-lg text-on-surface-variant max-w-2xl mx-auto">
                     A customer asks for a quote. You open old files, copy-paste prices, and worry you missed something.
                 </p>
-</div>
+            </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
 <div class="flex gap-4 p-6 rounded-xl border border-border-subtle bg-white interactive-card reveal stagger-1">
 <div class="w-12 h-12 bg-error-container/20 rounded-lg flex items-center justify-center flex-shrink-0">
 <span class="material-symbols-outlined text-error">content_copy</span>
-</div>
+              </div>
 <div>
 <h4 class="font-headline-sm text-lg md:text-headline-sm mb-2">Copy-pasting prices wastes time</h4>
 <p class="text-sm md:text-base text-on-surface-variant">Finding old quotes just to copy a line item is tedious and prone to errors.</p>
-</div>
-</div>
+                </div>
+              </div>
 <div class="flex gap-4 p-6 rounded-xl border border-border-subtle bg-white interactive-card reveal stagger-2">
 <div class="w-12 h-12 bg-error-container/20 rounded-lg flex items-center justify-center flex-shrink-0">
 <span class="material-symbols-outlined text-error">warning</span>
-</div>
+                </div>
 <div>
 <h4 class="font-headline-sm text-lg md:text-headline-sm mb-2">Small mistakes cause big confusion</h4>
 <p class="text-sm md:text-base text-on-surface-variant">A wrong decimal or forgotten tax ruins your professional image.</p>
-</div>
-</div>
+              </div>
+                </div>
 <div class="flex gap-4 p-6 rounded-xl border border-border-subtle bg-white interactive-card reveal stagger-3">
 <div class="w-12 h-12 bg-error-container/20 rounded-lg flex items-center justify-center flex-shrink-0">
 <span class="material-symbols-outlined text-error">folder_off</span>
-</div>
+              </div>
 <div>
 <h4 class="font-headline-sm text-lg md:text-headline-sm mb-2">Quotes and invoices end up scattered</h4>
 <p class="text-sm md:text-base text-on-surface-variant">Documents lost in email threads or local folders make tracking impossible.</p>
-</div>
-</div>
+            </div>
+          </div>
 <div class="flex gap-4 p-6 rounded-xl border border-border-subtle bg-white interactive-card reveal stagger-4">
 <div class="w-12 h-12 bg-error-container/20 rounded-lg flex items-center justify-center flex-shrink-0">
 <span class="material-symbols-outlined text-error">chat_bubble</span>
-</div>
-<div>
+        </div>
+        <div>
 <h4 class="font-headline-sm text-lg md:text-headline-sm mb-2">Following up on payments is awkward</h4>
 <p class="text-sm md:text-base text-on-surface-variant">Asking for money shouldn't feel uncomfortable. Automated systems handle it.</p>
-</div>
-</div>
-</div>
-</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 <!-- Solution Section -->
 <section class="py-12 md:py-16 px-4 md:px-8 bg-surface overflow-hidden" id="how-it-works">
@@ -375,7 +441,7 @@
 <p class="font-body-lg text-base md:text-body-lg text-on-surface-variant max-w-3xl mx-auto">
                 One place for everything—so you can create a quote, send it, and stay organized.
             </p>
-</div>
+    </div>
 <div class="max-w-[1000px] mx-auto relative">
 <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-outline-variant opacity-30"></div>
 <div class="space-y-12 md:space-y-16">
@@ -384,7 +450,7 @@
 <div class="md:w-1/2 md:pr-12 text-center md:text-right order-2 md:order-1">
 <h3 class="font-headline-sm text-lg md:text-headline-sm mb-3">1. Create a quote</h3>
 <p class="text-sm md:text-base text-on-surface-variant">Easily add items, adjust quantities, and apply discounts. Everything calculates instantly.</p>
-</div>
+  </div>
 <div class="hidden md:flex w-10 h-10 rounded-full bg-primary text-white items-center justify-center relative z-10 font-bold order-2">1</div>
 <div class="w-full md:w-1/2 md:pl-12 order-1 md:order-3">
 <div class="bg-white p-2 md:p-3 rounded-lg shadow-md border border-border-subtle group relative overflow-hidden animate-float">
@@ -392,98 +458,115 @@
 <div class="absolute inset-0 bg-black/10 flex items-center justify-center opacity-80 group-hover:opacity-100 transition-opacity">
 <span class="material-symbols-outlined text-white text-3xl">play_circle</span>
 </div>
-</div>
-</div>
-</div>
+  </div>
+      </div>
+      </div>
 <!-- Step 2 -->
 <div class="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12 relative reveal stagger-2">
 <div class="md:w-1/2 md:pl-12 text-center md:text-left order-2 md:order-1">
 <h3 class="font-headline-sm text-lg md:text-headline-sm mb-3">2. Send a PDF</h3>
 <p class="text-sm md:text-base text-on-surface-variant">Your quote looks professional on any device. Export and send via email or WhatsApp in one click.</p>
-</div>
+      </div>
 <div class="hidden md:flex w-10 h-10 rounded-full bg-primary text-white items-center justify-center relative z-10 font-bold order-2">2</div>
 <div class="w-full md:w-1/2 md:pr-12 order-1 md:order-3">
 <div class="bg-white p-2 md:p-3 rounded-lg shadow-md border border-border-subtle group relative overflow-hidden animate-float stagger-2" style="animation-delay: 1s;">
 <img alt="Send PDF" class="rounded-lg w-full h-40 md:h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByrNilNOaW4AVTaXBohtYnjm9XHvs7J4ORms8rVWujxSK0WnsXKAw6vJDnAeXnMN5FO_4l-Kpo-5qvVyOPFBPO0H8z6fRjBbbG-tmPeCTXwlRUE8D9TAd3ocHYJGzEyJe6Hn9anQuYejrAFT0uC_1mK6n-ilYLfK4uK_ubwkIjq1vhROXe-OaaQES_RaX6um7b4EePa-RUrmA_A09KBJP6ABZv0jkILSMmRvzmzjBCJBHIsUxLwyVcnT8vpDfR0AVjwx0ZPPXoYp4"/>
 <div class="absolute inset-0 bg-black/10 flex items-center justify-center opacity-80 group-hover:opacity-100 transition-opacity">
 <span class="material-symbols-outlined text-white text-3xl">play_circle</span>
-</div>
-</div>
-</div>
-</div>
+      </div>
+    </div>
+  </div>
+      </div>
 <!-- Step 3 -->
 <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12 relative reveal stagger-3">
 <div class="md:w-1/2 md:pr-12 text-center md:text-right order-2 md:order-1">
 <h3 class="font-headline-sm text-lg md:text-headline-sm mb-3">3. Convert to invoice &amp; track</h3>
 <p class="text-sm md:text-base text-on-surface-variant">Turn quotes into invoices instantly. Track status and view live reports on your business health.</p>
-</div>
+        </div>
 <div class="hidden md:flex w-10 h-10 rounded-full bg-primary text-white items-center justify-center relative z-10 font-bold order-2">3</div>
 <div class="w-full md:w-1/2 md:pl-12 order-1 md:order-3">
 <div class="bg-white p-2 md:p-3 rounded-lg shadow-md border border-border-subtle group relative overflow-hidden animate-float stagger-3" style="animation-delay: 2s;">
 <img alt="Live Reports Mockup" class="rounded-lg w-full h-40 md:h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLL_agtMwDFbjfQtnJjhjXbrJCgMvJCmlp8e8X4DRAqvI3AkC4CTc2lNNBSbIcuX1BZsIzkBw54KhNS-5jSkXwFi-q6PB6FbjcL2FkHsopuEqvIAHQF49dQXsOSKOimHkiF2A5eIzTus0Bj8Mihl8m3dFnAuHwShtjZe1K5lgqXYxsrJnbE5wE6hzV7GmsVQfD_ivaC32VdheiVNH1pANjm_o40QIE9kovLCQ7XUMPhae53dwbedNfgdh7IS_TxqNnISm6fRbWQqo"/>
 <div class="absolute inset-0 bg-black/10 flex items-center justify-center opacity-80 group-hover:opacity-100 transition-opacity">
 <span class="material-symbols-outlined text-white text-3xl">analytics</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+        </div>
+      </div>
+          </div>
+      </div>
+    </div>
+  </div>
 </section>
 <!-- Features Grid -->
-<section class="py-12 md:py-16 px-4 md:px-8">
+<section class="py-12 md:py-16 px-4 md:px-8" id="features">
 <div class="max-w-[1200px] mx-auto">
+<div class="text-center mb-10 reveal">
+<h2 class="font-headline-md text-2xl md:text-headline-md text-typography-charcoal mb-3">Everything in one workspace</h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto">Documents, AI, inventory buying, and bookkeeping — without juggling five different apps.</p>
+</div>
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
 <!-- Feature 1 -->
 <div class="p-8 md:p-10 rounded-lg border border-border-subtle bg-white interactive-card reveal stagger-1">
 <span class="material-symbols-outlined text-primary mb-4 text-[32px]">picture_as_pdf</span>
 <h4 class="font-headline-sm text-lg md:text-headline-sm mb-3">Professional PDFs</h4>
 <p class="text-sm md:text-base text-on-surface-variant">Generate clean, branded PDFs you’ll feel proud to send. Impress clients from the first interaction.</p>
-</div>
-<!-- Feature 2 -->
-<div class="p-8 md:p-10 rounded-lg border border-border-subtle bg-white interactive-card reveal stagger-2">
+      </div>
+<!-- Feature 2 — AI (highlighted) -->
+<div class="p-8 md:p-10 rounded-lg ai-feature-card interactive-card reveal stagger-2 relative">
+<span class="ai-badge absolute top-4 right-4">Popular</span>
 <div class="mb-4 aspect-video overflow-hidden rounded-md bg-surface-container-low border border-border-subtle">
 <img alt="AI Help" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHUAcfm0KPb8zwbt1kLDxDYRhQUFD3R2QOVV7e5H9HRDrWcbZgAXMZA8-vA4al85cTAHB6YyciODZnEWAIU-5XxzTxD0pvGMRcQ1mUCmOcdsvcMdNQMa0XmEeZNvbhs_ZC7d7fD9l4kodnlw-2HaZTU6wbJ4KrLuPTcEjKL_uWgvzUsLfMeSzzwJ0O-Tpr6KIER8A5oeTcjJ62xrvcWHGSN0F317EhZBR_D0R4dWkthD4eWvh4tVMvc9FTIkIGvcLBxDPF2FmxfWU"/>
-</div>
+      </div>
 <span class="material-symbols-outlined text-primary mb-4 text-[32px]">auto_awesome</span>
-<h4 class="font-headline-sm text-lg md:text-headline-sm mb-3">AI help</h4>
-<p class="text-sm md:text-base text-on-surface-variant">Stuck on wording? Let AI suggest descriptions, notes, or terms in seconds based on your industry.</p>
-</div>
+<h4 class="font-headline-sm text-lg md:text-headline-sm mb-3">AI writing &amp; line items</h4>
+<p class="text-sm md:text-base text-on-surface-variant"><strong>Polish with AI</strong> turns rough notes into professional proposals, quotations, and invoices. <strong>Suggest line items</strong> builds your bill of materials from a short scope — even if you are new to quoting.</p>
+      </div>
 <!-- Feature 3 -->
 <div class="p-8 md:p-10 rounded-lg border border-border-subtle bg-white interactive-card reveal stagger-3">
 <div class="mb-4 aspect-video overflow-hidden rounded-md bg-surface-container-low border border-border-subtle">
 <img alt="Telegram Bot" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJDpV-mE9aVstRvlMH8td2vKHgxN5XvimdsUUUnbCaqA3F91EF_SKMqi-U4EJOJ55aTKLuIB1LUrY4UbbUVIHnAJ5zCGPodAWQn0FdZTH5Ji-ZMy4MlztKD0e4uWmBqCnLMjcrEXhgNZS7lYJvfpSGhX9er3ian4FTNz39Vk35nFg6ndAxjeQi_oEm-edw0BeMgwww88LOrSFvwitx8Irq38k7DYCQYcN_8SlZO55q7KKUQbYYaGcjADM-0VZlmXqEXxVQQoMEUjk"/>
-</div>
+    </div>
 <span class="material-symbols-outlined text-primary mb-4 text-[32px]">notifications_active</span>
 <h4 class="font-headline-sm text-lg md:text-headline-sm mb-3">Telegram notifications</h4>
 <p class="text-sm md:text-base text-on-surface-variant">Get helpful updates on Telegram—like when something is created, shared, or needs attention.</p>
-</div>
+  </div>
 <!-- Feature 4 -->
 <div class="p-8 md:p-10 rounded-lg border border-border-subtle bg-white interactive-card reveal stagger-4">
 <span class="material-symbols-outlined text-primary mb-4 text-[32px]">sync_alt</span>
 <h4 class="font-headline-sm text-lg md:text-headline-sm mb-3">1-Click Conversion</h4>
 <p class="text-sm md:text-base text-on-surface-variant">No re-typing. Turn an approved quote into an invoice instantly with all data preserved.</p>
-</div>
+    </div>
 <!-- Feature 5 -->
 <div class="p-8 md:p-10 rounded-lg border border-border-subtle bg-white interactive-card reveal stagger-5">
 <span class="material-symbols-outlined text-primary mb-4 text-[32px]">contact_page</span>
 <h4 class="font-headline-sm text-lg md:text-headline-sm mb-3">Client &amp; Project CRM</h4>
 <p class="text-sm md:text-base text-on-surface-variant">Keep customer info, job/site details, and document history together in one centralized portal.</p>
-</div>
+    </div>
 <!-- Feature 6 -->
 <div class="p-8 md:p-10 rounded-lg border border-border-subtle bg-white interactive-card reveal stagger-6">
 <span class="material-symbols-outlined text-primary mb-4 text-[32px]">account_balance_wallet</span>
 <h4 class="font-headline-sm text-lg md:text-headline-sm mb-3">Flexible Pricing</h4>
 <p class="text-sm md:text-base text-on-surface-variant">Handle simple jobs or complex pricing without messy spreadsheets. Supports discounts and taxes.</p>
-</div>
-</div>
-</div>
+  </div>
+<!-- Feature 7 — Chart of accounts -->
+<div class="p-8 md:p-10 rounded-lg border border-border-subtle bg-white interactive-card reveal stagger-1">
+<span class="material-symbols-outlined text-primary mb-4 text-[32px]">account_balance</span>
+<h4 class="font-headline-sm text-lg md:text-headline-sm mb-3">Chart of accounts</h4>
+<p class="text-sm md:text-base text-on-surface-variant">A proper chart of accounts with journal entries — invoices, payments, stock, and expenses can post automatically so your books stay organized.</p>
+  </div>
+<!-- Feature 8 — Purchase orders -->
+<div class="p-8 md:p-10 rounded-lg border border-border-subtle bg-white interactive-card reveal stagger-2">
+<span class="material-symbols-outlined text-primary mb-4 text-[32px]">shopping_cart</span>
+<h4 class="font-headline-sm text-lg md:text-headline-sm mb-3">Purchase orders</h4>
+<p class="text-sm md:text-base text-on-surface-variant">Create POs for vendors, receive stock in full or in parts, and keep purchase costs tied to inventory — ready for quoting and profit reports.</p>
+  </div>
+    </div>
+  </div>
 </section>
 <!-- Outcomes Section -->
 <section class="py-12 md:py-16 px-4 md:px-8 bg-on-primary-fixed text-white overflow-hidden relative">
 <div class="absolute top-0 right-0 w-1/3 h-full opacity-10 pointer-events-none hidden lg:block">
 <span class="material-symbols-outlined text-[400px] absolute -right-20 -top-20" style="font-variation-settings: 'FILL' 1;">verified</span>
-</div>
+          </div>
 <div class="max-w-[1200px] mx-auto reveal">
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 <div class="space-y-6 md:space-y-8">
@@ -501,23 +584,23 @@
 <span class="material-symbols-outlined text-secondary-fixed">check_circle</span>
 <span class="font-body-lg text-base md:text-body-lg">Look more professional with branded documents</span>
 </li>
-</ul>
-</div>
+        </ul>
+      </div>
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 reveal stagger-4">
 <div class="p-6 md:p-8 bg-white/5 rounded-2xl backdrop-blur-sm border border-white/10 text-center interactive-card">
 <div class="text-primary-fixed-dim font-display-lg text-[40px] md:text-[48px] mb-2 leading-none">90%</div>
 <p class="text-white/70 text-sm md:text-base">Reduction in paperwork time</p>
-</div>
+    </div>
 <div class="p-6 md:p-8 bg-white/5 rounded-2xl backdrop-blur-sm border border-white/10 text-center interactive-card">
 <div class="text-primary-fixed-dim font-display-lg text-[40px] md:text-[48px] mb-2 leading-none">100%</div>
 <p class="text-white/70 text-sm md:text-base">PDF Accuracy</p>
-</div>
+  </div>
 <div class="p-6 md:p-8 bg-white/5 rounded-2xl backdrop-blur-sm border border-white/10 sm:col-span-2 text-center interactive-card">
 <p class="italic text-white/90 text-sm md:text-base">"The best decision for my small business. I send a quote and get paid faster than ever."</p>
-</div>
-</div>
-</div>
-</div>
+    </div>
+      </div>
+    </div>
+  </div>
 </section>
 <!-- Use Cases Section -->
 <section class="py-12 md:py-16 px-4 md:px-8">
@@ -527,25 +610,25 @@
 <div class="p-4 md:p-6 text-center border border-border-subtle rounded-xl interactive-card hover:border-primary hover:bg-primary/5 reveal stagger-1">
 <span class="material-symbols-outlined text-primary block mb-3 text-[32px]">person_pin</span>
 <span class="font-label-sm">Freelancers</span>
-</div>
+    </div>
 <div class="p-4 md:p-6 text-center border border-border-subtle rounded-xl interactive-card hover:border-primary hover:bg-primary/5 reveal stagger-2">
 <span class="material-symbols-outlined text-primary block mb-3 text-[32px]">engineering</span>
 <span class="font-label-sm">Contractors</span>
-</div>
+      </div>
 <div class="p-4 md:p-6 text-center border border-border-subtle rounded-xl interactive-card hover:border-primary hover:bg-primary/5 reveal stagger-3">
 <span class="material-symbols-outlined text-primary block mb-3 text-[32px]">home_repair_service</span>
 <span class="font-label-sm">Workshops</span>
-</div>
+      </div>
 <div class="p-4 md:p-6 text-center border border-border-subtle rounded-xl interactive-card hover:border-primary hover:bg-primary/5 reveal stagger-4">
 <span class="material-symbols-outlined text-primary block mb-3 text-[32px]">groups</span>
 <span class="font-label-sm">Small teams</span>
-</div>
+      </div>
 <div class="p-4 md:p-6 text-center border border-border-subtle rounded-xl interactive-card hover:border-primary hover:bg-primary/5 reveal stagger-5">
 <span class="material-symbols-outlined text-primary block mb-3 text-[32px]">cleaning_services</span>
 <span class="font-label-sm">Service businesses</span>
-</div>
-</div>
-</div>
+      </div>
+    </div>
+  </div>
 </section>
 <!-- FAQ Section -->
 <section class="py-12 md:py-16 px-4 md:px-8 bg-surface-off-white">
@@ -561,9 +644,9 @@
 <div class="faq-content">
 <div class="px-5 text-sm md:text-base text-on-surface-variant">
                             Generating a PDF is automatic. Once you finish entering your quote or invoice details, simply click the "Export PDF" button. A professional, formatted document will be ready in seconds.
-                        </div>
-</div>
-</div>
+  </div>
+    </div>
+    </div>
 <!-- FAQ 2 -->
 <div class="border border-border-subtle bg-white rounded-lg overflow-hidden transition-all duration-300 reveal stagger-2 group">
 <button class="w-full p-5 text-left flex justify-between items-center outline-none" onclick="toggleFaq(this)">
@@ -572,10 +655,10 @@
 </button>
 <div class="faq-content">
 <div class="px-5 text-sm md:text-base text-on-surface-variant">
-                            Our built-in AI helps you draft professional item descriptions, suggests payment terms based on your industry, and can even polish your project notes to ensure you sound authoritative and clear.
-                        </div>
-</div>
-</div>
+                            Built-in AI helps anyone write like a pro: polish proposals, quotations, and invoices from short notes; suggest full line-item lists from your scope; and improve product descriptions in the catalog. You review everything before sending — AI is a helper, not a black box.
+    </div>
+    </div>
+    </div>
 <!-- FAQ 3 -->
 <div class="border border-border-subtle bg-white rounded-lg overflow-hidden transition-all duration-300 reveal stagger-3 group">
 <button class="w-full p-5 text-left flex justify-between items-center outline-none" onclick="toggleFaq(this)">
@@ -585,11 +668,11 @@
 <div class="faq-content">
 <div class="px-5 text-sm md:text-base text-on-surface-variant">
                             You can link your Telegram account in the settings. Once connected, you'll receive real-time alerts whenever a client views a quote, makes a payment, or when a document status changes.
-                        </div>
-</div>
-</div>
-</div>
-</div>
+    </div>
+    </div>
+    </div>
+    </div>
+  </div>
 </section>
 <!-- Final CTA Section -->
 <section class="py-12 md:py-16 px-4 md:px-8 text-center bg-surface">
@@ -600,8 +683,8 @@
 <div class="flex flex-col sm:flex-row justify-center gap-4">
 <a class="bg-primary px-8 py-4 rounded-full text-on-primary font-label-sm font-bold shadow-lg btn-lift" href="https://demo-smart-invoicify.vercel.app/demo/request">Start free</a>
 <button class="bg-transparent border border-border-subtle px-8 py-4 rounded-full text-typography-charcoal font-label-sm font-bold hover:bg-surface-container-low transition-all">Book a demo</button>
-</div>
-</div>
+    </div>
+  </div>
 </section>
 </main>
 <!-- Footer -->
@@ -610,38 +693,39 @@
 <div class="col-span-1">
 <div class="font-headline-sm text-lg md:text-headline-sm font-bold text-on-surface mb-4">Smart Invoicify</div>
 <p class="text-on-surface-variant font-body-md text-sm md:text-body-md max-w-xs">Professional tools for modern businesses. Simplify your workflow and get paid faster.</p>
-</div>
+          </div>
 <div>
 <h5 class="font-label-xs text-label-xs text-primary mb-6 uppercase tracking-widest">Product</h5>
 <ul class="space-y-3 text-sm">
 <li><a class="nav-link text-on-surface-variant hover:text-primary transition-all duration-200 inline-block" href="#">Features</a></li>
 <li><a class="nav-link text-on-surface-variant hover:text-primary transition-all duration-200 inline-block" href="#">Templates</a></li>
-<li><a class="nav-link text-on-surface-variant hover:text-primary transition-all duration-200 inline-block" href="#">AI Writing</a></li>
-</ul>
-</div>
+<li><a class="nav-link text-on-surface-variant hover:text-primary transition-all duration-200 inline-block" href="#ai-writing">AI writing</a></li>
+<li><a class="nav-link text-on-surface-variant hover:text-primary transition-all duration-200 inline-block" href="#features">Chart of accounts &amp; POs</a></li>
+        </ul>
+      </div>
 <div>
 <h5 class="font-label-xs text-label-xs text-primary mb-6 uppercase tracking-widest">Resources</h5>
 <ul class="space-y-3 text-sm">
 <li><a class="nav-link text-on-surface-variant hover:text-primary transition-all duration-200 inline-block" href="https://demo-smart-invoicify.vercel.app/demo/request">Request demo</a></li>
 <li><a class="nav-link text-on-surface-variant hover:text-primary transition-all duration-200 inline-block" href="https://github.com/Meemkhaan/smart-invoicify" target="_blank" rel="noopener">Product overview on GitHub</a></li>
-</ul>
-</div>
+        </ul>
+      </div>
 <div>
 <h5 class="font-label-xs text-label-xs text-primary mb-6 uppercase tracking-widest">Company</h5>
 <ul class="space-y-3 text-sm">
 <li><a class="nav-link text-on-surface-variant hover:text-primary transition-all duration-200 inline-block" href="#">About Us</a></li>
 <li><a class="nav-link text-on-surface-variant hover:text-primary transition-all duration-200 inline-block" href="#">Privacy</a></li>
 <li><a class="nav-link text-on-surface-variant hover:text-primary transition-all duration-200 inline-block" href="#">Contact</a></li>
-</ul>
-</div>
-</div>
+        </ul>
+      </div>
+    </div>
 <div class="max-w-[1200px] mx-auto px-4 md:px-8 mt-12 pt-8 border-t border-border-subtle flex flex-col md:flex-row justify-between items-center gap-4">
 <p class="text-on-surface-variant font-label-xs text-label-xs">© 2026 Smart Invoicify · Reach Solutions</p>
 <div class="flex gap-6">
 <a class="text-on-surface-variant hover:text-primary transition-transform hover:scale-110" href="https://github.com/Meemkhaan/smart-invoicify" target="_blank" rel="noopener" aria-label="GitHub"><span class="material-symbols-outlined">code</span></a>
 <a class="text-on-surface-variant hover:text-primary transition-transform hover:scale-110" href="https://demo-smart-invoicify.vercel.app/demo/request" aria-label="Request demo"><span class="material-symbols-outlined">play_arrow</span></a>
-</div>
-</div>
+    </div>
+  </div>
 </footer>
 <script>
     // Reveal Observer for Entrance Animations
@@ -675,7 +759,7 @@
         // Toggle current
         if (isActive) {
             parent.classList.remove('active');
-        } else {
+    } else {
             parent.classList.add('active');
         }
     }
