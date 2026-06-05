@@ -1,0 +1,32 @@
+---
+description: Commit and push after every completed task unless the user opts out
+alwaysApply: true
+---
+
+# Commit and push after changes
+
+After completing a task that modified files, **commit and push** unless the user explicitly says not to (e.g. "don't commit yet").
+
+## Repositories
+
+| Work area | Directory | Remote | Branch |
+|-----------|-----------|--------|--------|
+| App | `quotation-invoice-app/` | `https://github.com/Meemkhaan/smart_invoicify.git` | `master` |
+| Landing / marketing | workspace root and `smart-invoicify/` | `https://github.com/Meemkhaan/smart-invoicify.git` | `main` |
+
+Run git commands from the correct directory. The landing site may exist in both the workspace root and the nested `smart-invoicify/` clone—keep them in sync when both are updated.
+
+## Workflow
+
+1. Finish the requested change and verify it works (typecheck/tests when relevant).
+2. `git status` and `git diff` in the affected repo(s).
+3. Stage only relevant files; never commit secrets (`.env`, credentials).
+4. Commit with a concise message focused on **why**.
+5. Push to the remote branch (`git push origin master` or `main`).
+6. If push is rejected, pull/rebase then push again.
+
+## Exceptions
+
+- User explicitly asks not to commit or push.
+- No file changes were made (question-only or review-only tasks).
+- Commit would fail hooks—fix and create a **new** commit; do not amend unless user rules allow it.

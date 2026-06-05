@@ -145,7 +145,7 @@ Smart Invoicify is **proprietary software**. Source access, deployment rights, a
 | | |
 |---|---|
 | **Evaluation** | [Product website](https://meemkhaan.github.io/smart-invoicify/), interactive demo, or scheduled walkthrough |
-| **Purchase / license** | Contact Reach Solutions — [info@reachsolutions.pk](mailto:info@reachsolutions.pk?subject=Smart%20Invoicify%20licensing) |
+| **Purchase / license** | Contact Reach Solutions — [meem.khaan@gmail.com](mailto:meem.khaan@gmail.com?subject=Smart%20Invoicify%20licensing) |
 | **Technical setup** | Provided to licensees after purchase |
 
 See [LICENSE.md](./LICENSE.md) for terms. Unauthorized copying or redistribution is not permitted.
