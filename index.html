@@ -329,6 +329,139 @@
             }
         }
 
+        /* Sectional scroll snap + viewport sections */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 4.5rem;
+            scroll-snap-type: y proximity;
+        }
+        @media (min-width: 1024px) {
+            html {
+                scroll-padding-top: 5.5rem;
+                scroll-snap-type: y mandatory;
+            }
+        }
+
+        .snap-section {
+            min-height: 100dvh;
+            min-height: 100svh;
+            scroll-snap-align: start;
+            scroll-snap-stop: normal;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-sizing: border-box;
+            position: relative;
+            padding-top: 5rem;
+            padding-bottom: 2rem;
+        }
+        @media (min-width: 1024px) {
+            .snap-section:not(.snap-section--start) {
+                scroll-snap-stop: always;
+            }
+        }
+
+        .snap-section--start {
+            justify-content: flex-start;
+            padding-top: 5.5rem;
+            padding-bottom: 3rem;
+        }
+        @media (min-width: 768px) {
+            .snap-section--start {
+                padding-top: 6.5rem;
+            }
+        }
+
+        .snap-section--hero {
+            justify-content: center;
+        }
+
+        .snap-section > div:first-child {
+            width: 100%;
+            transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .snap-section:not(.section-in-view) > div:first-child {
+            opacity: 0;
+            transform: translateY(36px);
+        }
+        .snap-section.section-in-view > div:first-child,
+        .snap-section.snap-section--hero > div:first-child {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-scroll-nav {
+            position: fixed;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 40;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.55rem;
+            padding: 0.75rem 0.5rem;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.82);
+            border: 1px solid #E4E4E7;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+        }
+        @media (min-width: 1280px) {
+            .section-scroll-nav {
+                display: flex;
+            }
+        }
+        .section-scroll-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 9999px;
+            border: 2px solid rgba(0, 74, 198, 0.35);
+            background: transparent;
+            padding: 0;
+            cursor: pointer;
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                        background-color 0.35s ease,
+                        border-color 0.35s ease;
+        }
+        .section-scroll-dot:hover,
+        .section-scroll-dot.active {
+            background: #004ac6;
+            border-color: #004ac6;
+            transform: scale(1.15);
+        }
+        .section-scroll-dot.active {
+            height: 28px;
+            box-shadow: 0 0 0 3px rgba(0, 74, 198, 0.15);
+        }
+        .section-scroll-dot:focus-visible {
+            outline: 2px solid #004ac6;
+            outline-offset: 2px;
+        }
+
+        .snap-scroll-hint {
+            position: absolute;
+            bottom: 1.25rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.15rem;
+            color: #434655;
+            font-size: 11px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            opacity: 0.65;
+            animation: scroll-hint-bob 2.4s ease-in-out infinite;
+            pointer-events: none;
+        }
+        @keyframes scroll-hint-bob {
+            0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.65; }
+            50% { transform: translateX(-50%) translateY(8px); opacity: 1; }
+        }
+
         /* FAQ Smooth Transition */
         .faq-content {
             display: grid;
@@ -351,6 +484,22 @@
 
         /* Reduced Motion */
         @media (prefers-reduced-motion: reduce) {
+            html { scroll-snap-type: none; }
+            .snap-section {
+                min-height: auto;
+                scroll-snap-align: none;
+                scroll-snap-stop: normal;
+            }
+            .snap-section > div:first-child,
+            .snap-section:not(.section-in-view) > div:first-child,
+            .snap-section.section-in-view > div:first-child {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+            }
+            .snap-scroll-hint,
+            .scroll-hint { display: none; }
+            .section-scroll-nav { display: none !important; }
             .reveal, .animate-float, .animate-pulse-soft, .interactive-card, .btn-lift, .nav-link::after, .faq-content, .benefit-chip {
                 transition: none !important;
                 animation: none !important;
@@ -382,9 +531,18 @@
   </div>
 </nav>
 </header>
+<nav class="section-scroll-nav" aria-label="Page sections">
+<button type="button" class="section-scroll-dot active" data-target="top" aria-label="Hero" title="Hero"></button>
+<button type="button" class="section-scroll-dot" data-target="ai-writing" aria-label="AI" title="AI"></button>
+<button type="button" class="section-scroll-dot" data-target="how-it-works" aria-label="How it works" title="How it works"></button>
+<button type="button" class="section-scroll-dot" data-target="mobile-app" aria-label="Mobile PWA" title="Mobile PWA"></button>
+<button type="button" class="section-scroll-dot" data-target="features" aria-label="Features" title="Features"></button>
+<button type="button" class="section-scroll-dot" data-target="pricing" aria-label="Pricing" title="Pricing"></button>
+<button type="button" class="section-scroll-dot" data-target="faq" aria-label="FAQ" title="FAQ"></button>
+</nav>
 <main>
 <!-- Hero Section -->
-<section class="hero-gradient pt-8 md:pt-12 pb-12 md:pb-16 px-4 md:px-8">
+<section class="snap-section snap-section--hero hero-gradient section-in-view px-4 md:px-8" id="top">
 <div class="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
 <div class="space-y-6 reveal">
 <div class="inline-flex items-center gap-2 px-3 py-1 bg-mint-success text-on-secondary-container rounded-full font-label-xs">
@@ -447,10 +605,14 @@
             </div>
               </div>
               </div>
-              </div>
+</div>
+<div class="snap-scroll-hint" aria-hidden="true">
+<span class="material-symbols-outlined text-[20px]">expand_more</span>
+<span>Scroll</span>
+</div>
 </section>
 <!-- AI Section -->
-<section class="py-12 md:py-16 px-4 md:px-8 section-anchor" id="ai-writing">
+<section class="snap-section snap-section--start px-4 md:px-8 section-anchor" id="ai-writing">
 <div class="max-w-[1200px] mx-auto">
 <div class="ai-spotlight rounded-2xl p-6 md:p-10 reveal">
 <div class="text-center mb-8">
@@ -482,7 +644,7 @@ You do not need perfect English or years of quoting experience. Type how you wou
 </div>
 </section>
 <!-- Problem Section -->
-<section class="py-12 md:py-16 px-4 md:px-8 bg-surface-off-white">
+<section class="snap-section px-4 md:px-8 bg-surface-off-white">
 <div class="max-w-[1200px] mx-auto">
 <div class="text-center mb-10 reveal">
 <h2 class="font-headline-md text-2xl md:text-headline-md text-typography-charcoal mb-4">The struggle with manual paperwork</h2>
@@ -531,7 +693,7 @@ You do not need perfect English or years of quoting experience. Type how you wou
   </div>
 </section>
 <!-- Solution Section -->
-<section class="py-12 md:py-16 px-4 md:px-8 bg-surface overflow-hidden section-anchor" id="how-it-works">
+<section class="snap-section snap-section--start px-4 md:px-8 bg-surface overflow-hidden section-anchor" id="how-it-works">
 <div class="max-w-[1200px] mx-auto text-center mb-12 reveal">
 <h2 class="font-headline-md text-2xl md:text-headline-md text-typography-charcoal mb-4">Breathe easy with Smart Invoicify</h2>
 <p class="font-body-lg text-base md:text-body-lg text-on-surface-variant max-w-3xl mx-auto">
@@ -593,7 +755,7 @@ You do not need perfect English or years of quoting experience. Type how you wou
   </div>
 </section>
 <!-- PWA / Mobile Section -->
-<section class="py-12 md:py-16 px-4 md:px-8 bg-surface-container-low section-anchor" id="mobile-app">
+<section class="snap-section snap-section--start px-4 md:px-8 bg-surface-container-low section-anchor" id="mobile-app">
 <div class="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center reveal">
 <div class="space-y-4">
 <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary font-label-xs uppercase tracking-wider">
@@ -679,7 +841,7 @@ You don’t need to download or install a separate mobile application from an ap
 </div>
 </section>
 <!-- Features Grid -->
-<section class="py-12 md:py-16 px-4 md:px-8 section-anchor" id="features">
+<section class="snap-section snap-section--start px-4 md:px-8 section-anchor" id="features">
 <div class="max-w-[1200px] mx-auto">
 <div class="text-center mb-10 reveal">
 <h2 class="font-headline-md text-2xl md:text-headline-md text-typography-charcoal mb-3">Everything in one workspace</h2>
@@ -756,7 +918,7 @@ You don’t need to download or install a separate mobile application from an ap
   </div>
 </section>
 <!-- Templates (future) -->
-<section class="py-12 md:py-16 px-4 md:px-8 bg-surface-container-low section-anchor" id="templates">
+<section class="snap-section snap-section--start px-4 md:px-8 bg-surface-container-low section-anchor" id="templates">
 <div class="max-w-[1200px] mx-auto reveal">
 <div class="rounded-2xl border border-dashed border-primary/30 bg-white p-8 md:p-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
 <div class="space-y-3 max-w-2xl">
@@ -772,7 +934,7 @@ You don’t need to download or install a separate mobile application from an ap
 </div>
 </section>
 <!-- Outcomes Section -->
-<section class="py-12 md:py-16 px-4 md:px-8 bg-on-primary-fixed text-white overflow-hidden relative">
+<section class="snap-section px-4 md:px-8 bg-on-primary-fixed text-white overflow-hidden relative">
 <div class="absolute top-0 right-0 w-1/3 h-full opacity-10 pointer-events-none hidden lg:block">
 <span class="material-symbols-outlined text-[400px] absolute -right-20 -top-20" style="font-variation-settings: 'FILL' 1;">verified</span>
           </div>
@@ -812,7 +974,7 @@ You don’t need to download or install a separate mobile application from an ap
   </div>
 </section>
 <!-- Use Cases Section -->
-<section class="py-12 md:py-16 px-4 md:px-8">
+<section class="snap-section snap-section--start px-4 md:px-8">
 <div class="max-w-[1200px] mx-auto reveal">
 <h2 class="font-headline-md text-2xl md:text-headline-md text-typography-charcoal text-center mb-10">Built for every professional</h2>
 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
@@ -840,7 +1002,7 @@ You don’t need to download or install a separate mobile application from an ap
   </div>
 </section>
 <!-- Pricing / Access -->
-<section class="py-12 md:py-16 px-4 md:px-8 bg-on-primary-fixed text-white section-anchor" id="pricing">
+<section class="snap-section snap-section--start px-4 md:px-8 bg-on-primary-fixed text-white section-anchor" id="pricing">
 <div class="max-w-[1200px] mx-auto reveal">
 <div class="text-center max-w-2xl mx-auto mb-10 md:mb-12">
 <p class="font-label-xs text-label-xs text-primary-fixed-dim uppercase tracking-widest mb-3">Access &amp; licensing</p>
@@ -886,7 +1048,7 @@ You don’t need to download or install a separate mobile application from an ap
 </div>
 </section>
 <!-- About -->
-<section class="py-12 md:py-16 px-4 md:px-8 section-anchor" id="about">
+<section class="snap-section px-4 md:px-8 section-anchor" id="about">
 <div class="max-w-[800px] mx-auto reveal space-y-4">
 <h2 class="font-headline-md text-2xl md:text-headline-md text-typography-charcoal">About us</h2>
 <p class="text-on-surface-variant text-sm md:text-base"><strong class="text-typography-charcoal">Reach Solutions</strong> builds Smart Invoicify for service and project-based businesses — contractors, workshops, agencies, and small teams who need professional documents without juggling spreadsheets.</p>
@@ -895,7 +1057,7 @@ You don’t need to download or install a separate mobile application from an ap
 </div>
 </section>
 <!-- Privacy -->
-<section class="py-12 md:py-16 px-4 md:px-8 bg-surface-off-white section-anchor" id="privacy">
+<section class="snap-section snap-section--start px-4 md:px-8 bg-surface-off-white section-anchor" id="privacy">
 <div class="max-w-[800px] mx-auto reveal space-y-4">
 <h2 class="font-headline-md text-2xl md:text-headline-md text-typography-charcoal">Privacy</h2>
 <p class="text-on-surface-variant text-sm md:text-base">This summary describes how we handle information on the marketing site, demo sandbox, and licensed product. For contractual terms, see your license agreement with Reach Solutions.</p>
@@ -909,7 +1071,7 @@ You don’t need to download or install a separate mobile application from an ap
 </div>
 </section>
 <!-- Contact -->
-<section class="py-12 md:py-16 px-4 md:px-8 section-anchor" id="contact">
+<section class="snap-section snap-section--start px-4 md:px-8 section-anchor" id="contact">
 <div class="max-w-[800px] mx-auto reveal">
 <h2 class="font-headline-md text-2xl md:text-headline-md text-typography-charcoal mb-6">Contact</h2>
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -937,7 +1099,7 @@ You don’t need to download or install a separate mobile application from an ap
 </div>
 </section>
 <!-- FAQ Section -->
-<section class="py-12 md:py-16 px-4 md:px-8 bg-surface-off-white section-anchor" id="faq">
+<section class="snap-section snap-section--start px-4 md:px-8 bg-surface-off-white section-anchor" id="faq">
 <div class="max-w-[800px] mx-auto reveal">
 <h2 class="font-headline-md text-2xl md:text-headline-md text-typography-charcoal text-center mb-10">Frequently Asked Questions</h2>
 <div class="space-y-3">
@@ -1005,7 +1167,7 @@ You don’t need to download or install a separate mobile application from an ap
   </div>
 </section>
 <!-- Final CTA Section -->
-<section class="py-12 md:py-16 px-4 md:px-8 text-center bg-surface">
+<section class="snap-section px-4 md:px-8 text-center bg-surface">
 <div class="max-w-[800px] mx-auto p-8 md:p-12 bg-white rounded-3xl border border-border-subtle shadow-xl relative overflow-hidden reveal">
 <div class="absolute top-0 left-0 w-2 h-full bg-primary"></div>
 <h2 class="font-headline-md text-2xl md:text-headline-md text-typography-charcoal mb-4">Ready to simplify your business?</h2>
@@ -1061,21 +1223,55 @@ You don’t need to download or install a separate mobile application from an ap
   </div>
 </footer>
 <script>
-    // Reveal Observer for Entrance Animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
+    const snapSections = document.querySelectorAll('.snap-section');
+    const scrollDots = document.querySelectorAll('.section-scroll-dot');
 
+    const sectionViewObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            entry.target.classList.toggle('section-in-view', entry.isIntersecting);
+            if (entry.isIntersecting) {
+                entry.target.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
+            }
+        });
+    }, { threshold: 0.35, rootMargin: '-72px 0px -72px 0px' });
+
+    snapSections.forEach(section => sectionViewObserver.observe(section));
+
+    function updateActiveSectionDot() {
+        const probe = window.scrollY + window.innerHeight * 0.42;
+        let activeTarget = 'top';
+        snapSections.forEach(section => {
+            if (section.offsetTop <= probe) {
+                activeTarget = section.id || 'top';
+            }
+        });
+        scrollDots.forEach(dot => {
+            dot.classList.toggle('active', dot.dataset.target === activeTarget);
+        });
+    }
+
+    scrollDots.forEach(dot => {
+        dot.addEventListener('click', () => {
+            const target = dot.dataset.target;
+            if (target === 'top') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                return;
+            }
+            document.getElementById(target)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+
+    window.addEventListener('scroll', updateActiveSectionDot, { passive: true });
+    updateActiveSectionDot();
+
+    // Reveal Observer for elements outside snap sections
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
-                // Optional: stop observing once triggered
-                // revealObserver.unobserve(entry.target);
             }
         });
-    }, observerOptions);
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
