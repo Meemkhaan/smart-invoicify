@@ -106,15 +106,26 @@
     align-items: center;
   }
   .nav-links { display: flex; align-items: center; gap: 28px; }
-  .nav-links a { color: var(--ink-2); text-decoration: none; font-size: 0.9rem; font-weight: 400; transition: color .2s; }
-  .nav-links a:hover { color: var(--ink); }
+  .nav-links a:not(.nav-cta) { color: var(--ink-2); text-decoration: none; font-size: 0.9rem; font-weight: 400; transition: color .2s; }
+  .nav-links a:not(.nav-cta):hover { color: var(--ink); }
   .nav-cta {
-    background: var(--ink); color: var(--paper);
-    padding: 9px 20px; border-radius: 8px;
-    font-size: 0.88rem; font-weight: 500; text-decoration: none;
-    transition: background .2s;
+    background: var(--accent);
+    color: #fff !important;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background .2s, box-shadow .2s, transform .15s;
+    box-shadow: 0 2px 14px rgba(26, 79, 214, 0.35);
+    white-space: nowrap;
   }
-  .nav-cta:hover { background: var(--accent); color: #fff; }
+  .nav-cta:hover {
+    background: #0d39b0;
+    color: #fff !important;
+    box-shadow: 0 4px 18px rgba(26, 79, 214, 0.45);
+    transform: translateY(-1px);
+  }
 
   /* HERO */
   .hero {
@@ -173,17 +184,16 @@
     padding: 8px 16px 8px 8px;
     width: fit-content;
   }
-  .proof-avatars { display: flex; }
-  .proof-avatars span {
-    width: 30px; height: 30px; border-radius: 50%;
-    border: 2px solid var(--paper); margin-left: -8px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.6rem; font-weight: 700; line-height: 1;
+  .proof-avatars { display: flex; align-items: center; }
+  .proof-avatars img {
+    width: 32px; height: 32px; border-radius: 50%;
+    border: 2px solid var(--paper);
+    margin-left: -10px;
+    object-fit: cover;
     flex-shrink: 0;
+    background: var(--paper-3);
   }
-  .proof-avatars span:first-child { margin-left: 0; background: #d4e8ff; color: #1a4fd6; }
-  .proof-avatars span:nth-child(2) { background: #ffe8d4; color: #c45a08; }
-  .proof-avatars span:nth-child(3) { background: #d4ffe8; color: #176a3c; }
+  .proof-avatars img:first-child { margin-left: 0; }
   .proof-text strong { color: var(--ink-2); font-weight: 600; }
 
   /* HERO VISUAL — large phone mockup */
@@ -232,75 +242,42 @@
   .notch-cam { width: 10px; height: 10px; background: #0a0a0a; border-radius: 50%; border: 1.5px solid #222; }
   .notch-pill { width: 24px; height: 8px; background: #0a0a0a; border-radius: 4px; border: 1.5px solid #222; }
 
-  .phone-screen-main {
+  .phone-screen-main,
+  .phone-screen-shot {
     background: #fff;
     border-radius: 30px;
     overflow: hidden;
-    min-height: 500px;
+    position: relative;
+    aspect-ratio: 9 / 19.5;
+    min-height: 520px;
   }
-  /* Status bar */
-  .ph-status {
-    background: var(--accent);
-    padding: 8px 16px 0;
-    display: flex; justify-content: space-between; align-items: center;
-    font-size: 0.6rem; color: rgba(255,255,255,.7); font-weight: 500;
+  .phone-shot-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 24px;
+    text-align: center;
+    background: repeating-linear-gradient(-45deg, #f6f2f7, #f6f2f7 8px, #ece8f0 8px, #ece8f0 16px);
+    border: 2px dashed #c3c6d7;
+    border-radius: 28px;
+    color: var(--ink-3);
   }
-  .ph-app-header {
-    background: var(--accent);
-    padding: 6px 16px 14px;
-    color: #fff;
+  .phone-shot-placeholder.hidden { display: none; }
+  .phone-shot-placeholder p { font-size: 0.72rem; line-height: 1.4; }
+  .phone-shot-placeholder code { font-size: 0.65rem; color: var(--ink-2); background: rgba(255,255,255,.8); padding: 4px 8px; border-radius: 4px; }
+  .phone-shot-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
   }
-  .ph-app-header-row { display: flex; justify-content: space-between; align-items: flex-start; }
-  .ph-app-title { font-size: 0.78rem; font-weight: 700; letter-spacing: .02em; opacity: .75; margin-bottom: 2px; }
-  .ph-doc-title { font-size: 1rem; font-weight: 700; }
-  .ph-status-chip {
-    background: rgba(255,255,255,.2);
-    border-radius: 20px; padding: 3px 9px;
-    font-size: 0.6rem; font-weight: 700;
-    display: flex; align-items: center; gap: 4px;
-    margin-top: 2px;
-  }
-  .ph-status-chip::before { content: none; }
-  .ph-client-info {
-    background: rgba(255,255,255,.12);
-    border-radius: 8px; padding: 6px 10px; margin-top: 8px;
-    font-size: 0.65rem; color: rgba(255,255,255,.85);
-    display: flex; justify-content: space-between;
-  }
-  .ph-body-main { padding: 12px 14px 0; }
-  .ph-section-label {
-    font-size: 0.6rem; font-weight: 700; letter-spacing: .08em;
-    text-transform: uppercase; color: #aaa; margin-bottom: 6px;
-  }
-  .ph-line-item {
-    display: flex; justify-content: space-between; align-items: flex-start;
-    padding: 7px 0; border-bottom: 1px solid #f2f0ea;
-    gap: 8px;
-  }
-  .ph-line-item:last-child { border-bottom: none; }
-  .ph-item-name { font-size: 0.68rem; font-weight: 500; color: #222; line-height: 1.3; flex: 1; }
-  .ph-item-desc { font-size: 0.58rem; color: #999; margin-top: 1px; }
-  .ph-item-price { font-size: 0.68rem; font-weight: 600; color: #111; white-space: nowrap; }
-  .ph-subtotal-row {
-    display: flex; justify-content: space-between; padding: 5px 0;
-    font-size: 0.65rem; color: #666; border-bottom: 1px solid #f2f0ea;
-  }
-  .ph-divider { height: 1px; background: #f0eee8; margin: 8px 0; }
-  .ph-total-block {
-    background: linear-gradient(135deg, var(--accent) 0%, #0d39b0 100%);
-    margin: 4px -14px 0; padding: 12px 14px;
-    display: flex; justify-content: space-between; align-items: center;
-    border-radius: 0 0 30px 30px;
-  }
-  .ph-total-label { font-size: 0.72rem; font-weight: 600; color: rgba(255,255,255,.8); }
-  .ph-total-amount { font-size: 1.1rem; font-weight: 800; color: #fff; }
-  .ph-sign-row {
-    background: rgba(255,255,255,.15);
-    border-radius: 6px; margin-top: 6px;
-    padding: 5px 10px;
-    font-size: 0.6rem; color: rgba(255,255,255,.8);
-    display: flex; align-items: center; justify-content: space-between;
-  }
+  .phone-shot-img.hidden { display: none; }
 
   /* Floating notification badges */
   .float-badge {
@@ -429,37 +406,133 @@
   .feature-tag { display: inline-block; margin-top: 10px; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; }
 
   /* TESTIMONIAL CAROUSEL */
-  .testi-carousel-wrap { position: relative; overflow: hidden; margin-top: 40px; }
+  .testi-section { background: var(--paper-2); padding: 80px 0; }
+  .testi-section-inner { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+  .testi-section-header { margin-bottom: 8px; }
+  .testi-section-sub { color: var(--ink-3); font-size: 0.95rem; margin-bottom: 36px; max-width: 520px; }
+  .testi-carousel-wrap {
+    position: relative;
+    overflow: hidden;
+    margin-top: 8px;
+    padding-bottom: 4px;
+  }
   .testi-track {
-    display: flex; gap: 20px;
-    transition: transform .45s cubic-bezier(.4,0,.2,1);
+    display: flex;
+    gap: 20px;
+    transition: transform .5s cubic-bezier(.4, 0, .2, 1);
+    will-change: transform;
   }
   .testi-card {
-    background: var(--paper); border: 1px solid var(--paper-3);
-    border-radius: var(--r-lg); padding: 28px;
-    min-width: calc(33.333% - 14px); flex-shrink: 0;
+    background: var(--paper);
+    border: 1px solid var(--paper-3);
+    border-radius: var(--r-lg);
+    padding: 28px 24px 24px;
+    flex: 0 0 calc((100% - 40px) / 3);
+    min-width: calc((100% - 40px) / 3);
+    box-shadow: 0 8px 32px rgba(15, 15, 13, 0.06);
+    display: flex;
+    flex-direction: column;
+    min-height: 240px;
   }
-  .testi-stars { color: #f5a623; font-size: 0.85rem; margin-bottom: 12px; letter-spacing: .1em; }
-  .testi-text { font-size: 0.88rem; line-height: 1.65; color: var(--ink-2); margin-bottom: 16px; font-style: italic; }
-  .testi-author { display: flex; align-items: center; gap: 10px; }
-  .testi-avatar { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; flex-shrink: 0; }
-  .testi-name { font-size: 0.85rem; font-weight: 600; }
-  .testi-role { font-size: 0.75rem; color: var(--ink-3); }
-  .testi-nav { display: flex; align-items: center; gap: 12px; margin-top: 28px; }
+  .testi-quote-mark {
+    color: var(--accent);
+    opacity: 0.25;
+    font-family: 'Instrument Serif', serif;
+    font-size: 3rem;
+    line-height: 1;
+    margin-bottom: 4px;
+    user-select: none;
+  }
+  .testi-stars { color: #f5a623; font-size: 0.8rem; margin-bottom: 12px; letter-spacing: 0.12em; }
+  .testi-text {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: var(--ink-2);
+    margin-bottom: auto;
+    padding-bottom: 20px;
+  }
+  .testi-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 16px;
+    border-top: 1px solid var(--paper-3);
+  }
+  .testi-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 2px solid var(--paper-3);
+  }
+  .testi-avatar-fallback {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .testi-name { font-size: 0.88rem; font-weight: 600; color: var(--ink); }
+  .testi-role { font-size: 0.75rem; color: var(--ink-3); margin-top: 2px; }
+  .testi-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 32px;
+  }
   .testi-btn {
-    width: 40px; height: 40px; border-radius: 50%;
-    border: 1px solid var(--paper-3); background: var(--paper);
-    font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center;
-    transition: border-color .2s, background .2s;
-  }
-  .testi-btn:hover { border-color: var(--accent); background: var(--accent-light); }
-  .testi-dots { display: flex; gap: 6px; }
-  .testi-dot {
-    width: 8px; height: 8px; border-radius: 50%;
-    background: var(--paper-3); transition: background .3s, transform .3s;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--paper-3);
+    background: var(--paper);
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color .2s, background .2s, box-shadow .2s;
+    color: var(--ink-2);
   }
-  .testi-dot.active { background: var(--accent); transform: scale(1.3); }
+  .testi-btn:hover:not(:disabled) {
+    border-color: var(--accent);
+    background: var(--accent-light);
+    color: var(--accent);
+  }
+  .testi-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+  .testi-dots { display: flex; gap: 8px; align-items: center; }
+  .testi-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--paper-3);
+    transition: background .3s, transform .3s, width .3s;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+  }
+  .testi-dot.active {
+    background: var(--accent);
+    width: 24px;
+    border-radius: 4px;
+  }
+  @media (max-width: 899px) {
+    .testi-card {
+      flex: 0 0 calc((100% - 20px) / 2);
+      min-width: calc((100% - 20px) / 2);
+    }
+  }
+  @media (max-width: 599px) {
+    .testi-card {
+      flex: 0 0 100%;
+      min-width: 100%;
+    }
+  }
 
   /* STATS */
   .stats-row {
@@ -665,7 +738,6 @@
     .fb-ai { left: -80px; }
     .fb-telegram { right: -70px; }
     .steps-grid { grid-template-columns: 1fr; }
-    .testi-card { min-width: calc(100% - 0px); }
     .pwa-inner { grid-template-columns: 1fr; padding: 0 20px; }
     .about-inner { grid-template-columns: 1fr; }
     .features-grid { grid-template-columns: 1fr; }
@@ -713,9 +785,9 @@
       </div>
       <div class="hero-proof">
         <div class="proof-avatars">
-          <span title="Aamir D.">AD</span>
-          <span title="Muhammad R.">MR</span>
-          <span title="Sara S.">SS</span>
+          <img src="https://i.pravatar.cc/64?img=33" alt="Aamir D." width="32" height="32" loading="lazy">
+          <img src="https://i.pravatar.cc/64?img=15" alt="Muhammad R." width="32" height="32" loading="lazy">
+          <img src="https://i.pravatar.cc/64?img=47" alt="Sara S." width="32" height="32" loading="lazy">
         </div>
         <span class="proof-text"><strong>Trusted by 50+ business owners</strong> across Pakistan</span>
       </div>
@@ -730,64 +802,23 @@
             <div class="notch-cam"></div>
             <div class="notch-pill"></div>
           </div>
-          <div class="phone-screen-main">
-            <div class="ph-status">
-              <span>9:41</span>
-              <span>WiFi · 100%</span>
+          <div class="phone-screen-shot">
+            <div class="phone-shot-placeholder" id="heroShotPlaceholder">
+              <span class="material-symbols-outlined" style="font-size:2.2rem;opacity:.45;">smartphone</span>
+              <p><strong>App screenshot</strong><br>Add a real mobile capture of your quote screen</p>
+              <code>screenshots/pwa/03-client-approval.png</code>
             </div>
-            <div class="ph-app-header">
-              <div class="ph-app-title">SMART INVOICIFY</div>
-              <div class="ph-app-header-row">
-                <div class="ph-doc-title">Quote #QT-0042</div>
-                <div class="ph-status-chip"><span class="material-symbols-outlined fill">check_circle</span> Approved</div>
-              </div>
-              <div class="ph-client-info">
-                <span>Al-Noor Solar &amp; CCTV</span>
-                <span>Jun 6, 2026</span>
-              </div>
-            </div>
-            <div class="ph-body-main">
-              <div class="ph-section-label">Line items</div>
-              <div class="ph-line-item">
-                <div>
-                  <div class="ph-item-name">Solar panels — 6kW system</div>
-                  <div class="ph-item-desc">Tier-1 monocrystalline, 18 panels</div>
-                </div>
-                <div class="ph-item-price">₨ 180,000</div>
-              </div>
-              <div class="ph-line-item">
-                <div>
-                  <div class="ph-item-name">Hybrid inverter unit</div>
-                  <div class="ph-item-desc">5kW, battery-ready</div>
-                </div>
-                <div class="ph-item-price">₨ 95,000</div>
-              </div>
-              <div class="ph-line-item">
-                <div>
-                  <div class="ph-item-name">CCTV — 8 camera kit</div>
-                  <div class="ph-item-desc">4MP night vision, NVR included</div>
-                </div>
-                <div class="ph-item-price">₨ 58,000</div>
-              </div>
-              <div class="ph-line-item">
-                <div>
-                  <div class="ph-item-name">Installation &amp; wiring</div>
-                  <div class="ph-item-desc">Full site, 1-day team</div>
-                </div>
-                <div class="ph-item-price">₨ 25,000</div>
-              </div>
-              <div class="ph-subtotal-row"><span>Subtotal</span><span>₨ 358,000</span></div>
-              <div class="ph-subtotal-row"><span>Tax (0%)</span><span>—</span></div>
-            </div>
-            <div class="ph-total-block">
-              <div>
-                <div class="ph-total-label">Total amount</div>
-                <div class="ph-sign-row">
-                  <span>Signed by client</span><span>06/06/2026</span>
-                </div>
-              </div>
-              <div class="ph-total-amount">₨ 358,000</div>
-            </div>
+            <img
+              class="phone-shot-img hidden"
+              id="heroShotImg"
+              src="screenshots/pwa/03-client-approval.png"
+              alt="Smart Invoicify — client-approved quote on mobile"
+              width="272"
+              height="590"
+              loading="eager"
+              onload="this.classList.remove('hidden');document.getElementById('heroShotPlaceholder').classList.add('hidden');"
+              onerror="this.classList.add('hidden');"
+            >
           </div>
         </div>
 
@@ -956,62 +987,69 @@
 </section>
 
 <!-- TESTIMONIALS CAROUSEL -->
-<section style="background: var(--paper-2); padding: 80px 0;">
-  <div style="max-width: 1100px; margin: 0 auto; padding: 0 32px;">
-    <div class="section-label">Real people, real results</div>
-    <h2>What our users say</h2>
-    <div class="testi-carousel-wrap">
+<section class="testi-section">
+  <div class="testi-section-inner">
+    <div class="testi-section-header">
+      <div class="section-label">Real people, real results</div>
+      <h2>What our users say</h2>
+      <p class="testi-section-sub">Contractors and small business owners across Pakistan — saving hours on every quote.</p>
+    </div>
+    <div class="testi-carousel-wrap" id="testiWrap">
       <div class="testi-track" id="testiTrack">
         <div class="testi-card">
-          <div class="testi-stars">★★★★★</div>
-          <p class="testi-text">"I sent my first proper quote in less than a minute. The client replied immediately — they said it looked so professional they didn't even bargain!"</p>
+          <div class="testi-quote-mark" aria-hidden="true">“</div>
+          <div class="testi-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="testi-text">I sent my first proper quote in less than a minute. The client replied immediately — they said it looked so professional they didn't even bargain!</p>
           <div class="testi-author">
-            <div class="testi-avatar" style="background: #d4e8ff; color: #1a4fd6;">AD</div>
+            <img class="testi-avatar" src="https://i.pravatar.cc/88?img=33" alt="" width="44" height="44" loading="lazy">
             <div>
               <div class="testi-name">Aamir Durrani</div>
-              <div class="testi-role">Electrician, Karachi</div>
+              <div class="testi-role">Electrician · Karachi</div>
             </div>
           </div>
         </div>
         <div class="testi-card">
-          <div class="testi-stars">★★★★★</div>
-          <p class="testi-text">"The best decision for my small business. I send a quote and get paid faster than ever. The AI even helps me write English terms I never knew how to phrase."</p>
+          <div class="testi-quote-mark" aria-hidden="true">“</div>
+          <div class="testi-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="testi-text">The best decision for my small business. I send a quote and get paid faster than ever. The AI even helps me write English terms I never knew how to phrase.</p>
           <div class="testi-author">
-            <div class="testi-avatar" style="background: #ffe8d4; color: #c45a08;">MR</div>
+            <img class="testi-avatar" src="https://i.pravatar.cc/88?img=15" alt="" width="44" height="44" loading="lazy">
             <div>
               <div class="testi-name">Muhammad R.</div>
-              <div class="testi-role">HVAC contractor, Karachi</div>
+              <div class="testi-role">HVAC contractor · Karachi</div>
             </div>
           </div>
         </div>
         <div class="testi-card">
-          <div class="testi-stars">★★★★★</div>
-          <p class="testi-text">"Before this, I was writing quotes in WhatsApp. Now I look like a proper company. Clients trust me more and I win more jobs than before."</p>
+          <div class="testi-quote-mark" aria-hidden="true">“</div>
+          <div class="testi-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="testi-text">Before this, I was writing quotes in WhatsApp. Now I look like a proper company. Clients trust me more and I win more jobs than before.</p>
           <div class="testi-author">
-            <div class="testi-avatar" style="background: #d4ffe8; color: #176a3c;">SS</div>
+            <img class="testi-avatar" src="https://i.pravatar.cc/88?img=47" alt="" width="44" height="44" loading="lazy">
             <div>
               <div class="testi-name">Sara S.</div>
-              <div class="testi-role">Interior design, Islamabad</div>
+              <div class="testi-role">Interior design · Islamabad</div>
             </div>
           </div>
         </div>
         <div class="testi-card">
-          <div class="testi-stars">★★★★★</div>
-          <p class="testi-text">"Wasil bhai told me about Smart Invoicify and I was skeptical at first. But the first time I used it on my phone while standing at a client's house, I made the quote right there. They signed the same day."</p>
+          <div class="testi-quote-mark" aria-hidden="true">“</div>
+          <div class="testi-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="testi-text">Wasil bhai told me about Smart Invoicify and I was skeptical at first. But the first time I used it on my phone at a client's house, I made the quote right there. They signed the same day.</p>
           <div class="testi-author">
-            <div class="testi-avatar" style="background: #f3e8ff; color: #7c3aed;">IK</div>
+            <img class="testi-avatar" src="https://i.pravatar.cc/88?img=12" alt="" width="44" height="44" loading="lazy">
             <div>
               <div class="testi-name">Imran K.</div>
-              <div class="testi-role">CCTV installer, Lahore</div>
+              <div class="testi-role">CCTV installer · Lahore</div>
             </div>
           </div>
         </div>
       </div>
     </div>
     <div class="testi-nav">
-      <button class="testi-btn" id="testiPrev" aria-label="Previous"><span class="material-symbols-outlined">chevron_left</span></button>
-      <button class="testi-btn" id="testiNext" aria-label="Next"><span class="material-symbols-outlined">chevron_right</span></button>
-      <div class="testi-dots" id="testiDots"></div>
+      <button class="testi-btn" id="testiPrev" type="button" aria-label="Previous testimonials"><span class="material-symbols-outlined">chevron_left</span></button>
+      <div class="testi-dots" id="testiDots" role="tablist" aria-label="Testimonial pages"></div>
+      <button class="testi-btn" id="testiNext" type="button" aria-label="Next testimonials"><span class="material-symbols-outlined">chevron_right</span></button>
     </div>
   </div>
 </section>
@@ -1293,48 +1331,85 @@
 </footer>
 
 <script>
-  // Testimonial carousel
-  const track = document.getElementById('testiTrack');
-  const cards = track.querySelectorAll('.testi-card');
-  const dotsContainer = document.getElementById('testiDots');
-  let current = 0;
-  const total = cards.length;
+  (function () {
+    const track = document.getElementById('testiTrack');
+    const wrap = document.getElementById('testiWrap');
+    const dotsContainer = document.getElementById('testiDots');
+    const prevBtn = document.getElementById('testiPrev');
+    const nextBtn = document.getElementById('testiNext');
+    const cards = track.querySelectorAll('.testi-card');
+    const total = cards.length;
+    const gap = 20;
+    let current = 0;
 
-  // Create dots
-  cards.forEach((_, i) => {
-    const dot = document.createElement('div');
-    dot.className = 'testi-dot' + (i === 0 ? ' active' : '');
-    dot.addEventListener('click', () => goTo(i));
-    dotsContainer.appendChild(dot);
-  });
+    function getVisible() {
+      const w = window.innerWidth;
+      if (w < 600) return 1;
+      if (w < 900) return 2;
+      return 3;
+    }
 
-  function getVisible() {
-    const w = track.parentElement.offsetWidth;
-    if (w < 600) return 1;
-    if (w < 900) return 2;
-    return 3;
-  }
+    function getMaxIndex() {
+      return Math.max(0, total - getVisible());
+    }
 
-  function goTo(idx) {
-    const vis = getVisible();
-    const max = Math.max(0, total - vis);
-    current = Math.max(0, Math.min(idx, max));
-    const cardW = cards[0].offsetWidth + 20;
-    track.style.transform = 'translateX(-' + (current * cardW) + 'px)';
-    document.querySelectorAll('.testi-dot').forEach((d, i) => {
-      d.classList.toggle('active', i === current);
+    function getStepWidth() {
+      const vis = getVisible();
+      return (wrap.offsetWidth - gap * (vis - 1)) / vis + gap;
+    }
+
+    function buildDots() {
+      const pages = getMaxIndex() + 1;
+      dotsContainer.innerHTML = '';
+      for (let i = 0; i < pages; i++) {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'testi-dot' + (i === current ? ' active' : '');
+        dot.setAttribute('role', 'tab');
+        dot.setAttribute('aria-label', 'Testimonials page ' + (i + 1));
+        dot.setAttribute('aria-selected', i === current ? 'true' : 'false');
+        dot.addEventListener('click', () => goTo(i));
+        dotsContainer.appendChild(dot);
+      }
+    }
+
+    function updateButtons() {
+      const max = getMaxIndex();
+      prevBtn.disabled = current <= 0;
+      nextBtn.disabled = current >= max;
+    }
+
+    function goTo(idx) {
+      const max = getMaxIndex();
+      current = Math.max(0, Math.min(idx, max));
+      track.style.transform = 'translateX(-' + (current * getStepWidth()) + 'px)';
+      dotsContainer.querySelectorAll('.testi-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === current);
+        d.setAttribute('aria-selected', i === current ? 'true' : 'false');
+      });
+      updateButtons();
+    }
+
+    prevBtn.addEventListener('click', () => goTo(current - 1));
+    nextBtn.addEventListener('click', () => goTo(current + 1));
+
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        buildDots();
+        goTo(current);
+      }, 120);
     });
-  }
 
-  document.getElementById('testiPrev').addEventListener('click', () => goTo(current - 1));
-  document.getElementById('testiNext').addEventListener('click', () => goTo(current + 1));
+    buildDots();
+    goTo(0);
 
-  // Auto-advance every 5s
-  setInterval(() => {
-    const vis = getVisible();
-    const max = Math.max(0, total - vis);
-    goTo(current >= max ? 0 : current + 1);
-  }, 5000);
+    setInterval(() => {
+      const max = getMaxIndex();
+      goTo(current >= max ? 0 : current + 1);
+    }, 6000);
+  })();
 </script>
 </body>
 </html>
