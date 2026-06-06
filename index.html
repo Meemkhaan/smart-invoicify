@@ -1,1216 +1,1339 @@
 <!DOCTYPE html>
-
-<html class="scroll-smooth" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Smart Invoicify | Send Quotes, Get Paid Faster</title>
-<meta content="Turn a rough job description into a professional quote in under 60 seconds. Send from your phone, get client approval online, and invoice with one tap — no app store download." name="description"/>
-<meta property="og:title" content="Smart Invoicify — Send Quotes, Get Paid Faster"/>
-<meta property="og:description" content="Professional quotes and invoices for contractors, freelancers, and workshops — send from your phone and get paid faster."/>
-<meta property="og:url" content="https://meemkhaan.github.io/smart-invoicify/"/>
-<meta property="og:image" content="https://meemkhaan.github.io/smart-invoicify/branding/Horizontal-logo-wordmark.png"/>
-<meta name="theme-color" content="#004ac6"/>
-<link rel="canonical" href="https://meemkhaan.github.io/smart-invoicify/"/>
-<link rel="icon" href="favicon/favicon.ico" sizes="any"/>
-<link rel="icon" href="favicon/favicon.svg" type="image/svg+xml"/>
-<link rel="icon" href="favicon/favicon-96x96.png" sizes="96x96" type="image/png"/>
-<link rel="apple-touch-icon" href="favicon/apple-touch-icon.png"/>
-<link rel="manifest" href="favicon/site.webmanifest"/>
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
-<!-- Icons -->
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<!-- Tailwind -->
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-                    "on-primary-fixed": "#00174b",
-                    "primary-fixed-dim": "#b4c5ff",
-                    "tertiary-fixed-dim": "#c5c7c8",
-                    "typography-charcoal": "#18181B",
-                    "on-secondary-container": "#006f64",
-                    "surface-container": "#f0edf1",
-                    "error": "#ba1a1a",
-                    "typography-muted": "#71717A",
-                    "on-error": "#ffffff",
-                    "primary-container": "#2563eb",
-                    "on-primary-fixed-variant": "#003ea8",
-                    "on-tertiary-container": "#eff0f1",
-                    "secondary-fixed-dim": "#4fdbc8",
-                    "tertiary-fixed": "#e1e3e4",
-                    "on-surface": "#1b1b1e",
-                    "primary-fixed": "#dbe1ff",
-                    "on-surface-variant": "#434655",
-                    "surface-dim": "#dcd9dd",
-                    "on-background": "#1b1b1e",
-                    "on-primary-container": "#eeefff",
-                    "tertiary": "#525556",
-                    "primary": "#004ac6",
-                    "inverse-primary": "#b4c5ff",
-                    "outline-variant": "#c3c6d7",
-                    "surface-tint": "#0053db",
-                    "secondary": "#006b5f",
-                    "surface-container-low": "#f6f2f7",
-                    "surface-off-white": "#FDFDFD",
-                    "outline": "#737686",
-                    "on-secondary-fixed": "#00201c",
-                    "surface": "#fbf8fc",
-                    "background": "#fbf8fc",
-                    "on-secondary": "#ffffff",
-                    "mint-success": "#D1FAE5",
-                    "secondary-fixed": "#71f8e4",
-                    "on-secondary-fixed-variant": "#005048",
-                    "on-tertiary": "#ffffff",
-                    "border-subtle": "#E4E4E7",
-                    "on-tertiary-fixed-variant": "#454748",
-                    "surface-bright": "#fbf8fc",
-                    "surface-container-high": "#eae7eb",
-                    "surface-container-lowest": "#ffffff",
-                    "on-error-container": "#93000a",
-                    "on-primary": "#ffffff",
-                    "on-tertiary-fixed": "#191c1d",
-                    "inverse-surface": "#303033",
-                    "inverse-on-surface": "#f3f0f4",
-                    "tertiary-container": "#6b6d6e",
-                    "surface-container-highest": "#e4e1e6",
-                    "error-container": "#ffdad6",
-                    "secondary-container": "#6df5e1",
-                    "surface-variant": "#e4e1e6"
-            },
-            "borderRadius": {
-                    "sm": "0.25rem",
-                    "DEFAULT": "0.5rem",
-                    "md": "0.75rem",
-                    "lg": "1rem",
-                    "xl": "1.5rem",
-                    "full": "9999px"
-            },
-            "spacing": {
-                    "container-max": "1200px",
-                    "stack-space": "16px",
-                    "section-gap-lg": "120px",
-                    "grid-gutter": "24px",
-                    "section-gap-sm": "64px"
-            },
-            "fontFamily": {
-                    "headline-sm": ["Plus Jakarta Sans"],
-                    "body-md": ["Inter"],
-                    "headline-md": ["Plus Jakarta Sans"],
-                    "display-lg": ["Plus Jakarta Sans"],
-                    "body-lg": ["Inter"],
-                    "display-lg-mobile": ["Plus Jakarta Sans"],
-                    "label-sm": ["Inter"],
-                    "label-xs": ["Inter"]
-            },
-            "fontSize": {
-                    "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
-                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                    "headline-md": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
-                    "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
-                    "display-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
-                    "label-sm": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500"}],
-                    "label-xs": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}]
-            }
-          },
-        },
-      }
-    </script>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Invoicify — Send Quotes, Get Paid Faster</title>
+<meta name="description" content="Turn a rough job description into a professional quote in under 60 seconds. Send from your phone, get client approval online, and invoice with one tap — no app store download.">
+<meta property="og:title" content="Smart Invoicify — Send Quotes, Get Paid Faster">
+<meta property="og:description" content="Professional quotes and invoices for contractors, freelancers, and workshops — send from your phone and get paid faster.">
+<meta property="og:url" content="https://meemkhaan.github.io/smart-invoicify/">
+<meta property="og:image" content="https://meemkhaan.github.io/smart-invoicify/branding/Horizontal-logo-wordmark.png">
+<meta name="theme-color" content="#1a4fd6">
+<link rel="canonical" href="https://meemkhaan.github.io/smart-invoicify/">
+<link rel="icon" href="favicon/favicon.ico" sizes="any">
+<link rel="icon" href="favicon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon/favicon-96x96.png" sizes="96x96" type="image/png">
+<link rel="apple-touch-icon" href="favicon/apple-touch-icon.png">
+<link rel="manifest" href="favicon/site.webmanifest">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
 <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .glass-nav {
-            background-color: rgba(251, 248, 252, 0.8);
-            backdrop-filter: blur(10px);
-        }
-        .hero-gradient {
-            background: radial-gradient(circle at 50% -20%, #dbe1ff 0%, #fbf8fc 60%);
-        }
-        /* Anchor scroll offset under sticky header */
-        .section-anchor { scroll-margin-top: 4rem; }
+  :root {
+    --ink: #0f0f0d;
+    --ink-2: #3d3b35;
+    --ink-3: #7a7870;
+    --paper: #faf9f6;
+    --paper-2: #f2f0ea;
+    --paper-3: #e8e4da;
+    --accent: #1a4fd6;
+    --accent-light: #e8edfb;
+    --accent-warm: #d4640a;
+    --accent-warm-light: #fef0e4;
+    --green: #176a3c;
+    --green-light: #e5f5ed;
+    --r: 10px;
+    --r-lg: 18px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    line-height: 1;
+    user-select: none;
+  }
+  .material-symbols-outlined.fill {
+    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+  .brand-logo {
+    height: 36px;
+    width: auto;
+    max-width: min(240px, 52vw);
+    object-fit: contain;
+    object-position: left center;
+    display: block;
+  }
+  .brand-logo--footer {
+    height: 32px;
+    filter: brightness(0) invert(1);
+    opacity: 0.95;
+    margin-bottom: 12px;
+  }
+  .icon-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .pain-icon .material-symbols-outlined { font-size: 26px; color: #ffb347; }
+  .step-icon-wrap .material-symbols-outlined { font-size: 26px; }
+  .feature-icon .material-symbols-outlined { font-size: 24px; }
+  .pwa-step-icon .material-symbols-outlined { font-size: 26px; color: #fff; }
+  .about-card-icon .material-symbols-outlined { font-size: 28px; color: var(--accent); }
+  .about-badge .material-symbols-outlined { font-size: 18px; }
+  .float-badge-icon .material-symbols-outlined { font-size: 22px; }
+  .persona-avatar .material-symbols-outlined { font-size: 24px; color: rgba(255,255,255,.85); }
+  .privacy-card h4 .material-symbols-outlined { font-size: 20px; color: var(--accent); }
+  .pwa-float-badge .material-symbols-outlined { font-size: 18px; color: var(--accent); }
+  .ph-status-chip .material-symbols-outlined { font-size: 12px; vertical-align: middle; }
+  .hs-icon-img .material-symbols-outlined { font-size: 22px; color: #fff; }
+  .notif-icon .material-symbols-outlined { font-size: 16px; color: #fff; }
+  .dock-item .material-symbols-outlined { font-size: 22px; color: #fff; }
+  .hs-app-letter { font-size: 0.75rem; font-weight: 700; color: #fff; letter-spacing: 0.02em; }
+  .check-mark { color: var(--green); font-weight: 700; }
 
-        /* Compact vertical rhythm */
-        .landing-section {
-            padding-top: 1.5rem;
-            padding-bottom: 1.5rem;
-        }
-        @media (min-width: 768px) {
-            .landing-section {
-                padding-top: 2rem;
-                padding-bottom: 2rem;
-            }
-        }
-        .section-head {
-            margin-bottom: 1rem;
-        }
-        @media (min-width: 768px) {
-            .section-head {
-                margin-bottom: 1.25rem;
-            }
-        }
-        .hero-section {
-            padding-top: 1rem;
-            padding-bottom: 1.25rem;
-        }
-        @media (min-width: 768px) {
-            .hero-section {
-                padding-top: 1.5rem;
-                padding-bottom: 1.75rem;
-            }
-        }
-        .benefit-chip {
-            padding: 6px 12px;
-            border-radius: 9999px;
-            font-size: 13px;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: #ffffff;
-            border: 1px solid #E4E4E7;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
-            transition: all 0.3s ease;
-        }
-        .benefit-chip:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-        }
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(250,249,246,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--paper-3);
+    padding: 14px 32px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+  }
+  .nav-links { display: flex; align-items: center; gap: 28px; }
+  .nav-links a { color: var(--ink-2); text-decoration: none; font-size: 0.9rem; font-weight: 400; transition: color .2s; }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-cta {
+    background: var(--ink); color: var(--paper);
+    padding: 9px 20px; border-radius: 8px;
+    font-size: 0.88rem; font-weight: 500; text-decoration: none;
+    transition: background .2s;
+  }
+  .nav-cta:hover { background: var(--accent); color: #fff; }
 
-        /* Framer-style Entrance Animations */
-        .reveal {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-            will-change: opacity, transform;
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
+  /* HERO */
+  .hero {
+    padding: 130px 32px 80px;
+    max-width: 1160px; margin: 0 auto;
+    display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center;
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--green-light); color: var(--green);
+    font-size: 0.8rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+    padding: 5px 12px; border-radius: 20px; margin-bottom: 20px;
+  }
+  .hero-eyebrow::before { content: '●'; font-size: 0.5rem; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+  h1 {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(2.4rem, 4vw, 3.4rem);
+    line-height: 1.15;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 20px;
+  }
+  h1 em { font-style: italic; color: var(--accent); }
+  .hero-sub {
+    font-size: 1.05rem; color: var(--ink-2);
+    line-height: 1.7; max-width: 480px;
+    margin-bottom: 36px;
+  }
+  .hero-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--accent); color: #fff;
+    padding: 13px 26px; border-radius: 9px;
+    font-size: 0.95rem; font-weight: 600; text-decoration: none;
+    transition: transform .15s, box-shadow .15s;
+    display: inline-block;
+  }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(26,79,214,.3); }
+  .btn-ghost {
+    color: var(--ink-2); font-size: 0.9rem; text-decoration: none;
+    display: flex; align-items: center; gap: 6px;
+    transition: color .2s;
+  }
+  .btn-ghost:hover { color: var(--ink); }
+  .btn-ghost::after { content: '→'; transition: transform .2s; }
+  .btn-ghost:hover::after { transform: translateX(3px); }
 
-        /* Float Animation */
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-8px); }
-            100% { transform: translateY(0px); }
-        }
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
-        }
+  /* HERO PROOF */
+  .hero-proof {
+    display: flex; align-items: center; gap: 12px; margin-top: 32px;
+    font-size: 0.82rem; color: var(--ink-3);
+    background: var(--paper-2);
+    border: 1px solid var(--paper-3);
+    border-radius: 40px;
+    padding: 8px 16px 8px 8px;
+    width: fit-content;
+  }
+  .proof-avatars { display: flex; }
+  .proof-avatars span {
+    width: 30px; height: 30px; border-radius: 50%;
+    border: 2px solid var(--paper); margin-left: -8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.6rem; font-weight: 700; line-height: 1;
+    flex-shrink: 0;
+  }
+  .proof-avatars span:first-child { margin-left: 0; background: #d4e8ff; color: #1a4fd6; }
+  .proof-avatars span:nth-child(2) { background: #ffe8d4; color: #c45a08; }
+  .proof-avatars span:nth-child(3) { background: #d4ffe8; color: #176a3c; }
+  .proof-text strong { color: var(--ink-2); font-weight: 600; }
 
-        /* Pulse Animation for Play Button */
-        @keyframes pulse-soft {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 74, 198, 0.4); }
-            70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(0, 74, 198, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 74, 198, 0); }
-        }
-        .animate-pulse-soft {
-            animation: pulse-soft 2s infinite ease-in-out;
-        }
+  /* HERO VISUAL — large phone mockup */
+  .hero-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .hero-phone-wrap {
+    position: relative;
+    width: 300px;
+    flex-shrink: 0;
+  }
+  /* Glow behind phone */
+  .hero-phone-glow {
+    position: absolute;
+    inset: -30px;
+    background: radial-gradient(ellipse at 50% 60%, rgba(26,79,214,.18) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .hero-phone {
+    position: relative;
+    z-index: 1;
+    background: #141414;
+    border-radius: 44px;
+    padding: 16px 14px;
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,.08),
+      0 40px 100px rgba(0,0,0,.35),
+      0 8px 24px rgba(0,0,0,.18),
+      inset 0 0 0 1px rgba(255,255,255,.04);
+    width: 100%;
+  }
+  /* Dynamic island notch */
+  .phone-notch {
+    width: 80px; height: 22px;
+    background: #141414;
+    border-radius: 0 0 16px 16px;
+    margin: -16px auto 0;
+    position: relative; z-index: 2;
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+  }
+  .notch-cam { width: 10px; height: 10px; background: #0a0a0a; border-radius: 50%; border: 1.5px solid #222; }
+  .notch-pill { width: 24px; height: 8px; background: #0a0a0a; border-radius: 4px; border: 1.5px solid #222; }
 
-        /* Nav Link Underline Animation */
-        .nav-link {
-            position: relative;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: #004ac6;
-            transition: width 0.3s ease;
-        }
-        .nav-link:hover::after {
-            width: 100%;
-        }
+  .phone-screen-main {
+    background: #fff;
+    border-radius: 30px;
+    overflow: hidden;
+    min-height: 500px;
+  }
+  /* Status bar */
+  .ph-status {
+    background: var(--accent);
+    padding: 8px 16px 0;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.6rem; color: rgba(255,255,255,.7); font-weight: 500;
+  }
+  .ph-app-header {
+    background: var(--accent);
+    padding: 6px 16px 14px;
+    color: #fff;
+  }
+  .ph-app-header-row { display: flex; justify-content: space-between; align-items: flex-start; }
+  .ph-app-title { font-size: 0.78rem; font-weight: 700; letter-spacing: .02em; opacity: .75; margin-bottom: 2px; }
+  .ph-doc-title { font-size: 1rem; font-weight: 700; }
+  .ph-status-chip {
+    background: rgba(255,255,255,.2);
+    border-radius: 20px; padding: 3px 9px;
+    font-size: 0.6rem; font-weight: 700;
+    display: flex; align-items: center; gap: 4px;
+    margin-top: 2px;
+  }
+  .ph-status-chip::before { content: none; }
+  .ph-client-info {
+    background: rgba(255,255,255,.12);
+    border-radius: 8px; padding: 6px 10px; margin-top: 8px;
+    font-size: 0.65rem; color: rgba(255,255,255,.85);
+    display: flex; justify-content: space-between;
+  }
+  .ph-body-main { padding: 12px 14px 0; }
+  .ph-section-label {
+    font-size: 0.6rem; font-weight: 700; letter-spacing: .08em;
+    text-transform: uppercase; color: #aaa; margin-bottom: 6px;
+  }
+  .ph-line-item {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    padding: 7px 0; border-bottom: 1px solid #f2f0ea;
+    gap: 8px;
+  }
+  .ph-line-item:last-child { border-bottom: none; }
+  .ph-item-name { font-size: 0.68rem; font-weight: 500; color: #222; line-height: 1.3; flex: 1; }
+  .ph-item-desc { font-size: 0.58rem; color: #999; margin-top: 1px; }
+  .ph-item-price { font-size: 0.68rem; font-weight: 600; color: #111; white-space: nowrap; }
+  .ph-subtotal-row {
+    display: flex; justify-content: space-between; padding: 5px 0;
+    font-size: 0.65rem; color: #666; border-bottom: 1px solid #f2f0ea;
+  }
+  .ph-divider { height: 1px; background: #f0eee8; margin: 8px 0; }
+  .ph-total-block {
+    background: linear-gradient(135deg, var(--accent) 0%, #0d39b0 100%);
+    margin: 4px -14px 0; padding: 12px 14px;
+    display: flex; justify-content: space-between; align-items: center;
+    border-radius: 0 0 30px 30px;
+  }
+  .ph-total-label { font-size: 0.72rem; font-weight: 600; color: rgba(255,255,255,.8); }
+  .ph-total-amount { font-size: 1.1rem; font-weight: 800; color: #fff; }
+  .ph-sign-row {
+    background: rgba(255,255,255,.15);
+    border-radius: 6px; margin-top: 6px;
+    padding: 5px 10px;
+    font-size: 0.6rem; color: rgba(255,255,255,.8);
+    display: flex; align-items: center; justify-content: space-between;
+  }
 
-        /* Interaction Classes */
-        .interactive-card {
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .interactive-card:hover {
-            transform: translateY(-6px) scale(1.01);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-        }
+  /* Floating notification badges */
+  .float-badge {
+    position: absolute;
+    border-radius: 14px; padding: 9px 14px;
+    font-size: 0.75rem; font-weight: 600;
+    display: flex; align-items: center; gap: 7px;
+    z-index: 10; white-space: nowrap;
+  }
+  .float-badge-icon { display: flex; align-items: center; justify-content: center; }
+  .float-badge-text { display: flex; flex-direction: column; }
+  .float-badge-title { font-size: 0.72rem; font-weight: 700; line-height: 1.2; }
+  .float-badge-sub { font-size: 0.62rem; opacity: .75; }
+  .fb-signed {
+    top: 60px; right: -108px;
+    background: #fff;
+    border: 1px solid var(--paper-3);
+    color: var(--ink);
+    box-shadow: 0 8px 28px rgba(0,0,0,.12);
+    animation: floatA 3.5s ease-in-out infinite;
+  }
+  .fb-signed .float-badge-title { color: var(--green); }
+  .fb-ai {
+    bottom: 100px; left: -112px;
+    background: var(--accent);
+    color: #fff;
+    box-shadow: 0 8px 28px rgba(26,79,214,.3);
+    animation: floatB 4s ease-in-out infinite;
+  }
+  .fb-telegram {
+    bottom: 20px; right: -100px;
+    background: #229ED9;
+    color: #fff;
+    box-shadow: 0 8px 28px rgba(34,158,217,.3);
+    animation: floatA 4.5s ease-in-out infinite .5s;
+  }
+  @keyframes floatA { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)} }
+  @keyframes floatB { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
 
-        .btn-lift {
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .btn-lift:hover {
-            transform: translateY(-2px);
-            filter: brightness(1.1);
-            box-shadow: 0 10px 20px rgba(0, 74, 198, 0.15);
-        }
+  /* SECTION */
+  .section { padding: 80px 32px; max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.78rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--ink-3); margin-bottom: 14px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-label::before { content: ''; display: block; width: 24px; height: 1px; background: var(--ink-3); }
+  h2 {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 400; line-height: 1.2; letter-spacing: -0.015em;
+    color: var(--ink); margin-bottom: 16px;
+  }
+  h2 em { font-style: italic; color: var(--accent-warm); }
 
-        .ai-spotlight {
-            background: linear-gradient(135deg, #f5f3ff 0%, #eef2ff 45%, #faf5ff 100%);
-            border: 2px solid rgba(124, 58, 237, 0.45);
-            box-shadow: 0 8px 32px rgba(99, 102, 241, 0.12);
-        }
-        .ai-feature-card {
-            border: 2px solid rgba(124, 58, 237, 0.35);
-            background: linear-gradient(160deg, #ffffff 0%, #f5f3ff 100%);
-            box-shadow: 0 12px 28px rgba(99, 102, 241, 0.1);
-        }
-        .ai-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 6px 12px;
-            border-radius: 9999px;
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-            color: #5b21b6;
-            background: linear-gradient(90deg, #ede9fe, #e0e7ff);
-            border: 1px solid rgba(124, 58, 237, 0.35);
-        }
+  /* PAIN STORY */
+  .pain-section { background: var(--ink); color: var(--paper); padding: 80px 0; }
+  .pain-inner { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+  .pain-inner .section-label { color: rgba(255,255,255,.4); }
+  .pain-inner .section-label::before { background: rgba(255,255,255,.3); }
+  .pain-inner h2 { color: var(--paper); }
+  .pain-inner h2 em { color: #ffb347; }
+  .story-block {
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: var(--r-lg); padding: 28px 32px; margin: 32px 0;
+  }
+  .story-persona { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .persona-avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: rgba(255,255,255,.1);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .persona-name { font-weight: 600; font-size: 0.9rem; color: var(--paper); }
+  .persona-role { font-size: 0.78rem; color: rgba(255,255,255,.5); }
+  .story-quote { font-size: 1.05rem; line-height: 1.7; color: rgba(255,255,255,.8); font-style: italic; }
+  .story-quote strong { color: var(--paper); font-style: normal; }
+  .pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 40px; }
+  .pain-card {
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.07);
+    border-radius: var(--r); padding: 20px;
+  }
+  .pain-icon { margin-bottom: 10px; }
+  .pain-card h4 { font-size: 0.9rem; font-weight: 600; color: var(--paper); margin-bottom: 6px; }
+  .pain-card p { font-size: 0.82rem; color: rgba(255,255,255,.5); line-height: 1.55; }
 
-        /* PWA phone mockups */
-        .phone-mockup {
-            width: 176px;
-            padding: 8px 8px 10px;
-            border-radius: 2rem;
-            background: linear-gradient(165deg, #27272a 0%, #18181b 100%);
-            box-shadow: 0 20px 40px rgba(24, 24, 27, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.08);
-            border: 2px solid #3f3f46;
-        }
-        .phone-mockup--hero {
-            width: 208px;
-        }
-        .phone-mockup--side {
-            width: 148px;
-            padding: 6px 6px 8px;
-        }
-        .phone-notch {
-            width: 64px;
-            height: 14px;
-            background: #18181b;
-            border-radius: 0 0 12px 12px;
-            margin: 0 auto 6px;
-        }
-        .phone-mockup--side .phone-notch {
-            width: 48px;
-            height: 12px;
-            margin-bottom: 4px;
-        }
-        .phone-screen {
-            aspect-ratio: 9 / 19.5;
-            border-radius: 1.35rem;
-            overflow: hidden;
-            background: #f6f2f7;
-            position: relative;
-            border: 1px solid rgba(0, 0, 0, 0.06);
-        }
-        .phone-screen-placeholder {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 16px;
-            text-align: center;
-            background: repeating-linear-gradient(
-                -45deg,
-                #f6f2f7,
-                #f6f2f7 8px,
-                #ece8f0 8px,
-                #ece8f0 16px
-            );
-            border: 2px dashed #c3c6d7;
-            border-radius: 1.2rem;
-            color: #434655;
-        }
-        .phone-screen-placeholder.hidden {
-            display: none;
-        }
-        .phone-screenshot {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: top center;
-        }
-        .phone-screenshot.hidden {
-            display: none;
-        }
-        .phone-mockup-label {
-            margin-top: 6px;
-            font-size: 10px;
-            line-height: 1.3;
-            text-align: center;
-            color: #71717a;
-            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-        }
-        @media (max-width: 639px) {
-            .phone-mockup--side {
-                display: none;
-            }
-            .phone-mockup--hero {
-                width: 192px;
-            }
-        }
+  /* STEPS */
+  .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 48px; }
+  .step-card {
+    background: var(--paper); border: 1px solid var(--paper-3);
+    border-radius: var(--r-lg); padding: 28px; position: relative; overflow: hidden;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .step-card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,.08); }
+  .step-num {
+    font-family: 'Instrument Serif', serif;
+    font-size: 3rem; font-weight: 400; line-height: 1;
+    color: var(--paper-3); position: absolute; top: 20px; right: 24px;
+  }
+  .step-icon-wrap {
+    width: 48px; height: 48px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px;
+  }
+  .step-card h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 8px; }
+  .step-card p { font-size: 0.88rem; color: var(--ink-2); line-height: 1.6; }
+  .step-example {
+    margin-top: 14px; background: var(--paper-2); border-radius: 8px; padding: 10px 12px;
+    font-size: 0.8rem; color: var(--ink-3); font-style: italic;
+    border-left: 2px solid var(--accent);
+  }
 
-        /* FAQ Smooth Transition */
-        .faq-content {
-            display: grid;
-            grid-template-rows: 0fr;
-            transition: grid-template-rows 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.4s;
-            overflow: hidden;
-        }
-        .group.active .faq-content {
-            grid-template-rows: 1fr;
-            padding-bottom: 0.875rem;
-        }
+  /* FEATURES */
+  .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 0; margin-top: 48px; }
+  .feature-item {
+    padding: 28px 32px;
+    border-right: 1px solid var(--paper-3);
+    border-bottom: 1px solid var(--paper-3);
+  }
+  .feature-item:nth-child(even) { border-right: none; }
+  .feature-icon { width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+  .feature-item h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 6px; }
+  .feature-item p { font-size: 0.85rem; color: var(--ink-2); line-height: 1.6; }
+  .feature-tag { display: inline-block; margin-top: 10px; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; }
 
-        /* Staggered Delays */
-        .stagger-1 { transition-delay: 100ms; }
-        .stagger-2 { transition-delay: 200ms; }
-        .stagger-3 { transition-delay: 300ms; }
-        .stagger-4 { transition-delay: 400ms; }
-        .stagger-5 { transition-delay: 500ms; }
-        .stagger-6 { transition-delay: 600ms; }
+  /* TESTIMONIAL CAROUSEL */
+  .testi-carousel-wrap { position: relative; overflow: hidden; margin-top: 40px; }
+  .testi-track {
+    display: flex; gap: 20px;
+    transition: transform .45s cubic-bezier(.4,0,.2,1);
+  }
+  .testi-card {
+    background: var(--paper); border: 1px solid var(--paper-3);
+    border-radius: var(--r-lg); padding: 28px;
+    min-width: calc(33.333% - 14px); flex-shrink: 0;
+  }
+  .testi-stars { color: #f5a623; font-size: 0.85rem; margin-bottom: 12px; letter-spacing: .1em; }
+  .testi-text { font-size: 0.88rem; line-height: 1.65; color: var(--ink-2); margin-bottom: 16px; font-style: italic; }
+  .testi-author { display: flex; align-items: center; gap: 10px; }
+  .testi-avatar { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; flex-shrink: 0; }
+  .testi-name { font-size: 0.85rem; font-weight: 600; }
+  .testi-role { font-size: 0.75rem; color: var(--ink-3); }
+  .testi-nav { display: flex; align-items: center; gap: 12px; margin-top: 28px; }
+  .testi-btn {
+    width: 40px; height: 40px; border-radius: 50%;
+    border: 1px solid var(--paper-3); background: var(--paper);
+    font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: border-color .2s, background .2s;
+  }
+  .testi-btn:hover { border-color: var(--accent); background: var(--accent-light); }
+  .testi-dots { display: flex; gap: 6px; }
+  .testi-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--paper-3); transition: background .3s, transform .3s;
+    cursor: pointer;
+  }
+  .testi-dot.active { background: var(--accent); transform: scale(1.3); }
 
-        .hero-proof {
-            display: flex; align-items: center; gap: 10px; margin-top: 12px;
-            font-size: 0.82rem; color: var(--on-surface-variant, #434655);
-            background: #fff; border: 1px solid #E4E4E7; border-radius: 9999px;
-            padding: 6px 14px 6px 6px; width: fit-content; max-width: 100%;
-        }
-        .proof-avatars { display: flex; }
-        .proof-avatars span {
-            width: 28px; height: 28px; border-radius: 50%; border: 2px solid #fff;
-            margin-left: -6px; display: flex; align-items: center; justify-content: center;
-            font-size: 0.55rem; font-weight: 700; flex-shrink: 0;
-        }
-        .proof-avatars span:first-child { margin-left: 0; background: #dbe1ff; color: #004ac6; }
-        .proof-avatars span:nth-child(2) { background: #fef0e4; color: #c45a08; }
-        .proof-avatars span:nth-child(3) { background: #e5f5ed; color: #176a3c; }
-        .story-block {
-            background: #fff; border: 1px solid #E4E4E7; border-radius: 1rem;
-            padding: 1.25rem 1.5rem; margin-bottom: 1.25rem; text-align: left;
-        }
-        .story-persona { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
-        .persona-avatar {
-            width: 44px; height: 44px; border-radius: 50%; background: #f0edf1;
-            display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0;
-        }
-        .step-example {
-            margin-top: 10px; background: #f6f2f7; border-radius: 0.5rem; padding: 8px 12px;
-            font-size: 0.8rem; color: #434655; font-style: italic;
-            border-left: 2px solid #004ac6;
-        }
-        .testi-card {
-            background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
-            border-radius: 1rem; padding: 1rem 1.25rem;
-        }
-        .testi-stars { color: #f5a623; font-size: 0.75rem; letter-spacing: 0.08em; margin-bottom: 8px; }
-        .testi-author { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
-        .testi-avatar {
-            width: 32px; height: 32px; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 0.7rem; font-weight: 700; flex-shrink: 0;
-        }
+  /* STATS */
+  .stats-row {
+    display: flex; justify-content: center; gap: 0;
+    border: 1px solid var(--paper-3); border-radius: var(--r-lg);
+    overflow: hidden; margin: 48px auto 0; max-width: 700px;
+    background: var(--paper);
+  }
+  .stat-item { flex: 1; padding: 28px 20px; text-align: center; border-right: 1px solid var(--paper-3); }
+  .stat-item:last-child { border-right: none; }
+  .stat-num { font-family: 'Instrument Serif', serif; font-size: 2.4rem; font-weight: 400; color: var(--accent); line-height: 1; }
+  .stat-label { font-size: 0.8rem; color: var(--ink-3); margin-top: 4px; }
 
-        /* Reduced Motion */
-        @media (prefers-reduced-motion: reduce) {
-            .reveal, .animate-float, .animate-pulse-soft, .interactive-card, .btn-lift, .nav-link::after, .faq-content, .benefit-chip {
-                transition: none !important;
-                animation: none !important;
-                transform: none !important;
-                opacity: 1 !important;
-            }
-            .reveal { opacity: 1; transform: none; }
-        }
+  /* PWA */
+  .pwa-section { background: linear-gradient(135deg, #0d1f5e 0%, #1a4fd6 100%); padding: 80px 0; color: #fff; }
+  .pwa-inner { max-width: 1100px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .pwa-inner .section-label { color: rgba(255,255,255,.5); }
+  .pwa-inner .section-label::before { background: rgba(255,255,255,.4); }
+  .pwa-inner h2 { color: #fff; }
+  .pwa-inner h2 em { color: #93c5fd; }
+  .pwa-inner p { color: rgba(255,255,255,.8); font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px; }
+  .pwa-steps { display: flex; flex-direction: column; gap: 14px; margin-top: 24px; }
+  .pwa-step {
+    display: flex; align-items: flex-start; gap: 14px;
+    background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1);
+    border-radius: var(--r); padding: 14px 16px;
+  }
+  .pwa-step-icon { width: 40px; height: 40px; border-radius: 10px; background: rgba(255,255,255,.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .pwa-step h4 { font-size: 0.85rem; font-weight: 600; margin-bottom: 3px; }
+  .pwa-step p { font-size: 0.8rem; color: rgba(255,255,255,.6); line-height: 1.5; }
+
+  /* PWA PHONE MOCKUP */
+  .pwa-phone-scene { display: flex; justify-content: center; align-items: center; position: relative; padding: 20px 0; }
+  .pwa-phone-outer {
+    position: relative;
+    width: 240px;
+  }
+  .pwa-phone-shell {
+    background: #1a1a1a;
+    border-radius: 38px;
+    padding: 14px 12px;
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,.1),
+      0 30px 80px rgba(0,0,0,.5),
+      inset 0 0 0 1px rgba(255,255,255,.06);
+    position: relative; z-index: 1;
+  }
+  .pwa-notch {
+    width: 64px; height: 18px;
+    background: #1a1a1a;
+    border-radius: 0 0 12px 12px;
+    margin: -14px auto 0;
+    position: relative; z-index: 2;
+    display: flex; align-items: center; justify-content: center; gap: 5px;
+  }
+  .pwa-notch-cam { width: 8px; height: 8px; background: #0d0d0d; border-radius: 50%; border: 1px solid #2a2a2a; }
+  .pwa-notch-pill { width: 20px; height: 7px; background: #0d0d0d; border-radius: 4px; border: 1px solid #2a2a2a; }
+  .pwa-screen { background: #f7f6f3; border-radius: 26px; overflow: hidden; }
+  /* Home screen grid */
+  .pwa-homescreen {
+    background: linear-gradient(160deg, #1a3a8f 0%, #0d2060 100%);
+    padding: 12px;
+  }
+  .pwa-hs-time { text-align: center; padding: 8px 0 14px; }
+  .pwa-hs-time .hs-time { font-size: 2.2rem; font-weight: 300; color: #fff; line-height: 1; display: block; }
+  .pwa-hs-time .hs-date { font-size: 0.65rem; color: rgba(255,255,255,.7); margin-top: 3px; display: block; }
+  .pwa-hs-icons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 10px; }
+  .hs-icon {
+    display: flex; flex-direction: column; align-items: center; gap: 4px;
+  }
+  .hs-icon-img {
+    width: 44px; height: 44px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,.3);
+  }
+  .hs-icon-label { font-size: 0.52rem; color: rgba(255,255,255,.85); text-align: center; font-weight: 500; line-height: 1.2; }
+  .hs-icon-featured .hs-icon-img {
+    background: linear-gradient(135deg, #1a4fd6 0%, #0d39b0 100%);
+    border: 2px solid rgba(255,255,255,.3);
+    box-shadow: 0 0 0 3px rgba(26,79,214,.4), 0 4px 16px rgba(0,0,0,.4);
+  }
+  /* Notification */
+  .pwa-notification {
+    background: rgba(255,255,255,.15);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 12px; padding: 9px 12px;
+    display: flex; align-items: flex-start; gap: 8px; margin-top: 4px;
+  }
+  .notif-icon {
+    width: 28px; height: 28px; border-radius: 7px;
+    background: linear-gradient(135deg, #1a4fd6 0%, #0d39b0 100%);
+    display: flex; align-items: center; justify-content: center; font-size: 0.8rem;
+    flex-shrink: 0;
+  }
+  .notif-title { font-size: 0.6rem; font-weight: 700; color: #fff; }
+  .notif-body { font-size: 0.58rem; color: rgba(255,255,255,.75); margin-top: 1px; line-height: 1.3; }
+  .notif-time { font-size: 0.52rem; color: rgba(255,255,255,.5); margin-left: auto; flex-shrink: 0; }
+  /* Dock */
+  .pwa-dock {
+    background: rgba(255,255,255,.15);
+    backdrop-filter: blur(10px);
+    border-radius: 20px; margin: 8px 0 0;
+    padding: 10px; display: flex; justify-content: space-around; align-items: center;
+  }
+  .dock-item {
+    width: 44px; height: 44px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,.25);
+  }
+  /* Floating PWA badge */
+  .pwa-float-badge {
+    position: absolute; top: -10px; right: -24px;
+    background: #fff; color: var(--ink); border-radius: 12px;
+    padding: 7px 12px; font-size: 0.72rem; font-weight: 600;
+    box-shadow: 0 6px 20px rgba(0,0,0,.2);
+    display: flex; align-items: center; gap: 6px;
+    white-space: nowrap; z-index: 10;
+    animation: floatA 3s ease-in-out infinite;
+  }
+
+  /* ABOUT */
+  .about-section { padding: 80px 0; background: var(--paper-2); }
+  .about-inner { max-width: 1100px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  .about-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--accent-light); color: var(--accent); font-size: 0.78rem; font-weight: 600; padding: 5px 12px; border-radius: 20px; margin-bottom: 16px; }
+  .about-inner h2 em { color: var(--accent); }
+  .about-inner p { font-size: 0.95rem; color: var(--ink-2); line-height: 1.75; margin-bottom: 14px; }
+  .about-inner a { color: var(--accent); }
+  .about-cards { display: flex; flex-direction: column; gap: 16px; }
+  .about-card {
+    background: var(--paper); border: 1px solid var(--paper-3);
+    border-radius: var(--r-lg); padding: 20px 24px;
+    display: flex; align-items: flex-start; gap: 14px;
+  }
+  .about-card-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--accent-light); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .about-card h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 4px; }
+  .about-card p { font-size: 0.82rem; color: var(--ink-2); line-height: 1.55; }
+
+  /* PRIVACY */
+  .privacy-section { padding: 60px 0; background: var(--paper); border-top: 1px solid var(--paper-3); }
+  .privacy-inner { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+  .privacy-inner h2 { font-size: 1.6rem; margin-bottom: 12px; }
+  .privacy-inner h2 em { color: var(--green); }
+  .privacy-intro { font-size: 0.9rem; color: var(--ink-2); max-width: 640px; margin-bottom: 32px; line-height: 1.7; }
+  .privacy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .privacy-card {
+    background: var(--paper-2); border: 1px solid var(--paper-3);
+    border-radius: var(--r); padding: 18px 20px;
+  }
+  .privacy-card h4 { font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+  .privacy-card p { font-size: 0.8rem; color: var(--ink-2); line-height: 1.6; }
+
+  /* CTA */
+  .cta-section { padding: 100px 32px; text-align: center; max-width: 700px; margin: 0 auto; }
+  .cta-section h2 { font-size: clamp(2rem, 3.5vw, 3rem); margin-bottom: 16px; }
+  .cta-section p { font-size: 1.05rem; color: var(--ink-2); margin-bottom: 36px; }
+  .cta-actions { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+  .btn-large {
+    background: var(--accent); color: #fff;
+    padding: 16px 36px; border-radius: 10px;
+    font-size: 1rem; font-weight: 600; text-decoration: none;
+    transition: transform .15s, box-shadow .15s; display: inline-block;
+  }
+  .btn-large:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(26,79,214,.3); }
+  .btn-outline {
+    border: 1.5px solid var(--paper-3); color: var(--ink-2);
+    padding: 16px 36px; border-radius: 10px;
+    font-size: 1rem; font-weight: 500; text-decoration: none;
+    transition: border-color .2s, color .2s; display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--ink-2); color: var(--ink); }
+  .cta-note { margin-top: 18px; font-size: 0.8rem; color: var(--ink-3); }
+
+  /* FOOTER */
+  footer { background: var(--ink); color: rgba(255,255,255,.6); padding: 48px 32px 32px; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; }
+  .footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; margin-bottom: 40px; flex-wrap: wrap; }
+  .footer-brand { max-width: 280px; }
+  .footer-brand .logo { margin-bottom: 12px; }
+  .footer-brand p { font-size: 0.83rem; line-height: 1.6; }
+  .footer-links h4 { font-size: 0.78rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: 14px; }
+  .footer-links ul { list-style: none; }
+  .footer-links li { margin-bottom: 10px; }
+  .footer-links a { color: rgba(255,255,255,.6); text-decoration: none; font-size: 0.85rem; transition: color .2s; }
+  .footer-links a:hover { color: #fff; }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,.08); padding-top: 20px; font-size: 0.78rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+  .footer-bottom a { color: rgba(255,255,255,.5); text-decoration: none; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+  .hero-content > * { animation: fadeUp .6s ease both; }
+  .hero-content > *:nth-child(1){animation-delay:.1s}
+  .hero-content > *:nth-child(2){animation-delay:.2s}
+  .hero-content > *:nth-child(3){animation-delay:.3s}
+  .hero-content > *:nth-child(4){animation-delay:.4s}
+  .hero-content > *:nth-child(5){animation-delay:.5s}
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; padding: 100px 20px 60px; gap: 48px; }
+    .hero-phone-wrap { width: 260px; }
+    .fb-signed { right: -80px; }
+    .fb-ai { left: -80px; }
+    .fb-telegram { right: -70px; }
+    .steps-grid { grid-template-columns: 1fr; }
+    .testi-card { min-width: calc(100% - 0px); }
+    .pwa-inner { grid-template-columns: 1fr; padding: 0 20px; }
+    .about-inner { grid-template-columns: 1fr; }
+    .features-grid { grid-template-columns: 1fr; }
+    .feature-item { border-right: none; }
+    .stats-row { flex-direction: column; }
+    .stat-item { border-right: none; border-bottom: 1px solid var(--paper-3); }
+    .stat-item:last-child { border-bottom: none; }
+    .section { padding: 60px 20px; }
+  }
+  @media (max-width: 600px) {
+    nav { padding: 12px 20px; }
+    .nav-links { display: none; }
+    .fb-signed, .fb-ai, .fb-telegram { display: none; }
+  }
 </style>
 </head>
-<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
-<!-- TopNavBar -->
-<header class="sticky top-0 w-full z-50 glass-nav border-b border-border-subtle">
-<nav class="flex justify-between items-center h-14 md:h-16 px-4 md:px-8 max-w-[1200px] mx-auto">
-<a href="#" class="flex items-center min-w-0 hover:opacity-90 transition-opacity" aria-label="Smart Invoicify home">
-<img src="branding/Horizontal-logo-wordmark.png" alt="Smart Invoicify" class="h-9 sm:h-10 w-auto max-w-[min(260px,55vw)] object-contain object-left"/>
-</a>
-<div class="hidden md:flex gap-8 items-center">
-<a class="nav-link text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#features">Features</a>
-<a class="nav-link text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#ai-writing">AI</a>
-<a class="nav-link text-primary font-semibold hover:text-primary-container transition-colors duration-200" href="#pricing">Pricing</a>
-<a class="nav-link text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#faq">FAQ</a>
-      </div>
-<div class="flex items-center gap-4">
-<a class="bg-primary-container text-on-primary px-4 md:px-6 py-2 rounded-full font-label-sm btn-lift text-sm md:text-base" href="https://demo-smart-invoicify.vercel.app/demo/request">Try free</a>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo" aria-label="Smart Invoicify home">
+    <img src="branding/Horizontal-logo-wordmark.png" alt="Smart Invoicify" class="brand-logo">
+  </a>
+  <div class="nav-links">
+    <a href="#how-it-works">How it works</a>
+    <a href="#features">Features</a>
+    <a href="#about">About</a>
+    <a href="#pricing">Pricing</a>
+    <a href="https://demo-smart-invoicify.vercel.app/demo/request" class="nav-cta">Try free →</a>
   </div>
 </nav>
-</header>
-<main>
-<!-- Hero Section -->
-<section class="hero-gradient hero-section px-4 md:px-8">
-<div class="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-8 items-center">
-<div class="space-y-4 reveal">
-<div class="inline-flex items-center gap-2 px-3 py-1 bg-mint-success text-on-secondary-container rounded-full font-label-xs">
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
-                    Used by contractors, freelancers &amp; workshops
+
+<!-- HERO -->
+<section>
+  <div class="hero">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Used by contractors, freelancers &amp; workshops</div>
+      <h1>Stop losing money to <em>sloppy paperwork</em></h1>
+      <p class="hero-sub">
+        Smart Invoicify turns a rough description of your job into a polished, professional quote — in under 60 seconds. Send it from your phone, get it signed, and convert to an invoice with one tap.
+      </p>
+      <div class="hero-actions">
+        <a href="https://demo-smart-invoicify.vercel.app/demo/request" class="btn-primary">Try it free — no card needed</a>
+        <a href="#how-it-works" class="btn-ghost">See how it works</a>
+      </div>
+      <div class="hero-proof">
+        <div class="proof-avatars">
+          <span title="Aamir D.">AD</span>
+          <span title="Muhammad R.">MR</span>
+          <span title="Sara S.">SS</span>
+        </div>
+        <span class="proof-text"><strong>Trusted by 50+ business owners</strong> across Pakistan</span>
+      </div>
+    </div>
+
+    <!-- LARGE PHONE MOCKUP -->
+    <div class="hero-visual">
+      <div class="hero-phone-wrap">
+        <div class="hero-phone-glow"></div>
+        <div class="hero-phone">
+          <div class="phone-notch">
+            <div class="notch-cam"></div>
+            <div class="notch-pill"></div>
+          </div>
+          <div class="phone-screen-main">
+            <div class="ph-status">
+              <span>9:41</span>
+              <span>WiFi · 100%</span>
+            </div>
+            <div class="ph-app-header">
+              <div class="ph-app-title">SMART INVOICIFY</div>
+              <div class="ph-app-header-row">
+                <div class="ph-doc-title">Quote #QT-0042</div>
+                <div class="ph-status-chip"><span class="material-symbols-outlined fill">check_circle</span> Approved</div>
+              </div>
+              <div class="ph-client-info">
+                <span>Al-Noor Solar &amp; CCTV</span>
+                <span>Jun 6, 2026</span>
+              </div>
+            </div>
+            <div class="ph-body-main">
+              <div class="ph-section-label">Line items</div>
+              <div class="ph-line-item">
+                <div>
+                  <div class="ph-item-name">Solar panels — 6kW system</div>
+                  <div class="ph-item-desc">Tier-1 monocrystalline, 18 panels</div>
                 </div>
-<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-typography-charcoal tracking-tight">
-                    Stop losing money to <span class="text-primary">sloppy paperwork</span>.
-      </h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
-                    Smart Invoicify turns a rough description of your job into a polished, professional quote — in under 60 seconds. Send it from your phone, get it signed online, and convert to an invoice with one tap.
-                </p>
-<div class="flex flex-col sm:flex-row gap-3">
-<a class="bg-primary-container px-6 py-3 rounded-full text-center text-on-primary font-label-sm font-bold shadow-lg btn-lift" href="https://demo-smart-invoicify.vercel.app/demo/request">Try it free — no card needed</a>
-<button type="button" class="bg-transparent border border-border-subtle px-6 py-3 rounded-full text-typography-charcoal font-label-sm font-bold hover:bg-surface-container-low transition-all" onclick="document.getElementById('how-it-works')?.scrollIntoView({behavior:'smooth'})">See how it works</button>
+                <div class="ph-item-price">₨ 180,000</div>
+              </div>
+              <div class="ph-line-item">
+                <div>
+                  <div class="ph-item-name">Hybrid inverter unit</div>
+                  <div class="ph-item-desc">5kW, battery-ready</div>
+                </div>
+                <div class="ph-item-price">₨ 95,000</div>
+              </div>
+              <div class="ph-line-item">
+                <div>
+                  <div class="ph-item-name">CCTV — 8 camera kit</div>
+                  <div class="ph-item-desc">4MP night vision, NVR included</div>
+                </div>
+                <div class="ph-item-price">₨ 58,000</div>
+              </div>
+              <div class="ph-line-item">
+                <div>
+                  <div class="ph-item-name">Installation &amp; wiring</div>
+                  <div class="ph-item-desc">Full site, 1-day team</div>
+                </div>
+                <div class="ph-item-price">₨ 25,000</div>
+              </div>
+              <div class="ph-subtotal-row"><span>Subtotal</span><span>₨ 358,000</span></div>
+              <div class="ph-subtotal-row"><span>Tax (0%)</span><span>—</span></div>
+            </div>
+            <div class="ph-total-block">
+              <div>
+                <div class="ph-total-label">Total amount</div>
+                <div class="ph-sign-row">
+                  <span>Signed by client</span><span>06/06/2026</span>
+                </div>
+              </div>
+              <div class="ph-total-amount">₨ 358,000</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating badges -->
+        <div class="float-badge fb-signed">
+          <div class="float-badge-icon"><span class="material-symbols-outlined fill" style="color:var(--green);">check_circle</span></div>
+          <div class="float-badge-text">
+            <div class="float-badge-title">Client signed!</div>
+            <div class="float-badge-sub">Ready to invoice</div>
+          </div>
+        </div>
+        <div class="float-badge fb-ai">
+          <div class="float-badge-icon"><span class="material-symbols-outlined fill" style="color:#fff;">auto_awesome</span></div>
+          <div class="float-badge-text">
+            <div class="float-badge-title">AI built this</div>
+            <div class="float-badge-sub">In 45 seconds</div>
+          </div>
+        </div>
+        <div class="float-badge fb-telegram">
+          <div class="float-badge-icon"><span class="material-symbols-outlined fill" style="color:#fff;">send</span></div>
+          <div class="float-badge-text">
+            <div class="float-badge-title">Telegram alert sent</div>
+            <div class="float-badge-sub">Team notified</div>
+          </div>
+        </div>
       </div>
-<div class="hero-proof reveal">
-<div class="proof-avatars" aria-hidden="true">
-<span title="Aamir D.">AD</span>
-<span title="Muhammad R.">MR</span>
-<span title="Sara S.">SS</span>
-</div>
-<span class="text-sm"><strong class="text-typography-charcoal">Trusted by business owners</strong> across Pakistan</span>
-</div>
-<div class="flex flex-wrap gap-2 pt-1">
-<div class="benefit-chip">
-<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">picture_as_pdf</span>
-                        Professional PDF quotes
-      </div>
-<div class="benefit-chip" style="border-color: rgba(124,58,237,0.4); background: linear-gradient(90deg,#faf5ff,#eef2ff);">
-<span class="material-symbols-outlined text-[#6d28d9]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
-                        AI writes it — you describe the job
-    </div>
-<div class="benefit-chip">
-<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">draw</span>
-                        Client signs online to approve
-    </div>
-<div class="benefit-chip">
-<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">install_mobile</span>
-                        Works on your phone — no app store
     </div>
   </div>
-      </div>
-<div class="relative group reveal stagger-2">
-<div class="absolute -inset-4 bg-primary/5 rounded-3xl blur-3xl group-hover:bg-primary/10 transition-all duration-500"></div>
-<div class="relative bg-white rounded-xl border border-border-subtle shadow-2xl overflow-hidden aspect-[16/10] md:aspect-[5/4] max-h-[280px] md:max-h-[340px] animate-float">
-<img alt="Dashboard Preview" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvXWew2ygOfcOfpbP_G6Y4rmgoAk1B3rcGZDN6juf2UcJlarh5CvrkiQvZxST_HI1KnfRdpb_y3ZSPYSpo2uw_xpnVAWqKXKN-uchEfs73Vpv7dA_FqTvdaZyfq4VUd_mc9VPr6BMZ0l0WUtsT8_C7B_kJet3VnnppNV0n3J8h9v2PcaNkrANFNz8920TCcrKuFtYfmhECtIhn8razuNLC70I-URkJhz2VrUviCcp06GsPMOab_z5sgX11F7rBOSAlWcFkSOJ5JzE"/>
-<!-- Play Button Overlay -->
-<div class="absolute inset-0 flex items-center justify-center play-overlay opacity-80 group-hover:opacity-100 cursor-pointer transition-all">
-<div class="flex flex-col items-center gap-2">
-<div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-2xl animate-pulse-soft">
-<span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
-          </div>
-<span class="text-white font-bold text-sm bg-black/20 px-3 py-1 rounded-full backdrop-blur-sm">Watch it in action</span>
-              </div>
-              </div>
-<!-- Floating Telegram Bubble Overlay -->
-<div class="absolute bottom-4 right-4 md:bottom-8 md:right-8 bg-[#229ED9] text-white p-3 md:p-4 rounded-2xl shadow-xl flex items-center gap-3 animate-bounce">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">send</span>
-<div class="text-[10px] md:text-xs text-left">
-<p class="font-bold">Quote approved!</p>
-<p class="opacity-80">Team notified — ready to invoice</p>
-              </div>
-            </div>
-              </div>
-              </div>
-              </div>
 </section>
-<!-- AI Section -->
-<section class="landing-section px-4 md:px-8 section-anchor" id="ai-writing">
-<div class="max-w-[1200px] mx-auto">
-<div class="ai-spotlight rounded-2xl p-5 md:p-6 reveal">
-<div class="text-center mb-5">
-<span class="ai-badge mb-2"><span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1">auto_awesome</span> AI built in</span>
-<h2 class="font-headline-md text-2xl md:text-headline-md text-typography-charcoal mt-2 mb-2">Anyone can create documents that look professional</h2>
-<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant max-w-2xl mx-auto">
-You do not need perfect English or years of quoting experience. Type how you would explain the job to a friend — Smart Invoicify turns it into clear scope, notes, terms, and line items for <strong>proposals</strong>, <strong>quotations</strong>, and <strong>invoices</strong>.
-</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-<div class="bg-white rounded-xl p-5 border border-border-subtle interactive-card">
-<span class="material-symbols-outlined text-[#6d28d9] mb-3 text-[28px]" style="font-variation-settings:'FILL' 1">edit_note</span>
-<h4 class="font-headline-sm mb-2">1. Describe the work</h4>
-<p class="text-sm text-on-surface-variant">Example: “6kW solar, panels, inverter, install, training.”</p>
-</div>
-<div class="bg-white rounded-xl p-5 border border-border-subtle interactive-card">
-<span class="material-symbols-outlined text-[#6d28d9] mb-3 text-[28px]" style="font-variation-settings:'FILL' 1">auto_awesome</span>
-<h4 class="font-headline-sm mb-2">2. Tap Polish with AI</h4>
-<p class="text-sm text-on-surface-variant">Professional wording for scope, notes, and payment terms — ready to review and edit.</p>
-</div>
-<div class="bg-white rounded-xl p-5 border border-border-subtle interactive-card">
-<span class="material-symbols-outlined text-[#6d28d9] mb-3 text-[28px]" style="font-variation-settings:'FILL' 1">playlist_add</span>
-<h4 class="font-headline-sm mb-2">3. Suggest line items</h4>
-<p class="text-sm text-on-surface-variant">AI builds a full price list from your catalog — products, labor, and services included.</p>
-</div>
-</div>
-<p class="text-center text-sm text-on-surface-variant mt-4">AI is optional — your team can configure it in Settings. Works on proposals, quotations, invoices, products, and quote packages.</p>
-</div>
-</div>
-</section>
-<!-- Problem Section -->
-<section class="landing-section px-4 md:px-8 bg-surface-off-white">
-<div class="max-w-[1200px] mx-auto">
-<div class="text-center section-head reveal">
-<h2 class="font-headline-md text-2xl md:text-headline-md text-typography-charcoal mb-2">Sound familiar? <span class="text-primary">You're not alone.</span></h2>
-</div>
-<div class="story-block reveal max-w-3xl mx-auto">
-<div class="story-persona">
-<div class="persona-avatar" aria-hidden="true">📡</div>
-<div>
-<p class="font-headline-sm text-base font-semibold text-typography-charcoal">Wasil Rehman — CCTV &amp; solar installation contractor</p>
-<p class="text-sm text-on-surface-variant">Running his own installation business for 5 years</p>
-</div>
-</div>
-<p class="text-sm md:text-base text-on-surface-variant italic leading-relaxed">
-"A big client asked for a formal quote with company letterhead, item breakdown, and payment terms. I spent <strong class="not-italic text-typography-charcoal">three hours</strong> copying from an old Word file, worrying I had the wrong prices, fixing the layout… and by the time I sent it, they'd already gone with someone else."
-</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-<div class="flex gap-3 p-4 rounded-xl border border-border-subtle bg-white interactive-card reveal stagger-1">
-<div class="w-12 h-12 bg-error-container/20 rounded-lg flex items-center justify-center flex-shrink-0">
-<span class="material-symbols-outlined text-error">content_copy</span>
-              </div>
-<div>
-<h4 class="font-headline-sm text-lg md:text-headline-sm mb-2">Copying from old files</h4>
-<p class="text-sm md:text-base text-on-surface-variant">You reuse the same Word doc from two years ago and pray nothing important changed.</p>
-                </div>
-              </div>
-<div class="flex gap-3 p-4 rounded-xl border border-border-subtle bg-white interactive-card reveal stagger-2">
-<div class="w-12 h-12 bg-error-container/20 rounded-lg flex items-center justify-center flex-shrink-0">
-<span class="material-symbols-outlined text-error">warning</span>
-                </div>
-<div>
-<h4 class="font-headline-sm text-lg md:text-headline-sm mb-2">Calculator errors</h4>
-<p class="text-sm md:text-base text-on-surface-variant">A wrong decimal or forgotten tax makes you look unprofessional in front of clients.</p>
-              </div>
-                </div>
-<div class="flex gap-3 p-4 rounded-xl border border-border-subtle bg-white interactive-card reveal stagger-3">
-<div class="w-12 h-12 bg-error-container/20 rounded-lg flex items-center justify-center flex-shrink-0">
-<span class="material-symbols-outlined text-error">folder_off</span>
-              </div>
-<div>
-<h4 class="font-headline-sm text-lg md:text-headline-sm mb-2">WhatsApp quoting</h4>
-<p class="text-sm md:text-base text-on-surface-variant">Sending prices in a chat message means clients don't take you seriously — and you can't track anything.</p>
-            </div>
-          </div>
-<div class="flex gap-3 p-4 rounded-xl border border-border-subtle bg-white interactive-card reveal stagger-4">
-<div class="w-12 h-12 bg-error-container/20 rounded-lg flex items-center justify-center flex-shrink-0">
-<span class="material-symbols-outlined text-error">chat_bubble</span>
-        </div>
+
+<!-- PAIN STORY -->
+<section class="pain-section">
+  <div class="pain-inner">
+    <div class="section-label">The real problem</div>
+    <h2>Sound familiar? <em>You're not alone.</em></h2>
+    <div class="story-block">
+      <div class="story-persona">
+        <div class="persona-avatar"><span class="material-symbols-outlined">electrical_services</span></div>
         <div>
-<h4 class="font-headline-sm text-lg md:text-headline-sm mb-2">Slow follow-ups</h4>
-<p class="text-sm md:text-base text-on-surface-variant">Chasing payments by text feels awkward. A professional invoice with clear terms handles it for you.</p>
+          <div class="persona-name">Wasil Rehman — CCTV and Solar Installation contractor</div>
+          <div class="persona-role">Running his own installation business for 5 years</div>
+        </div>
+      </div>
+      <p class="story-quote">
+        "A big client asked me for a formal quote with company letterhead, item breakdown, and payment terms. I spent <strong>three hours</strong> copying from an old Word file, worrying I had the wrong prices, fixing the layout... and by the time I sent it, they'd already gone with someone else."
+      </p>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-icon"><span class="material-symbols-outlined">content_copy</span></div>
+        <h4>Copying from old files</h4>
+        <p>You reuse the same Word doc from two years ago and pray nothing important changed.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon"><span class="material-symbols-outlined">calculate</span></div>
+        <h4>Calculator errors</h4>
+        <p>A wrong decimal or forgotten tax makes you look unprofessional in front of clients.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon"><span class="material-symbols-outlined">chat</span></div>
+        <h4>WhatsApp quoting</h4>
+        <p>Sending prices in a chat message means clients don't take you seriously — and you can't track anything.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon"><span class="material-symbols-outlined">payments</span></div>
+        <h4>Slow follow-ups</h4>
+        <p>Chasing payments by text feels awkward. A professional invoice with clear terms handles it for you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how-it-works">
+  <div class="section">
+    <div class="section-label">How it works</div>
+    <h2>From job description to <em>signed quote</em> in three steps</h2>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div class="step-icon-wrap" style="background: var(--accent-light);"><span class="material-symbols-outlined" style="color:var(--accent);">edit_note</span></div>
+        <h3>Describe the job</h3>
+        <p>Type a few words about the work — just like you'd explain it to a friend. You don't need perfect English or exact prices memorised.</p>
+        <div class="step-example">"6kW solar, panels, inverter, install, training"</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div class="step-icon-wrap" style="background: var(--green-light);"><span class="material-symbols-outlined fill" style="color:var(--green);">auto_awesome</span></div>
+        <h3>AI builds the quote</h3>
+        <p>Smart Invoicify fills in the scope, line items, terms, and professional wording. You review and adjust — it's your quote, AI just speeds it up.</p>
+        <div class="step-example" style="border-left-color: var(--green);">Full breakdown ready in under 60 seconds</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div class="step-icon-wrap" style="background: var(--accent-warm-light);"><span class="material-symbols-outlined" style="color:var(--accent-warm);">send</span></div>
+        <h3>Send &amp; get paid</h3>
+        <p>Export a professional PDF, share a link for online approval, and convert to an invoice the moment your client says yes — without re-typing a thing.</p>
+        <div class="step-example" style="border-left-color: var(--accent-warm);">Client signs, you invoice, you get paid</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features" style="background: var(--paper-2); padding: 80px 0;">
+  <div style="max-width: 1100px; margin: 0 auto; padding: 0 32px;">
+    <div class="section-label">Everything included</div>
+    <h2>One app for your whole paperwork <em>workflow</em></h2>
+    <div class="features-grid" style="border: 1px solid var(--paper-3); border-radius: var(--r-lg); overflow: hidden; margin-top: 48px; background: var(--paper);">
+      <div class="feature-item">
+        <div class="feature-icon" style="background: var(--accent-light);"><span class="material-symbols-outlined" style="color:var(--accent);">picture_as_pdf</span></div>
+        <h3>Professional PDF quotes</h3>
+        <p>Every quote looks like it came from a large company — your logo, clean layout, and branded colours. Clients take you seriously from the first document.</p>
+        <span class="feature-tag" style="background: var(--accent-light); color: var(--accent);">Most used</span>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon" style="background: var(--green-light);"><span class="material-symbols-outlined fill" style="color:var(--green);">auto_awesome</span></div>
+        <h3>AI writing assistant</h3>
+        <p>Describe a job in plain words — AI turns it into polished scope notes, professional terms, and a full list of line items. Works even if English isn't your strongest language.</p>
+        <span class="feature-tag" style="background: var(--green-light); color: var(--green);">AI-powered</span>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon" style="background: var(--accent-warm-light);"><span class="material-symbols-outlined" style="color:var(--accent-warm);">sync_alt</span></div>
+        <h3>One-click invoice conversion</h3>
+        <p>Once a client approves, flip the quote to an invoice instantly. No copy-pasting, no re-entering data — everything carries over automatically.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon" style="background: #f3e8ff;"><span class="material-symbols-outlined" style="color:#7c3aed;">draw</span></div>
+        <h3>Client online approval</h3>
+        <p>Share a link. Your client opens it on any phone, adds their signature, and taps Approve. You get notified instantly on the app and via Telegram.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon" style="background: var(--paper-2);"><span class="material-symbols-outlined" style="color:var(--accent);">smartphone</span></div>
+        <h3>Works on your phone</h3>
+        <p>Add it to your home screen like a regular app — no App Store, no download. Use it on any phone, tablet, or laptop with the same workspace everywhere.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon" style="background: var(--accent-light);"><span class="material-symbols-outlined" style="color:var(--accent);">monitoring</span></div>
+        <h3>Business health reports</h3>
+        <p>See at a glance which quotes converted, which invoices are unpaid, and what your monthly revenue looks like — without opening a spreadsheet.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section>
+  <div class="section" style="text-align: center;">
+    <div class="section-label" style="justify-content: center;">By the numbers</div>
+    <h2>Less time on paperwork. <em>More time on your craft.</em></h2>
+    <div class="stats-row">
+      <div class="stat-item">
+        <div class="stat-num">90%</div>
+        <div class="stat-label">Less time building quotes</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">PDF accuracy, every time</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">&lt; 60s</div>
+        <div class="stat-label">Average quote creation time</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS CAROUSEL -->
+<section style="background: var(--paper-2); padding: 80px 0;">
+  <div style="max-width: 1100px; margin: 0 auto; padding: 0 32px;">
+    <div class="section-label">Real people, real results</div>
+    <h2>What our users say</h2>
+    <div class="testi-carousel-wrap">
+      <div class="testi-track" id="testiTrack">
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"I sent my first proper quote in less than a minute. The client replied immediately — they said it looked so professional they didn't even bargain!"</p>
+          <div class="testi-author">
+            <div class="testi-avatar" style="background: #d4e8ff; color: #1a4fd6;">AD</div>
+            <div>
+              <div class="testi-name">Aamir Durrani</div>
+              <div class="testi-role">Electrician, Karachi</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"The best decision for my small business. I send a quote and get paid faster than ever. The AI even helps me write English terms I never knew how to phrase."</p>
+          <div class="testi-author">
+            <div class="testi-avatar" style="background: #ffe8d4; color: #c45a08;">MR</div>
+            <div>
+              <div class="testi-name">Muhammad R.</div>
+              <div class="testi-role">HVAC contractor, Karachi</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"Before this, I was writing quotes in WhatsApp. Now I look like a proper company. Clients trust me more and I win more jobs than before."</p>
+          <div class="testi-author">
+            <div class="testi-avatar" style="background: #d4ffe8; color: #176a3c;">SS</div>
+            <div>
+              <div class="testi-name">Sara S.</div>
+              <div class="testi-role">Interior design, Islamabad</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"Wasil bhai told me about Smart Invoicify and I was skeptical at first. But the first time I used it on my phone while standing at a client's house, I made the quote right there. They signed the same day."</p>
+          <div class="testi-author">
+            <div class="testi-avatar" style="background: #f3e8ff; color: #7c3aed;">IK</div>
+            <div>
+              <div class="testi-name">Imran K.</div>
+              <div class="testi-role">CCTV installer, Lahore</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-nav">
+      <button class="testi-btn" id="testiPrev" aria-label="Previous"><span class="material-symbols-outlined">chevron_left</span></button>
+      <button class="testi-btn" id="testiNext" aria-label="Next"><span class="material-symbols-outlined">chevron_right</span></button>
+      <div class="testi-dots" id="testiDots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- PWA -->
+<section class="pwa-section section-anchor" id="mobile-app">
+  <div class="pwa-inner">
+    <div>
+      <div class="section-label">Works on any phone</div>
+      <h2>Your office in your pocket — <em>no app store needed</em></h2>
+      <p>Smart Invoicify runs in your phone's browser. Tap "Add to Home Screen" once and it works exactly like an app — icon on your screen, full screen, instant access anywhere.</p>
+      <div class="pwa-steps">
+        <div class="pwa-step">
+          <div class="pwa-step-icon"><span class="material-symbols-outlined">phone_iphone</span></div>
+          <div>
+            <h4>On iPhone</h4>
+            <p>Open in Safari → tap Share → "Add to Home Screen"</p>
+          </div>
+        </div>
+        <div class="pwa-step">
+          <div class="pwa-step-icon"><span class="material-symbols-outlined">android</span></div>
+          <div>
+            <h4>On Android</h4>
+            <p>Open in Chrome → tap menu (⋮) → "Install app" or "Add to Home Screen"</p>
+          </div>
+        </div>
+        <div class="pwa-step">
+          <div class="pwa-step-icon"><span class="material-symbols-outlined">computer</span></div>
+          <div>
+            <h4>On desktop</h4>
+            <p>No installation. Just open the link and start working. All your data syncs everywhere.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- REALISTIC PWA PHONE MOCKUP -->
+    <div class="pwa-phone-scene">
+      <div class="pwa-phone-outer">
+        <div class="pwa-phone-shell">
+          <div class="pwa-notch">
+            <div class="pwa-notch-cam"></div>
+            <div class="pwa-notch-pill"></div>
+          </div>
+          <div class="pwa-screen">
+            <div class="pwa-homescreen">
+              <div class="pwa-hs-time">
+                <span class="hs-time">9:41</span>
+                <span class="hs-date">Sunday, June 7</span>
+              </div>
+              <!-- App grid -->
+              <div class="pwa-hs-icons">
+                <div class="hs-icon">
+                  <div class="hs-icon-img" style="background: #1877F2;"><span class="hs-app-letter">F</span></div>
+                  <div class="hs-icon-label">Facebook</div>
+                </div>
+                <div class="hs-icon">
+                  <div class="hs-icon-img" style="background: #25D366;"><span class="hs-app-letter">W</span></div>
+                  <div class="hs-icon-label">WhatsApp</div>
+                </div>
+                <div class="hs-icon hs-icon-featured">
+                  <div class="hs-icon-img"><span class="material-symbols-outlined fill">receipt_long</span></div>
+                  <div class="hs-icon-label">Invoicify</div>
+                </div>
+                <div class="hs-icon">
+                  <div class="hs-icon-img" style="background: #229ED9;"><span class="material-symbols-outlined">send</span></div>
+                  <div class="hs-icon-label">Telegram</div>
+                </div>
+                <div class="hs-icon">
+                  <div class="hs-icon-img" style="background: #EA4335;"><span class="material-symbols-outlined">photo_camera</span></div>
+                  <div class="hs-icon-label">Camera</div>
+                </div>
+                <div class="hs-icon">
+                  <div class="hs-icon-img" style="background: #34A853;"><span class="material-symbols-outlined">map</span></div>
+                  <div class="hs-icon-label">Maps</div>
+                </div>
+                <div class="hs-icon">
+                  <div class="hs-icon-img" style="background: #FF6B35;"><span class="hs-app-letter">D</span></div>
+                  <div class="hs-icon-label">Daraz</div>
+                </div>
+                <div class="hs-icon">
+                  <div class="hs-icon-img" style="background: #4a4a4a;"><span class="material-symbols-outlined">settings</span></div>
+                  <div class="hs-icon-label">Settings</div>
+                </div>
+              </div>
+              <div class="pwa-notification">
+                <div class="notif-icon"><span class="material-symbols-outlined fill">receipt_long</span></div>
+                <div style="flex:1">
+                  <div class="notif-title">Smart Invoicify</div>
+                  <div class="notif-body">Wasil — Quote #QT-0042 approved by client</div>
+                </div>
+                <div class="notif-time">now</div>
+              </div>
+              <div class="pwa-dock">
+                <div class="dock-item" style="background:#1877F2;"><span class="hs-app-letter">F</span></div>
+                <div class="dock-item" style="background:linear-gradient(135deg,#1a4fd6,#0d39b0);"><span class="material-symbols-outlined fill">receipt_long</span></div>
+                <div class="dock-item" style="background:#25D366;"><span class="material-symbols-outlined">chat</span></div>
+                <div class="dock-item" style="background:#333;"><span class="material-symbols-outlined">call</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pwa-float-badge"><span class="material-symbols-outlined fill">install_mobile</span> Lives on your home screen</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="section">
+    <div class="section-label">Getting started</div>
+    <h2>Try the full app — completely <em>free</em></h2>
+    <p style="color: var(--ink-2); font-size: 1rem; max-width: 600px; margin-top: 8px; margin-bottom: 48px; line-height: 1.7;">
+      No credit card, no limits on the demo. Verify your email and explore everything — proposals, quotes, invoices, AI writing, and reports — with sample data. When you're ready to go live, <a href="mailto:meem.khaan@gmail.com?subject=Smart Invoicify licensing" style="color: var(--accent);">contact Reach Solutions</a> for a deployment on your own infrastructure.
+    </p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 900px;">
+      <div style="border: 2px solid var(--accent); border-radius: var(--r-lg); padding: 32px; position: relative; background: var(--paper);">
+        <div style="position: absolute; top: -12px; left: 24px; background: var(--accent); color: #fff; font-size: 0.72rem; font-weight: 700; padding: 3px 12px; border-radius: 20px; letter-spacing: .05em; text-transform: uppercase;">Start here</div>
+        <h3 style="font-size: 1.1rem; margin-bottom: 6px;">Free sandbox</h3>
+        <p style="font-size: 0.85rem; color: var(--ink-2); margin-bottom: 20px; line-height: 1.6;">Explore everything in an interactive demo. Verify your email and try the full app with sample data.</p>
+        <ul style="list-style: none; margin-bottom: 24px;">
+          <li style="font-size: 0.85rem; color: var(--ink-2); padding: 5px 0; display: flex; gap: 8px; align-items: flex-start;"><span class="check-mark">✓</span> Full access — proposals, invoices, reports</li>
+          <li style="font-size: 0.85rem; color: var(--ink-2); padding: 5px 0; display: flex; gap: 8px; align-items: flex-start;"><span class="check-mark">✓</span> AI writing &amp; line-item suggestions</li>
+          <li style="font-size: 0.85rem; color: var(--ink-2); padding: 5px 0; display: flex; gap: 8px; align-items: flex-start;"><span class="check-mark">✓</span> Telegram notifications</li>
+        </ul>
+        <a href="https://demo-smart-invoicify.vercel.app/demo/request" class="btn-primary" style="display: block; text-align: center;">Request demo access</a>
+      </div>
+      <div style="border: 1px solid var(--paper-3); border-radius: var(--r-lg); padding: 32px; background: var(--paper-2);">
+        <h3 style="font-size: 1.1rem; margin-bottom: 6px;">Your organisation</h3>
+        <p style="font-size: 0.85rem; color: var(--ink-2); margin-bottom: 20px; line-height: 1.6;">Licensed deployment on your own servers — your data, your brand, your team. Quoted per organisation.</p>
+        <ul style="list-style: none; margin-bottom: 24px;">
+          <li style="font-size: 0.85rem; color: var(--ink-2); padding: 5px 0; display: flex; gap: 8px; align-items: flex-start;"><span class="check-mark">✓</span> Admin invites your team</li>
+          <li style="font-size: 0.85rem; color: var(--ink-2); padding: 5px 0; display: flex; gap: 8px; align-items: flex-start;"><span class="check-mark">✓</span> Your brand, your logo</li>
+          <li style="font-size: 0.85rem; color: var(--ink-2); padding: 5px 0; display: flex; gap: 8px; align-items: flex-start;"><span class="check-mark">✓</span> Full setup &amp; training support</li>
+        </ul>
+        <a href="mailto:meem.khaan@gmail.com?subject=Smart Invoicify licensing" class="btn-outline" style="display: block; text-align: center;">Contact for pricing</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about-section">
+  <div class="about-inner">
+    <div>
+      <div class="about-badge"><span class="material-symbols-outlined">apartment</span> About the team</div>
+      <h2>Built by people who <em>understand</em> your business</h2>
+      <p>
+        <strong>Reach Solutions</strong> builds Smart Invoicify for service and project-based businesses — contractors, workshops, agencies, and small teams who need professional documents without juggling spreadsheets.
+      </p>
+      <p>
+        Smart Invoicify is a <strong>private team workspace</strong>: proposals, quotations, invoices, stock, purchase orders, and reports all in one place. Admins invite users — there is no public self-service sign-up on licensed deployments, which means your business data stays yours.
+      </p>
+      <p>
+        We believe that a contractor in Karachi or a workshop owner in Lahore deserves the same professional tools as a large corporation. Smart Invoicify is how we make that happen.
+      </p>
+      <p style="margin-top: 20px;">
+        <a href="https://github.com/Meemkhaan/smart-invoicify" style="color: var(--accent); font-weight: 600;">Product overview on GitHub →</a>
+      </p>
+    </div>
+    <div class="about-cards">
+      <div class="about-card">
+        <div class="about-card-icon"><span class="material-symbols-outlined">target</span></div>
+        <div>
+          <h4>Built for service businesses</h4>
+          <p>Contractors, freelancers, workshops, small teams — anyone who quotes for work and needs to get paid professionally.</p>
+        </div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-icon"><span class="material-symbols-outlined">lock</span></div>
+        <div>
+          <h4>Your data, your control</h4>
+          <p>Licensed deployments run on your own infrastructure. Your business data never lives on a shared public server.</p>
+        </div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-icon"><span class="material-symbols-outlined">support_agent</span></div>
+        <div>
+          <h4>Support from real people</h4>
+          <p>Every licensed deployment includes setup, training, and ongoing support from Reach Solutions — not just a ticketing system.</p>
+        </div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-icon"><span class="material-symbols-outlined">public</span></div>
+        <div>
+          <h4>Made in Pakistan</h4>
+          <p>Designed with Pakistani business workflows in mind — PKR, local invoice formats, WhatsApp sharing, and Telegram alerts.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
-<!-- Solution Section -->
-<section class="landing-section px-4 md:px-8 bg-surface overflow-hidden section-anchor" id="how-it-works">
-<div class="max-w-[1200px] mx-auto text-center section-head reveal">
-<h2 class="font-headline-md text-2xl md:text-headline-md text-typography-charcoal mb-2">From job description to <span class="text-primary">signed quote</span> in three steps</h2>
-<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant max-w-3xl mx-auto">
-                Type rough words, let AI build the quote, send it — and get paid when your client says yes.
-            </p>
-    </div>
-<div class="max-w-[1000px] mx-auto relative">
-<div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-outline-variant opacity-30"></div>
-<div class="space-y-4 md:space-y-6">
-<!-- Step 1 -->
-<div class="flex flex-col md:flex-row items-center gap-5 md:gap-7 relative reveal stagger-1">
-<div class="md:w-1/2 md:pr-12 text-center md:text-right order-2 md:order-1">
-<h3 class="font-headline-sm text-lg md:text-headline-sm mb-2">1. Describe the job</h3>
-<p class="text-sm md:text-base text-on-surface-variant">Type a few words about the work — just like you'd explain it to a friend. No perfect English or exact prices memorised.</p>
-<div class="step-example mt-3 text-left">"6kW solar, panels, inverter, install, training"</div>
-  </div>
-<div class="hidden md:flex w-10 h-10 rounded-full bg-primary text-white items-center justify-center relative z-10 font-bold order-2">1</div>
-<div class="w-full md:w-1/2 md:pl-12 order-1 md:order-3">
-<div class="bg-white p-2 md:p-3 rounded-lg shadow-md border border-border-subtle group relative overflow-hidden animate-float">
-<img alt="Create a quote" class="rounded-lg w-full h-32 md:h-36 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBAfoYkv3UxcsCFHgypNeoMd2beKikTadNMuR21ck7P8jKmltT1QDZFhCDexj9sxqom2zTJMuWs1zXHEDdtlw827PuWBwiWbQfIc2SFh-CUOre4NT1plwRfhxMRe5hs7crRkJigZhFc5T2iU7O0d-SM_XgLPWhzOPt2QDd6uVWVaFs5m5Cn931DOWlmS5G7h8yQZfJECQ9kF_fAOo37Vgsg_KFFj8YM_gpdPWRnZp03ca4sV-3id_lGPSlufWcHK7IqKaSEzbGkpM"/>
-<div class="absolute inset-0 bg-black/10 flex items-center justify-center opacity-80 group-hover:opacity-100 transition-opacity">
-<span class="material-symbols-outlined text-white text-3xl">play_circle</span>
-</div>
-  </div>
+
+<!-- PRIVACY -->
+<section id="privacy" class="privacy-section section-anchor">
+  <div class="privacy-inner">
+    <div class="section-label">Your data &amp; trust</div>
+    <h2>Privacy you can <em>rely on</em></h2>
+    <p class="privacy-intro">
+      This summarises how we handle information on the marketing site, demo sandbox, and licensed product. For contractual terms, see your licence agreement with Reach Solutions. Questions or deletion requests: <a href="mailto:meem.khaan@gmail.com?subject=Smart Invoicify privacy" style="color: var(--accent);">meem.khaan@gmail.com</a>
+    </p>
+    <div class="privacy-grid">
+      <div class="privacy-card">
+        <h4><span class="material-symbols-outlined">edit_note</span> Demo requests</h4>
+        <p>Your name, email, and optional company are stored only on the demo Supabase project, with email verification before access. We do not sell demo lead data.</p>
       </div>
+      <div class="privacy-card">
+        <h4><span class="material-symbols-outlined">domain</span> Licensed workspaces</h4>
+        <p>Your business data lives in your own Supabase project. Row-level security keeps each organisation isolated. Files use encrypted storage.</p>
       </div>
-<!-- Step 2 -->
-<div class="flex flex-col md:flex-row-reverse items-center gap-5 md:gap-7 relative reveal stagger-2">
-<div class="md:w-1/2 md:pl-12 text-center md:text-left order-2 md:order-1">
-<h3 class="font-headline-sm text-lg md:text-headline-sm mb-2">2. AI builds the quote</h3>
-<p class="text-sm md:text-base text-on-surface-variant">Smart Invoicify fills in scope, line items, terms, and professional wording. You review and adjust — it's your quote, AI just speeds it up.</p>
-<div class="step-example mt-3 text-left" style="border-left-color:#006b5f;">Full breakdown ready in under 60 seconds</div>
+      <div class="privacy-card">
+        <h4><span class="material-symbols-outlined fill">auto_awesome</span> AI features (optional)</h4>
+        <p>When enabled by your admin, document text may be sent to your configured AI provider (Groq, Gemini, or OpenAI-compatible). You review all output before sending to clients.</p>
       </div>
-<div class="hidden md:flex w-10 h-10 rounded-full bg-primary text-white items-center justify-center relative z-10 font-bold order-2">2</div>
-<div class="w-full md:w-1/2 md:pr-12 order-1 md:order-3">
-<div class="bg-white p-2 md:p-3 rounded-lg shadow-md border border-border-subtle group relative overflow-hidden animate-float stagger-2" style="animation-delay: 1s;">
-<img alt="Send PDF" class="rounded-lg w-full h-32 md:h-36 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByrNilNOaW4AVTaXBohtYnjm9XHvs7J4ORms8rVWujxSK0WnsXKAw6vJDnAeXnMN5FO_4l-Kpo-5qvVyOPFBPO0H8z6fRjBbbG-tmPeCTXwlRUE8D9TAd3ocHYJGzEyJe6Hn9anQuYejrAFT0uC_1mK6n-ilYLfK4uK_ubwkIjq1vhROXe-OaaQES_RaX6um7b4EePa-RUrmA_A09KBJP6ABZv0jkILSMmRvzmzjBCJBHIsUxLwyVcnT8vpDfR0AVjwx0ZPPXoYp4"/>
-<div class="absolute inset-0 bg-black/10 flex items-center justify-center opacity-80 group-hover:opacity-100 transition-opacity">
-<span class="material-symbols-outlined text-white text-3xl">play_circle</span>
-      </div>
-    </div>
-  </div>
-      </div>
-<!-- Step 3 -->
-<div class="flex flex-col md:flex-row items-center gap-5 md:gap-7 relative reveal stagger-3">
-<div class="md:w-1/2 md:pr-12 text-center md:text-right order-2 md:order-1">
-<h3 class="font-headline-sm text-lg md:text-headline-sm mb-2">3. Send &amp; get paid</h3>
-<p class="text-sm md:text-base text-on-surface-variant">Export a professional PDF, share a link for online approval, and convert to an invoice the moment your client says yes — without re-typing a thing.</p>
-<div class="step-example mt-3 text-left" style="border-left-color:#d4640a;">Client signs, you invoice, you get paid</div>
-        </div>
-<div class="hidden md:flex w-10 h-10 rounded-full bg-primary text-white items-center justify-center relative z-10 font-bold order-2">3</div>
-<div class="w-full md:w-1/2 md:pl-12 order-1 md:order-3">
-<div class="bg-white p-2 md:p-3 rounded-lg shadow-md border border-border-subtle group relative overflow-hidden animate-float stagger-3" style="animation-delay: 2s;">
-<img alt="Live Reports Mockup" class="rounded-lg w-full h-32 md:h-36 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLL_agtMwDFbjfQtnJjhjXbrJCgMvJCmlp8e8X4DRAqvI3AkC4CTc2lNNBSbIcuX1BZsIzkBw54KhNS-5jSkXwFi-q6PB6FbjcL2FkHsopuEqvIAHQF49dQXsOSKOimHkiF2A5eIzTus0Bj8Mihl8m3dFnAuHwShtjZe1K5lgqXYxsrJnbE5wE6hzV7GmsVQfD_ivaC32VdheiVNH1pANjm_o40QIE9kovLCQ7XUMPhae53dwbedNfgdh7IS_TxqNnISm6fRbWQqo"/>
-<div class="absolute inset-0 bg-black/10 flex items-center justify-center opacity-80 group-hover:opacity-100 transition-opacity">
-<span class="material-symbols-outlined text-white text-3xl">analytics</span>
-        </div>
-      </div>
-          </div>
+      <div class="privacy-card">
+        <h4><span class="material-symbols-outlined">send</span> Telegram (optional)</h4>
+        <p>Alerts go only to the chat IDs you configure. Demo marketing leads can use a separate portal-only Telegram setting.</p>
       </div>
     </div>
   </div>
 </section>
-<!-- PWA / Mobile Section -->
-<section class="landing-section px-4 md:px-8 bg-surface-container-low section-anchor" id="mobile-app">
-<div class="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-7 items-center reveal">
-<div class="space-y-3">
-<span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary font-label-xs uppercase tracking-wider">
-<span class="material-symbols-outlined text-[16px]">smartphone</span>
-Works on any phone
-</span>
-<h2 class="font-headline-md text-2xl md:text-headline-md text-typography-charcoal">Your office in your pocket — <span class="text-primary">no app store needed</span></h2>
-<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant">
-Smart Invoicify runs in your phone's browser. Tap <strong>Add to Home Screen</strong> once and it works like an app — icon on your screen, full screen, instant access on site or with a client.
-</p>
-<ul class="space-y-1.5 text-sm md:text-base text-on-surface-variant">
-<li class="flex gap-2"><span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>Same workspace on iPhone, Android, tablet, and laptop</li>
-<li class="flex gap-2"><span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>Quotes, invoices, and reports — wherever you are</li>
-<li class="flex gap-2"><span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>Alerts when a client approves or a payment is due</li>
-<li class="flex gap-2"><span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>Share a quote link — client signs to approve; your team is notified instantly</li>
-</ul>
-</div>
-<div class="space-y-4">
-<div class="relative flex justify-center items-end min-h-[220px] sm:min-h-[260px] py-1">
-<div class="absolute -inset-6 bg-primary/5 rounded-[2rem] blur-3xl pointer-events-none"></div>
-<div class="relative flex justify-center items-end gap-0 sm:gap-1 w-full max-w-[520px] mx-auto">
-<!-- Left screen — drop screenshot at screenshots/pwa/02-quotations.png -->
-<div class="phone-mockup phone-mockup--side -rotate-6 scale-[0.88] sm:scale-90 -mr-6 sm:-mr-10 z-0 opacity-95 translate-y-3">
-<div class="phone-notch" aria-hidden="true"></div>
-<div class="phone-screen">
-<div class="phone-screen-placeholder absolute inset-0">
-<span class="material-symbols-outlined text-primary text-[28px]">smartphone</span>
-<p class="text-[11px] font-medium">Add screenshot</p>
-<p class="text-[10px] text-typography-muted font-mono">screenshots/pwa/02-quotations.png</p>
-</div>
-<img alt="Quotations list on mobile" class="phone-screenshot hidden" src="screenshots/pwa/02-quotations.png" onload="this.classList.remove('hidden'); this.previousElementSibling.classList.add('hidden');" onerror="this.classList.add('hidden');"/>
-</div>
-<p class="phone-mockup-label">Quotations</p>
-</div>
-<!-- Center screen — drop screenshot at screenshots/pwa/01-dashboard.png -->
-<div class="phone-mockup phone-mockup--hero z-10">
-<div class="phone-notch" aria-hidden="true"></div>
-<div class="phone-screen">
-<div class="phone-screen-placeholder absolute inset-0">
-<span class="material-symbols-outlined text-primary text-[32px]">smartphone</span>
-<p class="text-xs font-medium">Add screenshot</p>
-<p class="text-[10px] text-typography-muted font-mono">screenshots/pwa/01-dashboard.png</p>
-</div>
-<img alt="Smart Invoicify mobile dashboard" class="phone-screenshot hidden" src="screenshots/pwa/01-dashboard.png" onload="this.classList.remove('hidden'); this.previousElementSibling.classList.add('hidden');" onerror="this.classList.add('hidden');"/>
-</div>
-<p class="phone-mockup-label">Dashboard</p>
-</div>
-<!-- Right screen — drop screenshot at screenshots/pwa/03-client-approval.png -->
-<div class="phone-mockup phone-mockup--side rotate-6 scale-[0.88] sm:scale-90 -ml-6 sm:-ml-10 z-0 opacity-95 translate-y-3">
-<div class="phone-notch" aria-hidden="true"></div>
-<div class="phone-screen">
-<div class="phone-screen-placeholder absolute inset-0">
-<span class="material-symbols-outlined text-primary text-[28px]">smartphone</span>
-<p class="text-[11px] font-medium">Add screenshot</p>
-<p class="text-[10px] text-typography-muted font-mono">screenshots/pwa/03-client-approval.png</p>
-</div>
-<img alt="Client quote approval on mobile" class="phone-screenshot hidden" src="screenshots/pwa/03-client-approval.png" onload="this.classList.remove('hidden'); this.previousElementSibling.classList.add('hidden');" onerror="this.classList.add('hidden');"/>
-</div>
-<p class="phone-mockup-label">Client approval</p>
-</div>
-</div>
-</div>
-<div class="bg-white rounded-2xl border border-border-subtle p-4 md:p-5 shadow-lg interactive-card">
-<div class="flex flex-col gap-3">
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-primary text-[28px]">phone_iphone</span>
-<div>
-<p class="font-headline-sm text-base mb-1">On iPhone</p>
-<p class="text-sm text-on-surface-variant">Open in Safari → Share → <strong>Add to Home Screen</strong></p>
-</div>
-</div>
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-primary text-[28px]">android</span>
-<div>
-<p class="font-headline-sm text-base mb-1">On Android</p>
-<p class="text-sm text-on-surface-variant">Open in Chrome → menu → <strong>Install app</strong> or <strong>Add to Home screen</strong></p>
-</div>
-</div>
-<p class="text-xs text-on-surface-variant border-t border-border-subtle pt-4">Licensed deployments can use your company logo, splash screen, and colors — so the installed icon looks like your brand, not ours.</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Features Grid -->
-<section class="landing-section px-4 md:px-8 section-anchor" id="features">
-<div class="max-w-[1200px] mx-auto">
-<div class="text-center section-head reveal">
-<h2 class="font-headline-md text-2xl md:text-headline-md text-typography-charcoal mb-2">One app for your whole paperwork <span class="text-primary">workflow</span></h2>
-<p class="text-on-surface-variant max-w-2xl mx-auto">Quotes, invoices, client approval, and reports — without juggling five different apps.</p>
-</div>
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
-<!-- Feature 1 -->
-<div class="p-5 md:p-6 rounded-lg border border-border-subtle bg-white interactive-card reveal stagger-1">
-<span class="material-symbols-outlined text-primary mb-2 text-[28px]">picture_as_pdf</span>
-<h4 class="font-headline-sm text-lg md:text-headline-sm mb-2">Professional PDFs</h4>
-<p class="text-sm md:text-base text-on-surface-variant">Generate clean, branded PDFs you’ll feel proud to send. Impress clients from the first interaction.</p>
-      </div>
-<!-- Feature 2 — AI (highlighted) -->
-<div class="p-5 md:p-6 rounded-lg ai-feature-card interactive-card reveal stagger-2 relative">
-<span class="ai-badge absolute top-4 right-4">Popular</span>
-<div class="mb-3 aspect-video overflow-hidden rounded-md bg-surface-container-low border border-border-subtle">
-<img alt="AI Help" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHUAcfm0KPb8zwbt1kLDxDYRhQUFD3R2QOVV7e5H9HRDrWcbZgAXMZA8-vA4al85cTAHB6YyciODZnEWAIU-5XxzTxD0pvGMRcQ1mUCmOcdsvcMdNQMa0XmEeZNvbhs_ZC7d7fD9l4kodnlw-2HaZTU6wbJ4KrLuPTcEjKL_uWgvzUsLfMeSzzwJ0O-Tpr6KIER8A5oeTcjJ62xrvcWHGSN0F317EhZBR_D0R4dWkthD4eWvh4tVMvc9FTIkIGvcLBxDPF2FmxfWU"/>
-      </div>
-<span class="material-symbols-outlined text-primary mb-2 text-[28px]">auto_awesome</span>
-<h4 class="font-headline-sm text-lg md:text-headline-sm mb-2">AI writing &amp; line items</h4>
-<p class="text-sm md:text-base text-on-surface-variant"><strong>Polish with AI</strong> turns rough notes into professional proposals, quotations, and invoices. <strong>Suggest line items</strong> builds your bill of materials from a short scope — even if you are new to quoting.</p>
-      </div>
-<!-- Feature 3 -->
-<div class="p-5 md:p-6 rounded-lg border border-border-subtle bg-white interactive-card reveal stagger-3">
-<div class="mb-3 aspect-video overflow-hidden rounded-md bg-surface-container-low border border-border-subtle">
-<img alt="Telegram Bot" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJDpV-mE9aVstRvlMH8td2vKHgxN5XvimdsUUUnbCaqA3F91EF_SKMqi-U4EJOJ55aTKLuIB1LUrY4UbbUVIHnAJ5zCGPodAWQn0FdZTH5Ji-ZMy4MlztKD0e4uWmBqCnLMjcrEXhgNZS7lYJvfpSGhX9er3ian4FTNz39Vk35nFg6ndAxjeQi_oEm-edw0BeMgwww88LOrSFvwitx8Irq38k7DYCQYcN_8SlZO55q7KKUQbYYaGcjADM-0VZlmXqEXxVQQoMEUjk"/>
+
+<!-- FINAL CTA -->
+<section style="background: var(--paper-2); padding: 0;">
+  <div class="cta-section">
+    <div class="section-label" style="justify-content: center;">Ready to start?</div>
+    <h2>Send your first professional quote <em>today</em></h2>
+    <p>No writing skills needed. No credit card. Just your job description and 60 seconds.</p>
+    <div class="cta-actions">
+      <a href="https://demo-smart-invoicify.vercel.app/demo/request" class="btn-large">Try it free →</a>
+      <a href="mailto:meem.khaan@gmail.com?subject=Smart Invoicify licensing" class="btn-outline">Talk to the team</a>
     </div>
-<span class="material-symbols-outlined text-primary mb-2 text-[28px]">notifications_active</span>
-<h4 class="font-headline-sm text-lg md:text-headline-sm mb-2">Telegram notifications</h4>
-<p class="text-sm md:text-base text-on-surface-variant">Get helpful updates on Telegram—like when something is created, shared, or needs attention.</p>
-  </div>
-<!-- Feature 4 -->
-<div class="p-5 md:p-6 rounded-lg border border-border-subtle bg-white interactive-card reveal stagger-4">
-<span class="material-symbols-outlined text-primary mb-2 text-[28px]">install_mobile</span>
-<h4 class="font-headline-sm text-lg md:text-headline-sm mb-2">Works on your phone</h4>
-<p class="text-sm md:text-base text-on-surface-variant">Add Smart Invoicify to your home screen from the mobile browser — no app store download. Share quotes for online approval on the go.</p>
-    </div>
-<!-- Feature 5 -->
-<div class="p-5 md:p-6 rounded-lg border border-border-subtle bg-white interactive-card reveal stagger-5">
-<span class="material-symbols-outlined text-primary mb-2 text-[28px]">sync_alt</span>
-<h4 class="font-headline-sm text-lg md:text-headline-sm mb-2">1-Click Conversion</h4>
-<p class="text-sm md:text-base text-on-surface-variant">No re-typing. Turn an approved quote into an invoice instantly with all data preserved.</p>
-    </div>
-<!-- Feature 6 -->
-<div class="p-5 md:p-6 rounded-lg border border-border-subtle bg-white interactive-card reveal stagger-6">
-<span class="material-symbols-outlined text-primary mb-2 text-[28px]">contact_page</span>
-<h4 class="font-headline-sm text-lg md:text-headline-sm mb-2">Client &amp; Project CRM</h4>
-<p class="text-sm md:text-base text-on-surface-variant">Keep customer info, job/site details, and document history together in one centralized portal.</p>
-    </div>
-<!-- Feature 7 -->
-<div class="p-5 md:p-6 rounded-lg border border-border-subtle bg-white interactive-card reveal stagger-6">
-<span class="material-symbols-outlined text-primary mb-2 text-[28px]">account_balance_wallet</span>
-<h4 class="font-headline-sm text-lg md:text-headline-sm mb-2">Discounts &amp; tax</h4>
-<p class="text-sm md:text-base text-on-surface-variant">Handle simple jobs or complex line pricing without messy spreadsheets. Supports discounts and taxes on documents.</p>
-  </div>
-<div id="accounting-pos" class="section-anchor sm:col-span-2 lg:col-span-3 reveal">
-<p class="font-label-xs text-label-xs text-primary uppercase tracking-widest mb-2">Finance &amp; inventory</p>
-<h3 class="font-headline-sm text-lg md:text-headline-sm text-typography-charcoal mb-1">Bookkeeping &amp; stock (for growing teams)</h3>
-<p class="text-sm text-on-surface-variant max-w-2xl">When your business outgrows spreadsheets — built-in books, purchase orders, and inventory tied to your quotes.</p>
-</div>
-<!-- Feature 7 — Chart of accounts -->
-<div class="p-5 md:p-6 rounded-lg border border-border-subtle bg-white interactive-card reveal stagger-1">
-<span class="material-symbols-outlined text-primary mb-2 text-[28px]">account_balance</span>
-<h4 class="font-headline-sm text-lg md:text-headline-sm mb-2">Chart of accounts</h4>
-<p class="text-sm md:text-base text-on-surface-variant">A proper chart of accounts with journal entries — invoices, payments, stock, and expenses can post automatically so your books stay organized.</p>
-  </div>
-<!-- Feature 8 — Purchase orders -->
-<div class="p-5 md:p-6 rounded-lg border border-border-subtle bg-white interactive-card reveal stagger-2">
-<span class="material-symbols-outlined text-primary mb-2 text-[28px]">shopping_cart</span>
-<h4 class="font-headline-sm text-lg md:text-headline-sm mb-2">Purchase orders</h4>
-<p class="text-sm md:text-base text-on-surface-variant">Create POs for vendors, receive stock in full or in parts, and keep purchase costs tied to inventory — ready for quoting and profit reports.</p>
-  </div>
-    </div>
+    <p class="cta-note">Trusted by contractors, freelancers, and workshops. Built by Reach Solutions.</p>
   </div>
 </section>
-<!-- Templates (future) -->
-<section class="landing-section px-4 md:px-8 bg-surface-container-low section-anchor" id="templates">
-<div class="max-w-[1200px] mx-auto reveal">
-<div class="rounded-2xl border border-dashed border-primary/30 bg-white p-5 md:p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-<div class="space-y-2 max-w-2xl">
-<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary font-label-xs uppercase tracking-wider">Coming soon</div>
-<h2 class="font-headline-md text-2xl md:text-headline-md text-typography-charcoal">Document templates</h2>
-<p class="text-on-surface-variant text-sm md:text-base">Branded PDF layouts for proposals, quotations, and invoices — tuned per organization when you license Smart Invoicify. Until then, export uses your company logo, signature, and terms from Settings.</p>
-</div>
-<div class="flex flex-col sm:flex-row gap-3 shrink-0">
-<a class="bg-transparent border border-border-subtle px-6 py-3 rounded-full text-typography-charcoal font-label-sm font-bold hover:bg-surface-container-low transition-all text-center" href="#contact">Ask about templates</a>
-<a class="bg-primary-container px-6 py-3 rounded-full text-on-primary font-label-sm font-bold btn-lift text-center" href="mailto:meem.khaan@gmail.com?subject=Smart%20Invoicify%20templates">Contact Reach Solutions</a>
-</div>
-</div>
-</div>
-</section>
-<!-- Outcomes Section -->
-<section class="landing-section px-4 md:px-8 bg-on-primary-fixed text-white overflow-hidden relative">
-<div class="absolute top-0 right-0 w-1/3 h-full opacity-10 pointer-events-none hidden lg:block">
-<span class="material-symbols-outlined text-[400px] absolute -right-20 -top-20" style="font-variation-settings: 'FILL' 1;">verified</span>
-          </div>
-<div class="max-w-[1200px] mx-auto reveal">
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
-<div class="space-y-4">
-<h2 class="font-headline-md text-2xl md:text-headline-md">Less time on paperwork. <span class="text-primary-fixed-dim">More time on your craft.</span></h2>
-<ul class="space-y-3">
-<li class="flex items-center gap-3 reveal stagger-1">
-<span class="material-symbols-outlined text-secondary-fixed">check_circle</span>
-<span class="font-body-lg text-base md:text-body-lg">Spend less time on paperwork and more on your craft</span>
-</li>
-<li class="flex items-center gap-3 reveal stagger-2">
-<span class="material-symbols-outlined text-secondary-fixed">check_circle</span>
-<span class="font-body-lg text-base md:text-body-lg">Reduce pricing mistakes that cost you money</span>
-</li>
-<li class="flex items-center gap-3 reveal stagger-3">
-<span class="material-symbols-outlined text-secondary-fixed">check_circle</span>
-<span class="font-body-lg text-base md:text-body-lg">Look more professional with branded documents</span>
-</li>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="logo" aria-label="Smart Invoicify home">
+          <img src="branding/Horizontal-logo-wordmark.png" alt="Smart Invoicify" class="brand-logo brand-logo--footer">
+        </a>
+        <p>Professional quotes, proposals &amp; invoices for service businesses — without the paperwork headache. Built by Reach Solutions.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#how-it-works">How it works</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="https://github.com/Meemkhaan/smart-invoicify">GitHub overview</a></li>
         </ul>
       </div>
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 reveal stagger-4">
-<div class="p-4 md:p-5 bg-white/5 rounded-2xl backdrop-blur-sm border border-white/10 text-center interactive-card">
-<div class="text-primary-fixed-dim font-display-lg text-[36px] md:text-[42px] mb-1 leading-none">90%</div>
-<p class="text-white/70 text-sm md:text-base">Less time building quotes</p>
-    </div>
-<div class="p-4 md:p-5 bg-white/5 rounded-2xl backdrop-blur-sm border border-white/10 text-center interactive-card">
-<div class="text-primary-fixed-dim font-display-lg text-[36px] md:text-[42px] mb-1 leading-none">100%</div>
-<p class="text-white/70 text-sm md:text-base">PDF Accuracy</p>
-  </div>
-<div class="p-4 md:p-5 bg-white/5 rounded-2xl backdrop-blur-sm border border-white/10 text-center interactive-card">
-<div class="text-primary-fixed-dim font-display-lg text-[36px] md:text-[42px] mb-1 leading-none">&lt;60s</div>
-<p class="text-white/70 text-sm md:text-base">Average quote creation</p>
-  </div>
-<div class="grid grid-cols-1 gap-3 sm:col-span-2 reveal stagger-4">
-<div class="testi-card">
-<div class="testi-stars">★★★★★</div>
-<p class="italic text-white/90 text-sm">"I sent my first proper quote in less than a minute. The client said it looked so professional they didn't even bargain!"</p>
-<div class="testi-author">
-<div class="testi-avatar" style="background:#dbe1ff;color:#004ac6;">AD</div>
-<div><p class="text-sm font-semibold text-white">Aamir Durrani</p><p class="text-xs text-white/60">Electrician, Karachi</p></div>
-</div>
-</div>
-<div class="testi-card">
-<div class="testi-stars">★★★★★</div>
-<p class="italic text-white/90 text-sm">"Before this, I was writing quotes in WhatsApp. Now I look like a proper company and win more jobs."</p>
-<div class="testi-author">
-<div class="testi-avatar" style="background:#e5f5ed;color:#176a3c;">SS</div>
-<div><p class="text-sm font-semibold text-white">Sara S.</p><p class="text-xs text-white/60">Interior design, Islamabad</p></div>
-</div>
-</div>
-<div class="testi-card">
-<div class="testi-stars">★★★★★</div>
-<p class="italic text-white/90 text-sm">"The AI helps me write English terms I never knew how to phrase. I send a quote and get paid faster than ever."</p>
-<div class="testi-author">
-<div class="testi-avatar" style="background:#fef0e4;color:#c45a08;">MR</div>
-<div><p class="text-sm font-semibold text-white">Muhammad R.</p><p class="text-xs text-white/60">HVAC contractor, Karachi</p></div>
-</div>
-</div>
-</div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- Use Cases Section -->
-<section class="landing-section px-4 md:px-8">
-<div class="max-w-[1200px] mx-auto reveal">
-<h2 class="font-headline-md text-2xl md:text-headline-md text-typography-charcoal text-center section-head">Built for every professional</h2>
-<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
-<div class="p-3 md:p-4 text-center border border-border-subtle rounded-xl interactive-card hover:border-primary hover:bg-primary/5 reveal stagger-1">
-<span class="material-symbols-outlined text-primary block mb-2 text-[28px]">person_pin</span>
-<span class="font-label-sm">Freelancers</span>
-    </div>
-<div class="p-3 md:p-4 text-center border border-border-subtle rounded-xl interactive-card hover:border-primary hover:bg-primary/5 reveal stagger-2">
-<span class="material-symbols-outlined text-primary block mb-2 text-[28px]">engineering</span>
-<span class="font-label-sm">Contractors</span>
-      </div>
-<div class="p-3 md:p-4 text-center border border-border-subtle rounded-xl interactive-card hover:border-primary hover:bg-primary/5 reveal stagger-3">
-<span class="material-symbols-outlined text-primary block mb-2 text-[28px]">home_repair_service</span>
-<span class="font-label-sm">Workshops</span>
-      </div>
-<div class="p-3 md:p-4 text-center border border-border-subtle rounded-xl interactive-card hover:border-primary hover:bg-primary/5 reveal stagger-4">
-<span class="material-symbols-outlined text-primary block mb-2 text-[28px]">groups</span>
-<span class="font-label-sm">Small teams</span>
-      </div>
-<div class="p-3 md:p-4 text-center border border-border-subtle rounded-xl interactive-card hover:border-primary hover:bg-primary/5 reveal stagger-5">
-<span class="material-symbols-outlined text-primary block mb-2 text-[28px]">cleaning_services</span>
-<span class="font-label-sm">Service businesses</span>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- Pricing / Access -->
-<section class="landing-section px-4 md:px-8 bg-on-primary-fixed text-white section-anchor" id="pricing">
-<div class="max-w-[1200px] mx-auto reveal">
-<div class="text-center max-w-2xl mx-auto section-head">
-<p class="font-label-xs text-label-xs text-primary-fixed-dim uppercase tracking-widest mb-2">Getting started</p>
-<h2 class="font-headline-md text-2xl md:text-headline-md mb-2">Try the full app — completely <span class="text-primary-fixed-dim">free</span></h2>
-<p class="text-white/80 text-sm md:text-base">No credit card, no limits on the demo. Verify your email and explore everything — quotes, invoices, AI writing, and reports — with sample data. When you're ready to go live, contact Reach Solutions for a setup on your own servers.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-<div class="p-5 md:p-6 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-sm flex flex-col interactive-card ring-2 ring-primary-fixed-dim/50">
-<p class="font-label-xs text-primary-fixed-dim uppercase tracking-wider mb-1">Start here</p>
-<h3 class="font-headline-sm text-xl mb-1">Free sandbox</h3>
-<p class="text-white/70 text-sm mb-4 flex-1">Explore everything in an interactive demo. Verify your email and try the full app with sample data.</p>
-<ul class="space-y-1.5 text-sm text-white/80 mb-4">
-<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-fixed text-[18px]">check</span>Full access — quotes, invoices, reports</li>
-<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-fixed text-[18px]">check</span>AI writing &amp; line-item suggestions</li>
-<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-fixed text-[18px]">check</span>Client approval on share links</li>
-</ul>
-<a class="bg-primary-fixed text-on-primary-fixed px-6 py-3 rounded-full font-label-sm font-bold text-center btn-lift" href="https://demo-smart-invoicify.vercel.app/demo/request">Request demo access</a>
-</div>
-<div class="p-5 md:p-6 rounded-2xl bg-white/5 border border-white/15 flex flex-col interactive-card">
-<p class="font-label-xs text-white/60 uppercase tracking-wider mb-1">Already have access?</p>
-<h3 class="font-headline-sm text-xl mb-1">Team workspace</h3>
-<p class="text-white/70 text-sm mb-4 flex-1">Your admin invited you to your company's workspace. Sign in with the account they created for you.</p>
-<ul class="space-y-1.5 text-sm text-white/80 mb-4">
-<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-fixed text-[18px]">check</span>Shared clients and documents</li>
-<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-fixed text-[18px]">check</span>Live data for your organisation</li>
-<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-fixed text-[18px]">check</span>All product features</li>
-</ul>
-<a class="bg-transparent border border-white/30 px-6 py-3 rounded-full font-label-sm font-bold text-center hover:bg-white/10 transition-all" href="https://smart-invoicify.vercel.app/login">Sign in</a>
-</div>
-<div class="p-5 md:p-6 rounded-2xl bg-white/5 border border-white/15 flex flex-col interactive-card">
-<p class="font-label-xs text-white/60 uppercase tracking-wider mb-1">Ready to go live?</p>
-<h3 class="font-headline-sm text-xl mb-1">Your organisation</h3>
-<p class="text-white/70 text-sm mb-4 flex-1">Licensed setup on your own servers — your data, your brand, your team. Quoted per organisation with setup and training included.</p>
-<ul class="space-y-1.5 text-sm text-white/80 mb-4">
-<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-fixed text-[18px]">check</span>Try the demo first</li>
-<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-fixed text-[18px]">check</span>Your logo and company branding</li>
-<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-fixed text-[18px]">check</span>Setup, training &amp; ongoing support</li>
-</ul>
-<a class="bg-primary-fixed text-on-primary-fixed px-6 py-3 rounded-full font-label-sm font-bold text-center btn-lift" href="mailto:meem.khaan@gmail.com?subject=Smart%20Invoicify%20licensing">Contact for pricing</a>
-</div>
-</div>
-<p class="text-center text-white/60 text-xs md:text-sm mt-5">Pricing is quoted per organisation — <a href="#contact" class="text-primary-fixed-dim underline underline-offset-2 hover:text-primary-fixed">contact Reach Solutions</a> when you're ready to go live.</p>
-</div>
-</section>
-<!-- About -->
-<section class="landing-section px-4 md:px-8 section-anchor" id="about">
-<div class="max-w-[800px] mx-auto reveal space-y-3">
-<h2 class="font-headline-md text-2xl md:text-headline-md text-typography-charcoal">Built by people who <span class="text-primary">understand</span> your business</h2>
-<p class="text-on-surface-variant text-sm md:text-base"><strong class="text-typography-charcoal">Reach Solutions</strong> builds Smart Invoicify for contractors, workshops, agencies, and small teams who need professional documents without juggling spreadsheets.</p>
-<p class="text-on-surface-variant text-sm md:text-base">We believe a contractor in Karachi or a workshop owner in Lahore deserves the same professional tools as a large corporation — quotes, invoices, client approval, and reports in one place.</p>
-<p class="text-sm"><a class="text-primary font-medium hover:underline" href="https://github.com/Meemkhaan/smart-invoicify" target="_blank" rel="noopener">Product overview on GitHub</a> · <a class="text-primary font-medium hover:underline" href="#pricing">See access options</a></p>
-</div>
-</section>
-<!-- Privacy -->
-<section class="landing-section px-4 md:px-8 bg-surface-off-white section-anchor" id="privacy">
-<div class="max-w-[800px] mx-auto reveal space-y-3">
-<h2 class="font-headline-md text-2xl md:text-headline-md text-typography-charcoal">Privacy</h2>
-<p class="text-on-surface-variant text-sm md:text-base">This summary describes how we handle information on the marketing site, demo sandbox, and licensed product. For contractual terms, see your license agreement with Reach Solutions.</p>
-<ul class="space-y-3 text-sm md:text-base text-on-surface-variant list-disc pl-5">
-<li><strong class="text-typography-charcoal">Demo requests:</strong> Name, email, and optional company or phone are stored on the demo environment only, with email verification before sandbox access. We do not sell demo lead data.</li>
-<li><strong class="text-typography-charcoal">Licensed workspaces:</strong> Your business data lives in <em>your</em> dedicated setup. Each organisation's data stays separate and secure.</li>
-<li><strong class="text-typography-charcoal">AI features (optional):</strong> When enabled by your admin, document text may be sent to your configured AI provider. You review all output before sending to clients.</li>
-<li><strong class="text-typography-charcoal">Telegram (optional):</strong> Alerts go only to chat IDs you configure.</li>
-</ul>
-<p class="text-sm text-on-surface-variant">Questions or deletion requests: <a class="text-primary font-medium hover:underline" href="mailto:meem.khaan@gmail.com?subject=Smart%20Invoicify%20privacy">meem.khaan@gmail.com</a></p>
-</div>
-</section>
-<!-- Contact -->
-<section class="landing-section px-4 md:px-8 section-anchor" id="contact">
-<div class="max-w-[800px] mx-auto reveal">
-<h2 class="font-headline-md text-2xl md:text-headline-md text-typography-charcoal mb-4">Contact</h2>
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-<div class="p-4 rounded-xl border border-border-subtle bg-white">
-<p class="font-label-xs text-primary uppercase tracking-wider mb-2">Licensing &amp; sales</p>
-<p class="text-sm text-on-surface-variant mb-3">Quotes for deployment, training, and support.</p>
-<a class="text-primary font-medium text-sm hover:underline" href="mailto:meem.khaan@gmail.com?subject=Smart%20Invoicify%20licensing">meem.khaan@gmail.com</a>
-</div>
-<div class="p-4 rounded-xl border border-border-subtle bg-white">
-<p class="font-label-xs text-primary uppercase tracking-wider mb-2">Demo access</p>
-<p class="text-sm text-on-surface-variant mb-3">Try the sandbox with sample data.</p>
-<a class="text-primary font-medium text-sm hover:underline" href="https://demo-smart-invoicify.vercel.app/demo/request">Request demo access</a>
-</div>
-<div class="p-4 rounded-xl border border-border-subtle bg-white">
-<p class="font-label-xs text-primary uppercase tracking-wider mb-2">Live app</p>
-<p class="text-sm text-on-surface-variant mb-3">Sign in if your admin already created your account.</p>
-<a class="text-primary font-medium text-sm hover:underline" href="https://smart-invoicify.vercel.app/login">smart-invoicify.vercel.app/login</a>
-</div>
-<div class="p-4 rounded-xl border border-border-subtle bg-white">
-<p class="font-label-xs text-primary uppercase tracking-wider mb-2">Public product repo</p>
-<p class="text-sm text-on-surface-variant mb-3">Marketing materials and screenshots (not application source).</p>
-<a class="text-primary font-medium text-sm hover:underline" href="https://github.com/Meemkhaan/smart-invoicify" target="_blank" rel="noopener">GitHub overview</a>
-</div>
-</div>
-</div>
-</section>
-<!-- FAQ Section -->
-<section class="landing-section px-4 md:px-8 bg-surface-off-white section-anchor" id="faq">
-<div class="max-w-[800px] mx-auto reveal">
-<h2 class="font-headline-md text-2xl md:text-headline-md text-typography-charcoal text-center section-head">Frequently Asked Questions</h2>
-<div class="space-y-2">
-<!-- FAQ 1 -->
-<div class="border border-border-subtle bg-white rounded-lg overflow-hidden transition-all duration-300 reveal stagger-1 group">
-<button class="w-full p-4 text-left flex justify-between items-center outline-none" onclick="toggleFaq(this)">
-<span class="font-headline-sm text-base md:text-headline-sm text-typography-charcoal">How do I generate a PDF?</span>
-<span class="material-symbols-outlined transition-transform duration-300 group-[.active]:rotate-180">expand_more</span>
-</button>
-<div class="faq-content">
-<div class="px-5 text-sm md:text-base text-on-surface-variant">
-                            Generating a PDF is automatic. Once you finish entering your quote or invoice details, simply click the "Export PDF" button. A professional, formatted document will be ready in seconds.
-  </div>
-    </div>
-    </div>
-<!-- FAQ 2 -->
-<div class="border border-border-subtle bg-white rounded-lg overflow-hidden transition-all duration-300 reveal stagger-2 group">
-<button class="w-full p-4 text-left flex justify-between items-center outline-none" onclick="toggleFaq(this)">
-<span class="font-headline-sm text-base md:text-headline-sm text-typography-charcoal">What can the AI do for me?</span>
-<span class="material-symbols-outlined transition-transform duration-300 group-[.active]:rotate-180">expand_more</span>
-</button>
-<div class="faq-content">
-<div class="px-5 text-sm md:text-base text-on-surface-variant">
-                            Built-in AI helps anyone write like a pro: polish proposals, quotations, and invoices from short notes; suggest full line-item lists from your scope; and improve product descriptions in the catalog. You review everything before sending — AI is a helper, not a black box.
-    </div>
-    </div>
-    </div>
-<!-- FAQ 3 -->
-<div class="border border-border-subtle bg-white rounded-lg overflow-hidden transition-all duration-300 reveal stagger-3 group">
-<button class="w-full p-4 text-left flex justify-between items-center outline-none" onclick="toggleFaq(this)">
-<span class="font-headline-sm text-base md:text-headline-sm text-typography-charcoal">How do Telegram notifications work?</span>
-<span class="material-symbols-outlined transition-transform duration-300 group-[.active]:rotate-180">expand_more</span>
-</button>
-<div class="faq-content">
-<div class="px-5 text-sm md:text-base text-on-surface-variant">
-                            You can link your Telegram account in the settings. Once connected, you'll receive real-time alerts whenever a client views a quote, makes a payment, or when a document status changes.
-    </div>
-    </div>
-    </div>
-<!-- FAQ 4 -->
-<div class="border border-border-subtle bg-white rounded-lg overflow-hidden transition-all duration-300 reveal stagger-4 group">
-<button class="w-full p-4 text-left flex justify-between items-center outline-none" onclick="toggleFaq(this)">
-<span class="font-headline-sm text-base md:text-headline-sm text-typography-charcoal">Do I need a separate mobile app from the app store?</span>
-<span class="material-symbols-outlined transition-transform duration-300 group-[.active]:rotate-180">expand_more</span>
-</button>
-<div class="faq-content">
-<div class="px-5 text-sm md:text-base text-on-surface-variant">
-                            No. Open Smart Invoicify in your mobile browser, choose <strong>Add to Home Screen</strong> on iPhone or <strong>Install app</strong> on Android, and you get an app-like icon and full-screen experience — the same workspace on desktop and mobile, without downloading from the Play Store or App Store.
-    </div>
-    </div>
-    </div>
-<!-- FAQ 5 -->
-<div class="border border-border-subtle bg-white rounded-lg overflow-hidden transition-all duration-300 reveal stagger-5 group">
-<button class="w-full p-4 text-left flex justify-between items-center outline-none" onclick="toggleFaq(this)">
-<span class="font-headline-sm text-base md:text-headline-sm text-typography-charcoal">How does the client approve a quote?</span>
-<span class="material-symbols-outlined transition-transform duration-300 group-[.active]:rotate-180">expand_more</span>
-</button>
-<div class="faq-content">
-<div class="px-5 text-sm md:text-base text-on-surface-variant">
-                            Send your client a secure share link from the quotation. They open it on any phone or computer, review the PDF, add their name and signature, and tap <strong>Approve</strong>. Your team gets an in-app alert (and optional Telegram or push notification). You can then convert the approved quote to an invoice in one click — or mark approval manually if they confirm offline.
-    </div>
-    </div>
-    </div>
-    </div>
-  </div>
-</section>
-<!-- Final CTA Section -->
-<section class="landing-section px-4 md:px-8 text-center bg-surface">
-<div class="max-w-[800px] mx-auto p-6 md:p-8 bg-white rounded-3xl border border-border-subtle shadow-xl relative overflow-hidden reveal">
-<div class="absolute top-0 left-0 w-2 h-full bg-primary"></div>
-<h2 class="font-headline-md text-2xl md:text-headline-md text-typography-charcoal mb-2">Send your first professional quote <span class="text-primary">today</span></h2>
-<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant mb-5">Try everything free in the demo sandbox — no credit card, no commitment.</p>
-<div class="flex flex-col sm:flex-row justify-center gap-3">
-<a class="bg-primary px-6 py-3 rounded-full text-on-primary font-label-sm font-bold shadow-lg btn-lift" href="https://demo-smart-invoicify.vercel.app/demo/request">Try it free →</a>
-<a class="bg-transparent border border-border-subtle px-6 py-3 rounded-full text-typography-charcoal font-label-sm font-bold hover:bg-surface-container-low transition-all text-center" href="mailto:meem.khaan@gmail.com?subject=Smart%20Invoicify%20licensing">Talk to us about going live</a>
-    </div>
-  </div>
-</section>
-</main>
-<!-- Footer -->
-<footer class="bg-surface border-t border-border-subtle w-full pt-8 md:pt-10 pb-8">
-<div class="max-w-[1200px] mx-auto px-4 md:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-<div class="col-span-1">
-<a href="#" class="inline-flex mb-4" aria-label="Smart Invoicify home">
-<img src="branding/Horizontal-logo-wordmark.png" alt="Smart Invoicify" class="h-9 w-auto max-w-[220px] object-contain object-left"/>
-</a>
-<p class="text-on-surface-variant font-body-md text-sm md:text-body-md max-w-xs">Professional tools for modern businesses. Built by Reach Solutions.</p>
-          </div>
-<div>
-<h5 class="font-label-xs text-label-xs text-primary mb-4 uppercase tracking-widest">Product</h5>
-<ul class="space-y-2 text-sm">
-<li><a class="nav-link text-on-surface-variant hover:text-primary transition-all duration-200 inline-block" href="#features">Features</a></li>
-<li><a class="nav-link text-on-surface-variant hover:text-primary transition-all duration-200 inline-block" href="#templates">Templates</a></li>
-<li><a class="nav-link text-on-surface-variant hover:text-primary transition-all duration-200 inline-block" href="#ai-writing">AI writing</a></li>
-<li><a class="nav-link text-on-surface-variant hover:text-primary transition-all duration-200 inline-block" href="#accounting-pos">Chart of accounts &amp; POs</a></li>
+      <div class="footer-links">
+        <h4>Get access</h4>
+        <ul>
+          <li><a href="https://demo-smart-invoicify.vercel.app/demo/request">Free demo</a></li>
+          <li><a href="https://smart-invoicify.vercel.app/login">Team sign in</a></li>
+          <li><a href="mailto:meem.khaan@gmail.com?subject=Smart Invoicify licensing">Licensing</a></li>
         </ul>
       </div>
-<div>
-<h5 class="font-label-xs text-label-xs text-primary mb-4 uppercase tracking-widest">Resources</h5>
-<ul class="space-y-2 text-sm">
-<li><a class="nav-link text-on-surface-variant hover:text-primary transition-all duration-200 inline-block" href="https://demo-smart-invoicify.vercel.app/demo/request">Request demo</a></li>
-<li><a class="nav-link text-on-surface-variant hover:text-primary transition-all duration-200 inline-block" href="https://github.com/Meemkhaan/smart-invoicify" target="_blank" rel="noopener">Product overview on GitHub</a></li>
-        </ul>
-      </div>
-<div>
-<h5 class="font-label-xs text-label-xs text-primary mb-4 uppercase tracking-widest">Company</h5>
-<ul class="space-y-2 text-sm">
-<li><a class="nav-link text-on-surface-variant hover:text-primary transition-all duration-200 inline-block" href="#about">About Us</a></li>
-<li><a class="nav-link text-on-surface-variant hover:text-primary transition-all duration-200 inline-block" href="#privacy">Privacy</a></li>
-<li><a class="nav-link text-on-surface-variant hover:text-primary transition-all duration-200 inline-block" href="#contact">Contact</a></li>
-<li><a class="nav-link text-on-surface-variant hover:text-primary transition-all duration-200 inline-block" href="#pricing">Pricing</a></li>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About Reach Solutions</a></li>
+          <li><a href="#privacy">Privacy</a></li>
+          <li><a href="mailto:meem.khaan@gmail.com">Contact</a></li>
         </ul>
       </div>
     </div>
-<div class="max-w-[1200px] mx-auto px-4 md:px-8 mt-8 pt-6 border-t border-border-subtle flex flex-col md:flex-row justify-between items-center gap-3">
-<p class="text-on-surface-variant font-label-xs text-label-xs">© 2026 Smart Invoicify · Reach Solutions</p>
-<div class="flex gap-6">
-<a class="text-on-surface-variant hover:text-primary transition-transform hover:scale-110" href="https://github.com/Meemkhaan/smart-invoicify" target="_blank" rel="noopener" aria-label="GitHub"><span class="material-symbols-outlined">code</span></a>
-<a class="text-on-surface-variant hover:text-primary transition-transform hover:scale-110" href="https://demo-smart-invoicify.vercel.app/demo/request" aria-label="Request demo"><span class="material-symbols-outlined">play_arrow</span></a>
+    <div class="footer-bottom">
+      <span>© 2026 Smart Invoicify · Reach Solutions</span>
+      <span>Made for small businesses in Pakistan and beyond</span>
     </div>
   </div>
 </footer>
+
 <script>
-    // Reveal Observer for Entrance Animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
+  // Testimonial carousel
+  const track = document.getElementById('testiTrack');
+  const cards = track.querySelectorAll('.testi-card');
+  const dotsContainer = document.getElementById('testiDots');
+  let current = 0;
+  const total = cards.length;
 
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-                // Optional: stop observing once triggered
-                // revealObserver.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
+  // Create dots
+  cards.forEach((_, i) => {
+    const dot = document.createElement('div');
+    dot.className = 'testi-dot' + (i === 0 ? ' active' : '');
+    dot.addEventListener('click', () => goTo(i));
+    dotsContainer.appendChild(dot);
+  });
 
-    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+  function getVisible() {
+    const w = track.parentElement.offsetWidth;
+    if (w < 600) return 1;
+    if (w < 900) return 2;
+    return 3;
+  }
 
-    // FAQ Interaction with smooth height transition
-    function toggleFaq(btn) {
-        const parent = btn.parentElement;
-        const isActive = parent.classList.contains('active');
-        
-        // Close all other FAQs
-        document.querySelectorAll('.group.active').forEach(el => {
-            if (el !== parent) el.classList.remove('active');
-        });
+  function goTo(idx) {
+    const vis = getVisible();
+    const max = Math.max(0, total - vis);
+    current = Math.max(0, Math.min(idx, max));
+    const cardW = cards[0].offsetWidth + 20;
+    track.style.transform = 'translateX(-' + (current * cardW) + 'px)';
+    document.querySelectorAll('.testi-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === current);
+    });
+  }
 
-        // Toggle current
-        if (isActive) {
-            parent.classList.remove('active');
-    } else {
-            parent.classList.add('active');
-        }
-    }
+  document.getElementById('testiPrev').addEventListener('click', () => goTo(current - 1));
+  document.getElementById('testiNext').addEventListener('click', () => goTo(current + 1));
 
-    // Smooth hover effect for cards (if needing more complex JS than CSS)
-    // Currently handled via CSS 'interactive-card' for better performance
+  // Auto-advance every 5s
+  setInterval(() => {
+    const vis = getVisible();
+    const max = Math.max(0, total - vis);
+    goTo(current >= max ? 0 : current + 1);
+  }, 5000);
 </script>
-</body></html>
+</body>
+</html>
