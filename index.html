@@ -3,10 +3,10 @@
 <html class="scroll-smooth" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Smart Invoicify | Quotes and Invoices Made Simple</title>
-<meta content="Create professional quotations and invoices in minutes. Add to home screen on mobile for an app-like experience — no app store download. Export PDFs and get updates on Telegram." name="description"/>
-<meta property="og:title" content="Smart Invoicify — Proposals, Quotes &amp; Invoices"/>
-<meta property="og:description" content="Team workspace for proposals, quotations, invoices, profit reports, and client delivery."/>
+<title>Smart Invoicify | Send Quotes, Get Paid Faster</title>
+<meta content="Turn a rough job description into a professional quote in under 60 seconds. Send from your phone, get client approval online, and invoice with one tap — no app store download." name="description"/>
+<meta property="og:title" content="Smart Invoicify — Send Quotes, Get Paid Faster"/>
+<meta property="og:description" content="Professional quotes and invoices for contractors, freelancers, and workshops — send from your phone and get paid faster."/>
 <meta property="og:url" content="https://meemkhaan.github.io/smart-invoicify/"/>
 <meta property="og:image" content="https://meemkhaan.github.io/smart-invoicify/branding/Horizontal-logo-wordmark.png"/>
 <meta name="theme-color" content="#004ac6"/>
@@ -381,6 +381,47 @@
         .stagger-5 { transition-delay: 500ms; }
         .stagger-6 { transition-delay: 600ms; }
 
+        .hero-proof {
+            display: flex; align-items: center; gap: 10px; margin-top: 12px;
+            font-size: 0.82rem; color: var(--on-surface-variant, #434655);
+            background: #fff; border: 1px solid #E4E4E7; border-radius: 9999px;
+            padding: 6px 14px 6px 6px; width: fit-content; max-width: 100%;
+        }
+        .proof-avatars { display: flex; }
+        .proof-avatars span {
+            width: 28px; height: 28px; border-radius: 50%; border: 2px solid #fff;
+            margin-left: -6px; display: flex; align-items: center; justify-content: center;
+            font-size: 0.55rem; font-weight: 700; flex-shrink: 0;
+        }
+        .proof-avatars span:first-child { margin-left: 0; background: #dbe1ff; color: #004ac6; }
+        .proof-avatars span:nth-child(2) { background: #fef0e4; color: #c45a08; }
+        .proof-avatars span:nth-child(3) { background: #e5f5ed; color: #176a3c; }
+        .story-block {
+            background: #fff; border: 1px solid #E4E4E7; border-radius: 1rem;
+            padding: 1.25rem 1.5rem; margin-bottom: 1.25rem; text-align: left;
+        }
+        .story-persona { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+        .persona-avatar {
+            width: 44px; height: 44px; border-radius: 50%; background: #f0edf1;
+            display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0;
+        }
+        .step-example {
+            margin-top: 10px; background: #f6f2f7; border-radius: 0.5rem; padding: 8px 12px;
+            font-size: 0.8rem; color: #434655; font-style: italic;
+            border-left: 2px solid #004ac6;
+        }
+        .testi-card {
+            background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
+            border-radius: 1rem; padding: 1rem 1.25rem;
+        }
+        .testi-stars { color: #f5a623; font-size: 0.75rem; letter-spacing: 0.08em; margin-bottom: 8px; }
+        .testi-author { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
+        .testi-avatar {
+            width: 32px; height: 32px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.7rem; font-weight: 700; flex-shrink: 0;
+        }
+
         /* Reduced Motion */
         @media (prefers-reduced-motion: reduce) {
             .reveal, .animate-float, .animate-pulse-soft, .interactive-card, .btn-lift, .nav-link::after, .faq-content, .benefit-chip {
@@ -407,7 +448,7 @@
 <a class="nav-link text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#faq">FAQ</a>
       </div>
 <div class="flex items-center gap-4">
-<a class="bg-primary-container text-on-primary px-4 md:px-6 py-2 rounded-full font-label-sm btn-lift text-sm md:text-base" href="https://demo-smart-invoicify.vercel.app/demo/request">Start free</a>
+<a class="bg-primary-container text-on-primary px-4 md:px-6 py-2 rounded-full font-label-sm btn-lift text-sm md:text-base" href="https://demo-smart-invoicify.vercel.app/demo/request">Try free</a>
   </div>
 </nav>
 </header>
@@ -418,38 +459,42 @@
 <div class="space-y-4 reveal">
 <div class="inline-flex items-center gap-2 px-3 py-1 bg-mint-success text-on-secondary-container rounded-full font-label-xs">
 <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
-                    Simplified Business Management
+                    Used by contractors, freelancers &amp; workshops
                 </div>
 <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-typography-charcoal tracking-tight">
-                    Quotes and invoices made simple.
+                    Stop losing money to <span class="text-primary">sloppy paperwork</span>.
       </h1>
 <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
-                    Describe your job in plain words — AI helps you build <strong>professional proposals, quotations, and invoices</strong> with the right scope, line items, and terms. No writing degree required.
+                    Smart Invoicify turns a rough description of your job into a polished, professional quote — in under 60 seconds. Send it from your phone, get it signed online, and convert to an invoice with one tap.
                 </p>
 <div class="flex flex-col sm:flex-row gap-3">
-<a class="bg-primary-container px-6 py-3 rounded-full text-center text-on-primary font-label-sm font-bold shadow-lg btn-lift" href="https://demo-smart-invoicify.vercel.app/demo/request">Start free</a>
+<a class="bg-primary-container px-6 py-3 rounded-full text-center text-on-primary font-label-sm font-bold shadow-lg btn-lift" href="https://demo-smart-invoicify.vercel.app/demo/request">Try it free — no card needed</a>
 <button type="button" class="bg-transparent border border-border-subtle px-6 py-3 rounded-full text-typography-charcoal font-label-sm font-bold hover:bg-surface-container-low transition-all" onclick="document.getElementById('how-it-works')?.scrollIntoView({behavior:'smooth'})">See how it works</button>
       </div>
+<div class="hero-proof reveal">
+<div class="proof-avatars" aria-hidden="true">
+<span title="Aamir D.">AD</span>
+<span title="Muhammad R.">MR</span>
+<span title="Sara S.">SS</span>
+</div>
+<span class="text-sm"><strong class="text-typography-charcoal">Trusted by business owners</strong> across Pakistan</span>
+</div>
 <div class="flex flex-wrap gap-2 pt-1">
 <div class="benefit-chip">
 <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">picture_as_pdf</span>
-                        Professional PDF documents
+                        Professional PDF quotes
       </div>
 <div class="benefit-chip" style="border-color: rgba(124,58,237,0.4); background: linear-gradient(90deg,#faf5ff,#eef2ff);">
 <span class="material-symbols-outlined text-[#6d28d9]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
-                        AI writes like a pro — you describe the job
+                        AI writes it — you describe the job
     </div>
 <div class="benefit-chip">
-<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">account_balance</span>
-                        Chart of accounts built in
-    </div>
-<div class="benefit-chip">
-<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">shopping_cart</span>
-                        Purchase orders &amp; stock
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">draw</span>
+                        Client signs online to approve
     </div>
 <div class="benefit-chip">
 <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">install_mobile</span>
-                        Add to home screen — no app store
+                        Works on your phone — no app store
     </div>
   </div>
       </div>
@@ -514,19 +559,28 @@ You do not need perfect English or years of quoting experience. Type how you wou
 <section class="landing-section px-4 md:px-8 bg-surface-off-white">
 <div class="max-w-[1200px] mx-auto">
 <div class="text-center section-head reveal">
-<h2 class="font-headline-md text-2xl md:text-headline-md text-typography-charcoal mb-2">The struggle with manual paperwork</h2>
-<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant max-w-2xl mx-auto">
-                    A customer asks for a quote. You open old files, copy-paste prices, and worry you missed something.
-                </p>
-            </div>
+<h2 class="font-headline-md text-2xl md:text-headline-md text-typography-charcoal mb-2">Sound familiar? <span class="text-primary">You're not alone.</span></h2>
+</div>
+<div class="story-block reveal max-w-3xl mx-auto">
+<div class="story-persona">
+<div class="persona-avatar" aria-hidden="true">📡</div>
+<div>
+<p class="font-headline-sm text-base font-semibold text-typography-charcoal">Wasil Rehman — CCTV &amp; solar installation contractor</p>
+<p class="text-sm text-on-surface-variant">Running his own installation business for 5 years</p>
+</div>
+</div>
+<p class="text-sm md:text-base text-on-surface-variant italic leading-relaxed">
+"A big client asked for a formal quote with company letterhead, item breakdown, and payment terms. I spent <strong class="not-italic text-typography-charcoal">three hours</strong> copying from an old Word file, worrying I had the wrong prices, fixing the layout… and by the time I sent it, they'd already gone with someone else."
+</p>
+</div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
 <div class="flex gap-3 p-4 rounded-xl border border-border-subtle bg-white interactive-card reveal stagger-1">
 <div class="w-12 h-12 bg-error-container/20 rounded-lg flex items-center justify-center flex-shrink-0">
 <span class="material-symbols-outlined text-error">content_copy</span>
               </div>
 <div>
-<h4 class="font-headline-sm text-lg md:text-headline-sm mb-2">Copy-pasting prices wastes time</h4>
-<p class="text-sm md:text-base text-on-surface-variant">Finding old quotes just to copy a line item is tedious and prone to errors.</p>
+<h4 class="font-headline-sm text-lg md:text-headline-sm mb-2">Copying from old files</h4>
+<p class="text-sm md:text-base text-on-surface-variant">You reuse the same Word doc from two years ago and pray nothing important changed.</p>
                 </div>
               </div>
 <div class="flex gap-3 p-4 rounded-xl border border-border-subtle bg-white interactive-card reveal stagger-2">
@@ -534,8 +588,8 @@ You do not need perfect English or years of quoting experience. Type how you wou
 <span class="material-symbols-outlined text-error">warning</span>
                 </div>
 <div>
-<h4 class="font-headline-sm text-lg md:text-headline-sm mb-2">Small mistakes cause big confusion</h4>
-<p class="text-sm md:text-base text-on-surface-variant">A wrong decimal or forgotten tax ruins your professional image.</p>
+<h4 class="font-headline-sm text-lg md:text-headline-sm mb-2">Calculator errors</h4>
+<p class="text-sm md:text-base text-on-surface-variant">A wrong decimal or forgotten tax makes you look unprofessional in front of clients.</p>
               </div>
                 </div>
 <div class="flex gap-3 p-4 rounded-xl border border-border-subtle bg-white interactive-card reveal stagger-3">
@@ -543,8 +597,8 @@ You do not need perfect English or years of quoting experience. Type how you wou
 <span class="material-symbols-outlined text-error">folder_off</span>
               </div>
 <div>
-<h4 class="font-headline-sm text-lg md:text-headline-sm mb-2">Quotes and invoices end up scattered</h4>
-<p class="text-sm md:text-base text-on-surface-variant">Documents lost in email threads or local folders make tracking impossible.</p>
+<h4 class="font-headline-sm text-lg md:text-headline-sm mb-2">WhatsApp quoting</h4>
+<p class="text-sm md:text-base text-on-surface-variant">Sending prices in a chat message means clients don't take you seriously — and you can't track anything.</p>
             </div>
           </div>
 <div class="flex gap-3 p-4 rounded-xl border border-border-subtle bg-white interactive-card reveal stagger-4">
@@ -552,8 +606,8 @@ You do not need perfect English or years of quoting experience. Type how you wou
 <span class="material-symbols-outlined text-error">chat_bubble</span>
         </div>
         <div>
-<h4 class="font-headline-sm text-lg md:text-headline-sm mb-2">Following up on payments is awkward</h4>
-<p class="text-sm md:text-base text-on-surface-variant">Asking for money shouldn't feel uncomfortable. Automated systems handle it.</p>
+<h4 class="font-headline-sm text-lg md:text-headline-sm mb-2">Slow follow-ups</h4>
+<p class="text-sm md:text-base text-on-surface-variant">Chasing payments by text feels awkward. A professional invoice with clear terms handles it for you.</p>
         </div>
       </div>
     </div>
@@ -562,9 +616,9 @@ You do not need perfect English or years of quoting experience. Type how you wou
 <!-- Solution Section -->
 <section class="landing-section px-4 md:px-8 bg-surface overflow-hidden section-anchor" id="how-it-works">
 <div class="max-w-[1200px] mx-auto text-center section-head reveal">
-<h2 class="font-headline-md text-2xl md:text-headline-md text-typography-charcoal mb-2">Breathe easy with Smart Invoicify</h2>
+<h2 class="font-headline-md text-2xl md:text-headline-md text-typography-charcoal mb-2">From job description to <span class="text-primary">signed quote</span> in three steps</h2>
 <p class="font-body-lg text-base md:text-body-lg text-on-surface-variant max-w-3xl mx-auto">
-                One place for everything—so you can create a quote, send it, and stay organized.
+                Type rough words, let AI build the quote, send it — and get paid when your client says yes.
             </p>
     </div>
 <div class="max-w-[1000px] mx-auto relative">
@@ -573,8 +627,9 @@ You do not need perfect English or years of quoting experience. Type how you wou
 <!-- Step 1 -->
 <div class="flex flex-col md:flex-row items-center gap-5 md:gap-7 relative reveal stagger-1">
 <div class="md:w-1/2 md:pr-12 text-center md:text-right order-2 md:order-1">
-<h3 class="font-headline-sm text-lg md:text-headline-sm mb-3">1. Create a quote</h3>
-<p class="text-sm md:text-base text-on-surface-variant">Easily add items, adjust quantities, and apply discounts. Everything calculates instantly.</p>
+<h3 class="font-headline-sm text-lg md:text-headline-sm mb-2">1. Describe the job</h3>
+<p class="text-sm md:text-base text-on-surface-variant">Type a few words about the work — just like you'd explain it to a friend. No perfect English or exact prices memorised.</p>
+<div class="step-example mt-3 text-left">"6kW solar, panels, inverter, install, training"</div>
   </div>
 <div class="hidden md:flex w-10 h-10 rounded-full bg-primary text-white items-center justify-center relative z-10 font-bold order-2">1</div>
 <div class="w-full md:w-1/2 md:pl-12 order-1 md:order-3">
@@ -589,8 +644,9 @@ You do not need perfect English or years of quoting experience. Type how you wou
 <!-- Step 2 -->
 <div class="flex flex-col md:flex-row-reverse items-center gap-5 md:gap-7 relative reveal stagger-2">
 <div class="md:w-1/2 md:pl-12 text-center md:text-left order-2 md:order-1">
-<h3 class="font-headline-sm text-lg md:text-headline-sm mb-3">2. Send a PDF</h3>
-<p class="text-sm md:text-base text-on-surface-variant">Your quote looks professional on any device. Export and send via email or WhatsApp in one click.</p>
+<h3 class="font-headline-sm text-lg md:text-headline-sm mb-2">2. AI builds the quote</h3>
+<p class="text-sm md:text-base text-on-surface-variant">Smart Invoicify fills in scope, line items, terms, and professional wording. You review and adjust — it's your quote, AI just speeds it up.</p>
+<div class="step-example mt-3 text-left" style="border-left-color:#006b5f;">Full breakdown ready in under 60 seconds</div>
       </div>
 <div class="hidden md:flex w-10 h-10 rounded-full bg-primary text-white items-center justify-center relative z-10 font-bold order-2">2</div>
 <div class="w-full md:w-1/2 md:pr-12 order-1 md:order-3">
@@ -605,8 +661,9 @@ You do not need perfect English or years of quoting experience. Type how you wou
 <!-- Step 3 -->
 <div class="flex flex-col md:flex-row items-center gap-5 md:gap-7 relative reveal stagger-3">
 <div class="md:w-1/2 md:pr-12 text-center md:text-right order-2 md:order-1">
-<h3 class="font-headline-sm text-lg md:text-headline-sm mb-3">3. Convert to invoice &amp; track</h3>
-<p class="text-sm md:text-base text-on-surface-variant">Turn quotes into invoices instantly. Track status and view live reports on your business health.</p>
+<h3 class="font-headline-sm text-lg md:text-headline-sm mb-2">3. Send &amp; get paid</h3>
+<p class="text-sm md:text-base text-on-surface-variant">Export a professional PDF, share a link for online approval, and convert to an invoice the moment your client says yes — without re-typing a thing.</p>
+<div class="step-example mt-3 text-left" style="border-left-color:#d4640a;">Client signs, you invoice, you get paid</div>
         </div>
 <div class="hidden md:flex w-10 h-10 rounded-full bg-primary text-white items-center justify-center relative z-10 font-bold order-2">3</div>
 <div class="w-full md:w-1/2 md:pl-12 order-1 md:order-3">
@@ -626,17 +683,17 @@ You do not need perfect English or years of quoting experience. Type how you wou
 <div class="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-7 items-center reveal">
 <div class="space-y-3">
 <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary font-label-xs uppercase tracking-wider">
-<span class="material-symbols-outlined text-[16px]">install_mobile</span>
-Cross-platform PWA
+<span class="material-symbols-outlined text-[16px]">smartphone</span>
+Works on any phone
 </span>
-<h2 class="font-headline-md text-2xl md:text-headline-md text-typography-charcoal">Your phone workspace — no separate mobile app</h2>
+<h2 class="font-headline-md text-2xl md:text-headline-md text-typography-charcoal">Your office in your pocket — <span class="text-primary">no app store needed</span></h2>
 <p class="font-body-lg text-base md:text-body-lg text-on-surface-variant">
-You don’t need to download or install a separate mobile application from an app store. Smart Invoicify runs in your browser on desktop, tablet, and phone — and with one tap you can <strong>Add to Home Screen</strong> for an app-like icon, full-screen experience, and quick access while you’re on site or with a client.
+Smart Invoicify runs in your phone's browser. Tap <strong>Add to Home Screen</strong> once and it works like an app — icon on your screen, full screen, instant access on site or with a client.
 </p>
 <ul class="space-y-1.5 text-sm md:text-base text-on-surface-variant">
-<li class="flex gap-2"><span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>Works on iPhone (Safari) and Android (Chrome)</li>
-<li class="flex gap-2"><span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>Same team workspace — proposals, quotes, invoices, and reports</li>
-<li class="flex gap-2"><span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>In-app alerts and optional push notifications when you’re away</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>Same workspace on iPhone, Android, tablet, and laptop</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>Quotes, invoices, and reports — wherever you are</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>Alerts when a client approves or a payment is due</li>
 <li class="flex gap-2"><span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>Share a quote link — client signs to approve; your team is notified instantly</li>
 </ul>
 </div>
@@ -711,8 +768,8 @@ You don’t need to download or install a separate mobile application from an ap
 <section class="landing-section px-4 md:px-8 section-anchor" id="features">
 <div class="max-w-[1200px] mx-auto">
 <div class="text-center section-head reveal">
-<h2 class="font-headline-md text-2xl md:text-headline-md text-typography-charcoal mb-2">Everything in one workspace</h2>
-<p class="text-on-surface-variant max-w-2xl mx-auto">Documents, AI, inventory buying, and bookkeeping — without juggling five different apps.</p>
+<h2 class="font-headline-md text-2xl md:text-headline-md text-typography-charcoal mb-2">One app for your whole paperwork <span class="text-primary">workflow</span></h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto">Quotes, invoices, client approval, and reports — without juggling five different apps.</p>
 </div>
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
 <!-- Feature 1 -->
@@ -743,8 +800,8 @@ You don’t need to download or install a separate mobile application from an ap
 <!-- Feature 4 -->
 <div class="p-5 md:p-6 rounded-lg border border-border-subtle bg-white interactive-card reveal stagger-4">
 <span class="material-symbols-outlined text-primary mb-2 text-[28px]">install_mobile</span>
-<h4 class="font-headline-sm text-lg md:text-headline-sm mb-2">PWA — app-like on any phone</h4>
-<p class="text-sm md:text-base text-on-surface-variant">No app store hassle. Add Smart Invoicify to your home screen from the mobile browser, share quotes with clients for online approval, and get a cross-platform experience on the go.</p>
+<h4 class="font-headline-sm text-lg md:text-headline-sm mb-2">Works on your phone</h4>
+<p class="text-sm md:text-base text-on-surface-variant">Add Smart Invoicify to your home screen from the mobile browser — no app store download. Share quotes for online approval on the go.</p>
     </div>
 <!-- Feature 5 -->
 <div class="p-5 md:p-6 rounded-lg border border-border-subtle bg-white interactive-card reveal stagger-5">
@@ -766,8 +823,8 @@ You don’t need to download or install a separate mobile application from an ap
   </div>
 <div id="accounting-pos" class="section-anchor sm:col-span-2 lg:col-span-3 reveal">
 <p class="font-label-xs text-label-xs text-primary uppercase tracking-widest mb-2">Finance &amp; inventory</p>
-<h3 class="font-headline-sm text-lg md:text-headline-sm text-typography-charcoal mb-1">Chart of accounts &amp; purchase orders</h3>
-<p class="text-sm text-on-surface-variant max-w-2xl">Bookkeeping and vendor buying in the same workspace — no separate accounting app required for day-to-day work.</p>
+<h3 class="font-headline-sm text-lg md:text-headline-sm text-typography-charcoal mb-1">Bookkeeping &amp; stock (for growing teams)</h3>
+<p class="text-sm text-on-surface-variant max-w-2xl">When your business outgrows spreadsheets — built-in books, purchase orders, and inventory tied to your quotes.</p>
 </div>
 <!-- Feature 7 — Chart of accounts -->
 <div class="p-5 md:p-6 rounded-lg border border-border-subtle bg-white interactive-card reveal stagger-1">
@@ -808,7 +865,7 @@ You don’t need to download or install a separate mobile application from an ap
 <div class="max-w-[1200px] mx-auto reveal">
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
 <div class="space-y-4">
-<h2 class="font-headline-md text-2xl md:text-headline-md">Focus on your work, not the paperwork</h2>
+<h2 class="font-headline-md text-2xl md:text-headline-md">Less time on paperwork. <span class="text-primary-fixed-dim">More time on your craft.</span></h2>
 <ul class="space-y-3">
 <li class="flex items-center gap-3 reveal stagger-1">
 <span class="material-symbols-outlined text-secondary-fixed">check_circle</span>
@@ -827,15 +884,42 @@ You don’t need to download or install a separate mobile application from an ap
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 reveal stagger-4">
 <div class="p-4 md:p-5 bg-white/5 rounded-2xl backdrop-blur-sm border border-white/10 text-center interactive-card">
 <div class="text-primary-fixed-dim font-display-lg text-[36px] md:text-[42px] mb-1 leading-none">90%</div>
-<p class="text-white/70 text-sm md:text-base">Reduction in paperwork time</p>
+<p class="text-white/70 text-sm md:text-base">Less time building quotes</p>
     </div>
 <div class="p-4 md:p-5 bg-white/5 rounded-2xl backdrop-blur-sm border border-white/10 text-center interactive-card">
 <div class="text-primary-fixed-dim font-display-lg text-[36px] md:text-[42px] mb-1 leading-none">100%</div>
 <p class="text-white/70 text-sm md:text-base">PDF Accuracy</p>
   </div>
-<div class="p-4 md:p-5 bg-white/5 rounded-2xl backdrop-blur-sm border border-white/10 sm:col-span-2 text-center interactive-card">
-<p class="italic text-white/90 text-sm md:text-base">"The best decision for my small business. I send a quote and get paid faster than ever."</p>
-    </div>
+<div class="p-4 md:p-5 bg-white/5 rounded-2xl backdrop-blur-sm border border-white/10 text-center interactive-card">
+<div class="text-primary-fixed-dim font-display-lg text-[36px] md:text-[42px] mb-1 leading-none">&lt;60s</div>
+<p class="text-white/70 text-sm md:text-base">Average quote creation</p>
+  </div>
+<div class="grid grid-cols-1 gap-3 sm:col-span-2 reveal stagger-4">
+<div class="testi-card">
+<div class="testi-stars">★★★★★</div>
+<p class="italic text-white/90 text-sm">"I sent my first proper quote in less than a minute. The client said it looked so professional they didn't even bargain!"</p>
+<div class="testi-author">
+<div class="testi-avatar" style="background:#dbe1ff;color:#004ac6;">AD</div>
+<div><p class="text-sm font-semibold text-white">Aamir Durrani</p><p class="text-xs text-white/60">Electrician, Karachi</p></div>
+</div>
+</div>
+<div class="testi-card">
+<div class="testi-stars">★★★★★</div>
+<p class="italic text-white/90 text-sm">"Before this, I was writing quotes in WhatsApp. Now I look like a proper company and win more jobs."</p>
+<div class="testi-author">
+<div class="testi-avatar" style="background:#e5f5ed;color:#176a3c;">SS</div>
+<div><p class="text-sm font-semibold text-white">Sara S.</p><p class="text-xs text-white/60">Interior design, Islamabad</p></div>
+</div>
+</div>
+<div class="testi-card">
+<div class="testi-stars">★★★★★</div>
+<p class="italic text-white/90 text-sm">"The AI helps me write English terms I never knew how to phrase. I send a quote and get paid faster than ever."</p>
+<div class="testi-author">
+<div class="testi-avatar" style="background:#fef0e4;color:#c45a08;">MR</div>
+<div><p class="text-sm font-semibold text-white">Muhammad R.</p><p class="text-xs text-white/60">HVAC contractor, Karachi</p></div>
+</div>
+</div>
+</div>
       </div>
     </div>
   </div>
@@ -872,54 +956,54 @@ You don’t need to download or install a separate mobile application from an ap
 <section class="landing-section px-4 md:px-8 bg-on-primary-fixed text-white section-anchor" id="pricing">
 <div class="max-w-[1200px] mx-auto reveal">
 <div class="text-center max-w-2xl mx-auto section-head">
-<p class="font-label-xs text-label-xs text-primary-fixed-dim uppercase tracking-widest mb-2">Access &amp; licensing</p>
-<h2 class="font-headline-md text-2xl md:text-headline-md mb-2">Evaluate, then deploy</h2>
-<p class="text-white/80 text-sm md:text-base">Try the full app in an interactive sandbox before you commit. License Smart Invoicify for your organization through Reach Solutions — pricing is quoted per deployment, not a one-size public SaaS plan.</p>
+<p class="font-label-xs text-label-xs text-primary-fixed-dim uppercase tracking-widest mb-2">Getting started</p>
+<h2 class="font-headline-md text-2xl md:text-headline-md mb-2">Try the full app — completely <span class="text-primary-fixed-dim">free</span></h2>
+<p class="text-white/80 text-sm md:text-base">No credit card, no limits on the demo. Verify your email and explore everything — quotes, invoices, AI writing, and reports — with sample data. When you're ready to go live, contact Reach Solutions for a setup on your own servers.</p>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 <div class="p-5 md:p-6 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-sm flex flex-col interactive-card ring-2 ring-primary-fixed-dim/50">
-<p class="font-label-xs text-primary-fixed-dim uppercase tracking-wider mb-1">Interactive demo</p>
+<p class="font-label-xs text-primary-fixed-dim uppercase tracking-wider mb-1">Start here</p>
 <h3 class="font-headline-sm text-xl mb-1">Free sandbox</h3>
-<p class="text-white/70 text-sm mb-4 flex-1">Verify your work email, then explore the full app with sample data. Optional Telegram alerts and product updates.</p>
+<p class="text-white/70 text-sm mb-4 flex-1">Explore everything in an interactive demo. Verify your email and try the full app with sample data.</p>
 <ul class="space-y-1.5 text-sm text-white/80 mb-4">
-<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-fixed text-[18px]">check</span>Email verification before access</li>
-<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-fixed text-[18px]">check</span>Proposals, invoices, reports</li>
-<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-fixed text-[18px]">check</span>Share links &amp; WhatsApp flows</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-fixed text-[18px]">check</span>Full access — quotes, invoices, reports</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-fixed text-[18px]">check</span>AI writing &amp; line-item suggestions</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-fixed text-[18px]">check</span>Client approval on share links</li>
 </ul>
 <a class="bg-primary-fixed text-on-primary-fixed px-6 py-3 rounded-full font-label-sm font-bold text-center btn-lift" href="https://demo-smart-invoicify.vercel.app/demo/request">Request demo access</a>
 </div>
 <div class="p-5 md:p-6 rounded-2xl bg-white/5 border border-white/15 flex flex-col interactive-card">
-<p class="font-label-xs text-white/60 uppercase tracking-wider mb-1">Production</p>
+<p class="font-label-xs text-white/60 uppercase tracking-wider mb-1">Already have access?</p>
 <h3 class="font-headline-sm text-xl mb-1">Team workspace</h3>
-<p class="text-white/70 text-sm mb-4 flex-1">Reach Solutions production instance — admins invite staff; shared clients and documents. No public sign-up.</p>
+<p class="text-white/70 text-sm mb-4 flex-1">Your admin invited you to your company's workspace. Sign in with the account they created for you.</p>
 <ul class="space-y-1.5 text-sm text-white/80 mb-4">
-<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-fixed text-[18px]">check</span>Admin-created accounts only</li>
-<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-fixed text-[18px]">check</span>Live data for your organization</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-fixed text-[18px]">check</span>Shared clients and documents</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-fixed text-[18px]">check</span>Live data for your organisation</li>
 <li class="flex gap-2"><span class="material-symbols-outlined text-secondary-fixed text-[18px]">check</span>All product features</li>
 </ul>
 <a class="bg-transparent border border-white/30 px-6 py-3 rounded-full font-label-sm font-bold text-center hover:bg-white/10 transition-all" href="https://smart-invoicify.vercel.app/login">Sign in</a>
 </div>
 <div class="p-5 md:p-6 rounded-2xl bg-white/5 border border-white/15 flex flex-col interactive-card">
-<p class="font-label-xs text-white/60 uppercase tracking-wider mb-1">License &amp; purchase</p>
-<h3 class="font-headline-sm text-xl mb-1">Your organization</h3>
-<p class="text-white/70 text-sm mb-4 flex-1">Licensed deployment on your Supabase and Vercel, with implementation support from Reach Solutions.</p>
+<p class="font-label-xs text-white/60 uppercase tracking-wider mb-1">Ready to go live?</p>
+<h3 class="font-headline-sm text-xl mb-1">Your organisation</h3>
+<p class="text-white/70 text-sm mb-4 flex-1">Licensed setup on your own servers — your data, your brand, your team. Quoted per organisation with setup and training included.</p>
 <ul class="space-y-1.5 text-sm text-white/80 mb-4">
-<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-fixed text-[18px]">check</span>Evaluate via demo first</li>
-<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-fixed text-[18px]">check</span>Your infrastructure &amp; data</li>
-<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-fixed text-[18px]">check</span>SMTP, Telegram, AI integrations</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-fixed text-[18px]">check</span>Try the demo first</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-fixed text-[18px]">check</span>Your logo and company branding</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-fixed text-[18px]">check</span>Setup, training &amp; ongoing support</li>
 </ul>
-<a class="bg-primary-fixed text-on-primary-fixed px-6 py-3 rounded-full font-label-sm font-bold text-center btn-lift" href="mailto:meem.khaan@gmail.com?subject=Smart%20Invoicify%20licensing">Contact for licensing</a>
+<a class="bg-primary-fixed text-on-primary-fixed px-6 py-3 rounded-full font-label-sm font-bold text-center btn-lift" href="mailto:meem.khaan@gmail.com?subject=Smart%20Invoicify%20licensing">Contact for pricing</a>
 </div>
 </div>
-<p class="text-center text-white/60 text-xs md:text-sm mt-5">Pricing is quoted per organization — <a href="#contact" class="text-primary-fixed-dim underline underline-offset-2 hover:text-primary-fixed">contact Reach Solutions</a> for deployment, training, and support.</p>
+<p class="text-center text-white/60 text-xs md:text-sm mt-5">Pricing is quoted per organisation — <a href="#contact" class="text-primary-fixed-dim underline underline-offset-2 hover:text-primary-fixed">contact Reach Solutions</a> when you're ready to go live.</p>
 </div>
 </section>
 <!-- About -->
 <section class="landing-section px-4 md:px-8 section-anchor" id="about">
 <div class="max-w-[800px] mx-auto reveal space-y-3">
-<h2 class="font-headline-md text-2xl md:text-headline-md text-typography-charcoal">About us</h2>
-<p class="text-on-surface-variant text-sm md:text-base"><strong class="text-typography-charcoal">Reach Solutions</strong> builds Smart Invoicify for service and project-based businesses — contractors, workshops, agencies, and small teams who need professional documents without juggling spreadsheets.</p>
-<p class="text-on-surface-variant text-sm md:text-base">Smart Invoicify is a <strong class="text-typography-charcoal">private team workspace</strong>: proposals, quotations, invoices, stock, purchase orders, and reports in one place. Admins invite users; there is no public self-service sign-up on licensed deployments.</p>
+<h2 class="font-headline-md text-2xl md:text-headline-md text-typography-charcoal">Built by people who <span class="text-primary">understand</span> your business</h2>
+<p class="text-on-surface-variant text-sm md:text-base"><strong class="text-typography-charcoal">Reach Solutions</strong> builds Smart Invoicify for contractors, workshops, agencies, and small teams who need professional documents without juggling spreadsheets.</p>
+<p class="text-on-surface-variant text-sm md:text-base">We believe a contractor in Karachi or a workshop owner in Lahore deserves the same professional tools as a large corporation — quotes, invoices, client approval, and reports in one place.</p>
 <p class="text-sm"><a class="text-primary font-medium hover:underline" href="https://github.com/Meemkhaan/smart-invoicify" target="_blank" rel="noopener">Product overview on GitHub</a> · <a class="text-primary font-medium hover:underline" href="#pricing">See access options</a></p>
 </div>
 </section>
@@ -929,10 +1013,10 @@ You don’t need to download or install a separate mobile application from an ap
 <h2 class="font-headline-md text-2xl md:text-headline-md text-typography-charcoal">Privacy</h2>
 <p class="text-on-surface-variant text-sm md:text-base">This summary describes how we handle information on the marketing site, demo sandbox, and licensed product. For contractual terms, see your license agreement with Reach Solutions.</p>
 <ul class="space-y-3 text-sm md:text-base text-on-surface-variant list-disc pl-5">
-<li><strong class="text-typography-charcoal">Demo requests:</strong> Name, email, and optional company or phone are stored on the demo Supabase project only, with email verification before sandbox access. We do not sell demo lead data.</li>
-<li><strong class="text-typography-charcoal">Licensed workspaces:</strong> Your business data lives in <em>your</em> Supabase project. Row-level security keeps each organization isolated. Files use encrypted storage through Supabase.</li>
-<li><strong class="text-typography-charcoal">AI features (optional):</strong> When enabled by your admin, document text may be sent to your configured AI provider (e.g. Groq, Gemini, or OpenAI-compatible). You review all output before sending to clients.</li>
-<li><strong class="text-typography-charcoal">Telegram (optional):</strong> Alerts go only to chat IDs you configure. Demo marketing leads can use a separate portal-only Telegram setting.</li>
+<li><strong class="text-typography-charcoal">Demo requests:</strong> Name, email, and optional company or phone are stored on the demo environment only, with email verification before sandbox access. We do not sell demo lead data.</li>
+<li><strong class="text-typography-charcoal">Licensed workspaces:</strong> Your business data lives in <em>your</em> dedicated setup. Each organisation's data stays separate and secure.</li>
+<li><strong class="text-typography-charcoal">AI features (optional):</strong> When enabled by your admin, document text may be sent to your configured AI provider. You review all output before sending to clients.</li>
+<li><strong class="text-typography-charcoal">Telegram (optional):</strong> Alerts go only to chat IDs you configure.</li>
 </ul>
 <p class="text-sm text-on-surface-variant">Questions or deletion requests: <a class="text-primary font-medium hover:underline" href="mailto:meem.khaan@gmail.com?subject=Smart%20Invoicify%20privacy">meem.khaan@gmail.com</a></p>
 </div>
@@ -1014,7 +1098,7 @@ You don’t need to download or install a separate mobile application from an ap
 </button>
 <div class="faq-content">
 <div class="px-5 text-sm md:text-base text-on-surface-variant">
-                            No. Smart Invoicify is a progressive web app (PWA). Open it in your mobile browser, choose <strong>Add to Home Screen</strong> on iPhone or <strong>Install app</strong> on Android, and you get an app-like icon and full-screen experience — the same workspace on desktop and mobile, without a separate download from the Play Store or App Store.
+                            No. Open Smart Invoicify in your mobile browser, choose <strong>Add to Home Screen</strong> on iPhone or <strong>Install app</strong> on Android, and you get an app-like icon and full-screen experience — the same workspace on desktop and mobile, without downloading from the Play Store or App Store.
     </div>
     </div>
     </div>
@@ -1037,11 +1121,11 @@ You don’t need to download or install a separate mobile application from an ap
 <section class="landing-section px-4 md:px-8 text-center bg-surface">
 <div class="max-w-[800px] mx-auto p-6 md:p-8 bg-white rounded-3xl border border-border-subtle shadow-xl relative overflow-hidden reveal">
 <div class="absolute top-0 left-0 w-2 h-full bg-primary"></div>
-<h2 class="font-headline-md text-2xl md:text-headline-md text-typography-charcoal mb-2">Ready to simplify your business?</h2>
-<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant mb-5">Start in minutes. Send your first professional quote today.</p>
+<h2 class="font-headline-md text-2xl md:text-headline-md text-typography-charcoal mb-2">Send your first professional quote <span class="text-primary">today</span></h2>
+<p class="font-body-lg text-base md:text-body-lg text-on-surface-variant mb-5">Try everything free in the demo sandbox — no credit card, no commitment.</p>
 <div class="flex flex-col sm:flex-row justify-center gap-3">
-<a class="bg-primary px-6 py-3 rounded-full text-on-primary font-label-sm font-bold shadow-lg btn-lift" href="https://demo-smart-invoicify.vercel.app/demo/request">Start free</a>
-<a class="bg-transparent border border-border-subtle px-6 py-3 rounded-full text-typography-charcoal font-label-sm font-bold hover:bg-surface-container-low transition-all text-center" href="https://demo-smart-invoicify.vercel.app/demo/request">Book a demo</a>
+<a class="bg-primary px-6 py-3 rounded-full text-on-primary font-label-sm font-bold shadow-lg btn-lift" href="https://demo-smart-invoicify.vercel.app/demo/request">Try it free →</a>
+<a class="bg-transparent border border-border-subtle px-6 py-3 rounded-full text-typography-charcoal font-label-sm font-bold hover:bg-surface-container-low transition-all text-center" href="mailto:meem.khaan@gmail.com?subject=Smart%20Invoicify%20licensing">Talk to us about going live</a>
     </div>
   </div>
 </section>
