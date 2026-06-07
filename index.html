@@ -202,11 +202,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: visible;
   }
   .hero-phone-wrap {
     position: relative;
     width: 300px;
     flex-shrink: 0;
+    overflow: visible;
   }
   /* Glow behind phone */
   .hero-phone-glow {
@@ -682,12 +684,44 @@
   .hero-content > *:nth-child(5){animation-delay:.5s}
 
   /* RESPONSIVE */
+  @media (max-width: 1100px) and (min-width: 901px) {
+    .fb-signed { right: -72px; }
+    .fb-ai { left: -72px; }
+    .fb-telegram { right: -64px; }
+  }
   @media (max-width: 900px) {
-    .hero { grid-template-columns: 1fr; padding: 100px 20px 60px; gap: 48px; }
-    .hero-phone-wrap { width: 260px; }
-    .fb-signed { right: -80px; }
-    .fb-ai { left: -80px; }
-    .fb-telegram { right: -70px; }
+    .hero { grid-template-columns: 1fr; padding: 100px 20px 60px; gap: 48px; overflow: visible; }
+    .hero-visual { padding: 0 8px; }
+    .hero-phone-wrap { width: min(280px, 78vw); margin: 0 auto; }
+    .float-badge {
+      padding: 7px 10px;
+      font-size: 0.68rem;
+      max-width: 132px;
+      white-space: normal;
+      line-height: 1.25;
+    }
+    .float-badge-title { font-size: 0.65rem; }
+    .float-badge-sub { font-size: 0.58rem; }
+    .float-badge-icon .material-symbols-outlined { font-size: 18px; }
+    /* Overlay on phone frame — stays inside viewport */
+    .fb-signed {
+      top: 11%;
+      right: 2%;
+      left: auto;
+      bottom: auto;
+    }
+    .fb-ai {
+      top: auto;
+      bottom: 34%;
+      left: 2%;
+      right: auto;
+    }
+    .fb-telegram {
+      top: auto;
+      bottom: 5%;
+      right: 2%;
+      left: auto;
+    }
     .steps-grid { grid-template-columns: 1fr; }
     .pwa-inner { grid-template-columns: 1fr; padding: 0 20px; }
     .about-inner { grid-template-columns: 1fr; }
@@ -701,7 +735,12 @@
   @media (max-width: 600px) {
     nav { padding: 12px 20px; }
     .nav-links { display: none; }
-    .fb-signed, .fb-ai, .fb-telegram { display: none; }
+    .float-badge { max-width: 118px; padding: 6px 8px; }
+  }
+  @media (max-width: 380px) {
+    .float-badge { max-width: 108px; font-size: 0.62rem; }
+    .float-badge-title { font-size: 0.6rem; }
+    .float-badge-sub { font-size: 0.54rem; }
   }
 </style>
 </head>
