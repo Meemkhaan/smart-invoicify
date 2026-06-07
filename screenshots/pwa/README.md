@@ -4,7 +4,7 @@ Drop PNG or WebP files here for the **Cross-platform PWA** section on the landin
 
 | File | Shown in mockup |
 |------|-----------------|
-| `01-dashboard.png` | Center phone (dashboard / home) |
+| `01-dashboard.png` | **PWA section** phone mockup · dashboard / home screen |
 | `02-quotations.png` | Left phone (quotations list) |
 | `03-client-approval.png` | Right phone (client approve on share link) · **Hero phone mockup** |
 

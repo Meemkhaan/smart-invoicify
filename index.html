@@ -89,11 +89,6 @@
   .persona-avatar .material-symbols-outlined { font-size: 24px; color: rgba(255,255,255,.85); }
   .privacy-card h4 .material-symbols-outlined { font-size: 20px; color: var(--accent); }
   .pwa-float-badge .material-symbols-outlined { font-size: 18px; color: var(--accent); }
-  .ph-status-chip .material-symbols-outlined { font-size: 12px; vertical-align: middle; }
-  .hs-icon-img .material-symbols-outlined { font-size: 22px; color: #fff; }
-  .notif-icon .material-symbols-outlined { font-size: 16px; color: #fff; }
-  .dock-item .material-symbols-outlined { font-size: 22px; color: #fff; }
-  .hs-app-letter { font-size: 0.75rem; font-weight: 700; color: #fff; letter-spacing: 0.02em; }
   .check-mark { color: var(--green); font-weight: 700; }
 
   /* NAV */
@@ -595,58 +590,9 @@
   }
   .pwa-notch-cam { width: 8px; height: 8px; background: #0d0d0d; border-radius: 50%; border: 1px solid #2a2a2a; }
   .pwa-notch-pill { width: 20px; height: 7px; background: #0d0d0d; border-radius: 4px; border: 1px solid #2a2a2a; }
-  .pwa-screen { background: var(--paper); border-radius: 26px; overflow: hidden; }
-  /* Home screen grid */
-  .pwa-homescreen {
-    background: linear-gradient(160deg, var(--accent-dark) 0%, var(--accent-deep) 100%);
-    padding: 12px;
-  }
-  .pwa-hs-time { text-align: center; padding: 8px 0 14px; }
-  .pwa-hs-time .hs-time { font-size: 2.2rem; font-weight: 300; color: #fff; line-height: 1; display: block; }
-  .pwa-hs-time .hs-date { font-size: 0.65rem; color: rgba(255,255,255,.7); margin-top: 3px; display: block; }
-  .pwa-hs-icons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 10px; }
-  .hs-icon {
-    display: flex; flex-direction: column; align-items: center; gap: 4px;
-  }
-  .hs-icon-img {
-    width: 44px; height: 44px; border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,.3);
-  }
-  .hs-icon-label { font-size: 0.52rem; color: rgba(255,255,255,.85); text-align: center; font-weight: 500; line-height: 1.2; }
-  .hs-icon-featured .hs-icon-img {
-    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
-    border: 2px solid rgba(255,255,255,.3);
-    box-shadow: 0 0 0 3px rgba(0, 74, 198, 0.4), 0 4px 16px rgba(0,0,0,.4);
-  }
-  /* Notification */
-  .pwa-notification {
-    background: rgba(255,255,255,.15);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255,255,255,.2);
-    border-radius: 12px; padding: 9px 12px;
-    display: flex; align-items: flex-start; gap: 8px; margin-top: 4px;
-  }
-  .notif-icon {
-    width: 28px; height: 28px; border-radius: 7px;
-    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
-    display: flex; align-items: center; justify-content: center; font-size: 0.8rem;
-    flex-shrink: 0;
-  }
-  .notif-title { font-size: 0.6rem; font-weight: 700; color: #fff; }
-  .notif-body { font-size: 0.58rem; color: rgba(255,255,255,.75); margin-top: 1px; line-height: 1.3; }
-  .notif-time { font-size: 0.52rem; color: rgba(255,255,255,.5); margin-left: auto; flex-shrink: 0; }
-  /* Dock */
-  .pwa-dock {
-    background: rgba(255,255,255,.15);
-    backdrop-filter: blur(10px);
-    border-radius: 20px; margin: 8px 0 0;
-    padding: 10px; display: flex; justify-content: space-around; align-items: center;
-  }
-  .dock-item {
-    width: 44px; height: 44px; border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 2px 6px rgba(0,0,0,.25);
+  .pwa-phone-outer .phone-screen-shot {
+    border-radius: 26px;
+    min-height: 420px;
   }
   /* Floating PWA badge */
   .pwa-float-badge {
@@ -1091,7 +1037,7 @@
       </div>
     </div>
 
-    <!-- REALISTIC PWA PHONE MOCKUP -->
+    <!-- PWA phone — drop screenshot at screenshots/pwa/01-dashboard.png -->
     <div class="pwa-phone-scene">
       <div class="pwa-phone-outer">
         <div class="pwa-phone-shell">
@@ -1099,62 +1045,23 @@
             <div class="pwa-notch-cam"></div>
             <div class="pwa-notch-pill"></div>
           </div>
-          <div class="pwa-screen">
-            <div class="pwa-homescreen">
-              <div class="pwa-hs-time">
-                <span class="hs-time">9:41</span>
-                <span class="hs-date">Sunday, June 7</span>
-              </div>
-              <!-- App grid -->
-              <div class="pwa-hs-icons">
-                <div class="hs-icon">
-                  <div class="hs-icon-img" style="background: #1877F2;"><span class="hs-app-letter">F</span></div>
-                  <div class="hs-icon-label">Facebook</div>
-                </div>
-                <div class="hs-icon">
-                  <div class="hs-icon-img" style="background: #25D366;"><span class="hs-app-letter">W</span></div>
-                  <div class="hs-icon-label">WhatsApp</div>
-                </div>
-                <div class="hs-icon hs-icon-featured">
-                  <div class="hs-icon-img"><span class="material-symbols-outlined fill">receipt_long</span></div>
-                  <div class="hs-icon-label">Invoicify</div>
-                </div>
-                <div class="hs-icon">
-                  <div class="hs-icon-img" style="background: #229ED9;"><span class="material-symbols-outlined">send</span></div>
-                  <div class="hs-icon-label">Telegram</div>
-                </div>
-                <div class="hs-icon">
-                  <div class="hs-icon-img" style="background: #EA4335;"><span class="material-symbols-outlined">photo_camera</span></div>
-                  <div class="hs-icon-label">Camera</div>
-                </div>
-                <div class="hs-icon">
-                  <div class="hs-icon-img" style="background: #34A853;"><span class="material-symbols-outlined">map</span></div>
-                  <div class="hs-icon-label">Maps</div>
-                </div>
-                <div class="hs-icon">
-                  <div class="hs-icon-img" style="background: #FF6B35;"><span class="hs-app-letter">D</span></div>
-                  <div class="hs-icon-label">Daraz</div>
-                </div>
-                <div class="hs-icon">
-                  <div class="hs-icon-img" style="background: #4a4a4a;"><span class="material-symbols-outlined">settings</span></div>
-                  <div class="hs-icon-label">Settings</div>
-                </div>
-              </div>
-              <div class="pwa-notification">
-                <div class="notif-icon"><span class="material-symbols-outlined fill">receipt_long</span></div>
-                <div style="flex:1">
-                  <div class="notif-title">Smart Invoicify</div>
-                  <div class="notif-body">Wasil — Quote #QT-0042 approved by client</div>
-                </div>
-                <div class="notif-time">now</div>
-              </div>
-              <div class="pwa-dock">
-                <div class="dock-item" style="background:#1877F2;"><span class="hs-app-letter">F</span></div>
-                <div class="dock-item" style="background:linear-gradient(135deg,var(--accent),var(--accent-dark));"><span class="material-symbols-outlined fill">receipt_long</span></div>
-                <div class="dock-item" style="background:#25D366;"><span class="material-symbols-outlined">chat</span></div>
-                <div class="dock-item" style="background:#333;"><span class="material-symbols-outlined">call</span></div>
-              </div>
+          <div class="phone-screen-shot">
+            <div class="phone-shot-placeholder" id="pwaShotPlaceholder">
+              <span class="material-symbols-outlined" style="font-size:2rem;opacity:.45;">install_mobile</span>
+              <p><strong>PWA home screen</strong><br>Add a real screenshot of the app on your phone</p>
+              <code>screenshots/pwa/01-dashboard.png</code>
             </div>
+            <img
+              class="phone-shot-img hidden"
+              id="pwaShotImg"
+              src="screenshots/pwa/01-dashboard.png"
+              alt="Smart Invoicify installed on a phone home screen"
+              width="216"
+              height="470"
+              loading="lazy"
+              onload="this.classList.remove('hidden');document.getElementById('pwaShotPlaceholder').classList.add('hidden');"
+              onerror="this.classList.add('hidden');"
+            >
           </div>
         </div>
         <div class="pwa-float-badge"><span class="material-symbols-outlined fill">install_mobile</span> Lives on your home screen</div>
