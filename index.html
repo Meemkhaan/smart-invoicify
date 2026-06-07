@@ -9,7 +9,7 @@
 <meta property="og:description" content="Professional quotes and invoices for contractors, freelancers, and workshops — send from your phone and get paid faster.">
 <meta property="og:url" content="https://meemkhaan.github.io/smart-invoicify/">
 <meta property="og:image" content="https://meemkhaan.github.io/smart-invoicify/branding/Horizontal-logo-wordmark.png">
-<meta name="theme-color" content="#1a4fd6">
+<meta name="theme-color" content="#004ac6">
 <link rel="canonical" href="https://meemkhaan.github.io/smart-invoicify/">
 <link rel="icon" href="favicon/favicon.ico" sizes="any">
 <link rel="icon" href="favicon/favicon.svg" type="image/svg+xml">
@@ -20,16 +20,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink: #0f0f0d;
-    --ink-2: #3d3b35;
-    --ink-3: #7a7870;
-    --paper: #faf9f6;
-    --paper-2: #f2f0ea;
-    --paper-3: #e8e4da;
-    --accent: #1a4fd6;
-    --accent-light: #e8edfb;
-    --accent-warm: #d4640a;
-    --accent-warm-light: #fef0e4;
+    --ink: #0c1222;
+    --ink-2: #3a4660;
+    --ink-3: #6b7894;
+    --paper: #fbf8fc;
+    --paper-2: #f3f6fc;
+    --paper-3: #e4eaf6;
+    --accent: #004ac6;
+    --accent-dark: #003a9e;
+    --accent-deep: #002d78;
+    --accent-light: #e6eefc;
+    --accent-soft: #f0f4fd;
+    --accent-secondary: #3d6fe8;
+    --accent-secondary-light: #eef3fd;
+    --accent-muted: #7ba3f0;
+    --accent-highlight: #93b4f5;
     --green: #176a3c;
     --green-light: #e5f5ed;
     --r: 10px;
@@ -74,7 +79,7 @@
     justify-content: center;
     flex-shrink: 0;
   }
-  .pain-icon .material-symbols-outlined { font-size: 26px; color: #ffb347; }
+  .pain-icon .material-symbols-outlined { font-size: 26px; color: var(--accent-highlight); }
   .step-icon-wrap .material-symbols-outlined { font-size: 26px; }
   .feature-icon .material-symbols-outlined { font-size: 24px; }
   .pwa-step-icon .material-symbols-outlined { font-size: 26px; color: #fff; }
@@ -117,13 +122,13 @@
     font-weight: 600;
     text-decoration: none;
     transition: background .2s, box-shadow .2s, transform .15s;
-    box-shadow: 0 2px 14px rgba(26, 79, 214, 0.35);
+    box-shadow: 0 2px 14px rgba(0, 74, 198, 0.35);
     white-space: nowrap;
   }
   .nav-cta:hover {
-    background: #0d39b0;
+    background: var(--accent-dark);
     color: #fff !important;
-    box-shadow: 0 4px 18px rgba(26, 79, 214, 0.45);
+    box-shadow: 0 4px 18px rgba(0, 74, 198, 0.45);
     transform: translateY(-1px);
   }
 
@@ -135,7 +140,7 @@
   }
   .hero-eyebrow {
     display: inline-flex; align-items: center; gap: 8px;
-    background: var(--green-light); color: var(--green);
+    background: var(--accent-light); color: var(--accent);
     font-size: 0.8rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
     padding: 5px 12px; border-radius: 20px; margin-bottom: 20px;
   }
@@ -164,7 +169,7 @@
     transition: transform .15s, box-shadow .15s;
     display: inline-block;
   }
-  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(26,79,214,.3); }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0, 74, 198, 0.3); }
   .btn-ghost {
     color: var(--ink-2); font-size: 0.9rem; text-decoration: none;
     display: flex; align-items: center; gap: 6px;
@@ -212,7 +217,7 @@
   .hero-phone-glow {
     position: absolute;
     inset: -30px;
-    background: radial-gradient(ellipse at 50% 60%, rgba(26,79,214,.18) 0%, transparent 70%);
+    background: radial-gradient(ellipse at 50% 60%, rgba(0, 74, 198, 0.18) 0%, transparent 70%);
     border-radius: 50%;
     z-index: 0;
     pointer-events: none;
@@ -261,8 +266,8 @@
     gap: 10px;
     padding: 24px;
     text-align: center;
-    background: repeating-linear-gradient(-45deg, #f6f2f7, #f6f2f7 8px, #ece8f0 8px, #ece8f0 16px);
-    border: 2px dashed #c3c6d7;
+    background: repeating-linear-gradient(-45deg, var(--paper), var(--paper) 8px, var(--paper-2) 8px, var(--paper-2) 16px);
+    border: 2px dashed var(--paper-3);
     border-radius: 28px;
     color: var(--ink-3);
   }
@@ -304,7 +309,7 @@
     bottom: 100px; left: -112px;
     background: var(--accent);
     color: #fff;
-    box-shadow: 0 8px 28px rgba(26,79,214,.3);
+    box-shadow: 0 8px 28px rgba(0, 74, 198, 0.3);
     animation: floatB 4s ease-in-out infinite;
   }
   .fb-telegram {
@@ -331,7 +336,7 @@
     font-weight: 400; line-height: 1.2; letter-spacing: -0.015em;
     color: var(--ink); margin-bottom: 16px;
   }
-  h2 em { font-style: italic; color: var(--accent-warm); }
+  h2 em { font-style: italic; color: var(--accent-secondary); }
 
   /* PAIN STORY */
   .pain-section { background: var(--ink); color: var(--paper); padding: 80px 0; }
@@ -339,7 +344,7 @@
   .pain-inner .section-label { color: rgba(255,255,255,.4); }
   .pain-inner .section-label::before { background: rgba(255,255,255,.3); }
   .pain-inner h2 { color: var(--paper); }
-  .pain-inner h2 em { color: #ffb347; }
+  .pain-inner h2 em { color: var(--accent-highlight); }
   .story-block {
     background: rgba(255,255,255,.05);
     border: 1px solid rgba(255,255,255,.08);
@@ -443,7 +448,7 @@
     margin-bottom: 4px;
     user-select: none;
   }
-  .testi-stars { color: #f5a623; font-size: 0.8rem; margin-bottom: 12px; letter-spacing: 0.12em; }
+  .testi-stars { color: var(--accent-muted); font-size: 0.8rem; margin-bottom: 12px; letter-spacing: 0.12em; }
   .testi-text {
     font-size: 0.9rem;
     line-height: 1.65;
@@ -547,12 +552,12 @@
   .stat-label { font-size: 0.8rem; color: var(--ink-3); margin-top: 4px; }
 
   /* PWA */
-  .pwa-section { background: linear-gradient(135deg, #0d1f5e 0%, #1a4fd6 100%); padding: 80px 0; color: #fff; }
+  .pwa-section { background: linear-gradient(135deg, var(--accent-deep) 0%, var(--accent) 100%); padding: 80px 0; color: #fff; }
   .pwa-inner { max-width: 1100px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
   .pwa-inner .section-label { color: rgba(255,255,255,.5); }
   .pwa-inner .section-label::before { background: rgba(255,255,255,.4); }
   .pwa-inner h2 { color: #fff; }
-  .pwa-inner h2 em { color: #93c5fd; }
+  .pwa-inner h2 em { color: var(--accent-highlight); }
   .pwa-inner p { color: rgba(255,255,255,.8); font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px; }
   .pwa-steps { display: flex; flex-direction: column; gap: 14px; margin-top: 24px; }
   .pwa-step {
@@ -590,10 +595,10 @@
   }
   .pwa-notch-cam { width: 8px; height: 8px; background: #0d0d0d; border-radius: 50%; border: 1px solid #2a2a2a; }
   .pwa-notch-pill { width: 20px; height: 7px; background: #0d0d0d; border-radius: 4px; border: 1px solid #2a2a2a; }
-  .pwa-screen { background: #f7f6f3; border-radius: 26px; overflow: hidden; }
+  .pwa-screen { background: var(--paper); border-radius: 26px; overflow: hidden; }
   /* Home screen grid */
   .pwa-homescreen {
-    background: linear-gradient(160deg, #1a3a8f 0%, #0d2060 100%);
+    background: linear-gradient(160deg, var(--accent-dark) 0%, var(--accent-deep) 100%);
     padding: 12px;
   }
   .pwa-hs-time { text-align: center; padding: 8px 0 14px; }
@@ -610,9 +615,9 @@
   }
   .hs-icon-label { font-size: 0.52rem; color: rgba(255,255,255,.85); text-align: center; font-weight: 500; line-height: 1.2; }
   .hs-icon-featured .hs-icon-img {
-    background: linear-gradient(135deg, #1a4fd6 0%, #0d39b0 100%);
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
     border: 2px solid rgba(255,255,255,.3);
-    box-shadow: 0 0 0 3px rgba(26,79,214,.4), 0 4px 16px rgba(0,0,0,.4);
+    box-shadow: 0 0 0 3px rgba(0, 74, 198, 0.4), 0 4px 16px rgba(0,0,0,.4);
   }
   /* Notification */
   .pwa-notification {
@@ -624,7 +629,7 @@
   }
   .notif-icon {
     width: 28px; height: 28px; border-radius: 7px;
-    background: linear-gradient(135deg, #1a4fd6 0%, #0d39b0 100%);
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
     display: flex; align-items: center; justify-content: center; font-size: 0.8rem;
     flex-shrink: 0;
   }
@@ -675,7 +680,7 @@
   .privacy-section { padding: 60px 0; background: var(--paper); border-top: 1px solid var(--paper-3); }
   .privacy-inner { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
   .privacy-inner h2 { font-size: 1.6rem; margin-bottom: 12px; }
-  .privacy-inner h2 em { color: var(--green); }
+  .privacy-inner h2 em { color: var(--accent); }
   .privacy-intro { font-size: 0.9rem; color: var(--ink-2); max-width: 640px; margin-bottom: 32px; line-height: 1.7; }
   .privacy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
   .privacy-card {
@@ -696,7 +701,7 @@
     font-size: 1rem; font-weight: 600; text-decoration: none;
     transition: transform .15s, box-shadow .15s; display: inline-block;
   }
-  .btn-large:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(26,79,214,.3); }
+  .btn-large:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0, 74, 198, 0.3); }
   .btn-outline {
     border: 1.5px solid var(--paper-3); color: var(--ink-2);
     padding: 16px 36px; border-radius: 10px;
@@ -906,17 +911,17 @@
       </div>
       <div class="step-card">
         <div class="step-num">2</div>
-        <div class="step-icon-wrap" style="background: var(--green-light);"><span class="material-symbols-outlined fill" style="color:var(--green);">auto_awesome</span></div>
+        <div class="step-icon-wrap" style="background: var(--accent-soft);"><span class="material-symbols-outlined fill" style="color:var(--accent-secondary);">auto_awesome</span></div>
         <h3>AI builds the quote</h3>
         <p>Smart Invoicify fills in the scope, line items, terms, and professional wording. You review and adjust — it's your quote, AI just speeds it up.</p>
-        <div class="step-example" style="border-left-color: var(--green);">Full breakdown ready in under 60 seconds</div>
+        <div class="step-example" style="border-left-color: var(--accent-secondary);">Full breakdown ready in under 60 seconds</div>
       </div>
       <div class="step-card">
         <div class="step-num">3</div>
-        <div class="step-icon-wrap" style="background: var(--accent-warm-light);"><span class="material-symbols-outlined" style="color:var(--accent-warm);">send</span></div>
+        <div class="step-icon-wrap" style="background: var(--accent-secondary-light);"><span class="material-symbols-outlined" style="color:var(--accent-dark);">send</span></div>
         <h3>Send &amp; get paid</h3>
         <p>Export a professional PDF, share a link for online approval, and convert to an invoice the moment your client says yes — without re-typing a thing.</p>
-        <div class="step-example" style="border-left-color: var(--accent-warm);">Client signs, you invoice, you get paid</div>
+        <div class="step-example" style="border-left-color: var(--accent-dark);">Client signs, you invoice, you get paid</div>
       </div>
     </div>
   </div>
@@ -935,18 +940,18 @@
         <span class="feature-tag" style="background: var(--accent-light); color: var(--accent);">Most used</span>
       </div>
       <div class="feature-item">
-        <div class="feature-icon" style="background: var(--green-light);"><span class="material-symbols-outlined fill" style="color:var(--green);">auto_awesome</span></div>
+        <div class="feature-icon" style="background: var(--accent-soft);"><span class="material-symbols-outlined fill" style="color:var(--accent-secondary);">auto_awesome</span></div>
         <h3>AI writing assistant</h3>
         <p>Describe a job in plain words — AI turns it into polished scope notes, professional terms, and a full list of line items. Works even if English isn't your strongest language.</p>
-        <span class="feature-tag" style="background: var(--green-light); color: var(--green);">AI-powered</span>
+        <span class="feature-tag" style="background: var(--accent-secondary-light); color: var(--accent-dark);">AI-powered</span>
       </div>
       <div class="feature-item">
-        <div class="feature-icon" style="background: var(--accent-warm-light);"><span class="material-symbols-outlined" style="color:var(--accent-warm);">sync_alt</span></div>
+        <div class="feature-icon" style="background: var(--accent-secondary-light);"><span class="material-symbols-outlined" style="color:var(--accent-dark);">sync_alt</span></div>
         <h3>One-click invoice conversion</h3>
         <p>Once a client approves, flip the quote to an invoice instantly. No copy-pasting, no re-entering data — everything carries over automatically.</p>
       </div>
       <div class="feature-item">
-        <div class="feature-icon" style="background: #f3e8ff;"><span class="material-symbols-outlined" style="color:#7c3aed;">draw</span></div>
+        <div class="feature-icon" style="background: var(--accent-light);"><span class="material-symbols-outlined" style="color:var(--accent);">draw</span></div>
         <h3>Client online approval</h3>
         <p>Share a link. Your client opens it on any phone, adds their signature, and taps Approve. You get notified instantly on the app and via Telegram.</p>
       </div>
@@ -1145,7 +1150,7 @@
               </div>
               <div class="pwa-dock">
                 <div class="dock-item" style="background:#1877F2;"><span class="hs-app-letter">F</span></div>
-                <div class="dock-item" style="background:linear-gradient(135deg,#1a4fd6,#0d39b0);"><span class="material-symbols-outlined fill">receipt_long</span></div>
+                <div class="dock-item" style="background:linear-gradient(135deg,var(--accent),var(--accent-dark));"><span class="material-symbols-outlined fill">receipt_long</span></div>
                 <div class="dock-item" style="background:#25D366;"><span class="material-symbols-outlined">chat</span></div>
                 <div class="dock-item" style="background:#333;"><span class="material-symbols-outlined">call</span></div>
               </div>
