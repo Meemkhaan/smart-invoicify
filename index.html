@@ -94,7 +94,7 @@
   /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(250,249,246,0.92);
+    background: rgba(251, 248, 252, 0.92);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--paper-3);
     padding: 14px 32px;
@@ -104,7 +104,25 @@
     text-decoration: none;
     display: flex;
     align-items: center;
+    flex-shrink: 0;
   }
+  .nav-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: 1px solid var(--paper-3);
+    border-radius: 8px;
+    background: var(--paper);
+    color: var(--ink);
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: border-color .2s, background .2s;
+  }
+  .nav-toggle:hover { border-color: var(--accent); background: var(--accent-light); }
+  .nav-toggle .material-symbols-outlined { font-size: 24px; }
   .nav-links { display: flex; align-items: center; gap: 28px; }
   .nav-links a:not(.nav-cta) { color: var(--ink-2); text-decoration: none; font-size: 0.9rem; font-weight: 400; transition: color .2s; }
   .nav-links a:not(.nav-cta):hover { color: var(--ink); }
@@ -732,9 +750,38 @@
     .stat-item:last-child { border-bottom: none; }
     .section { padding: 60px 20px; }
   }
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     nav { padding: 12px 20px; }
-    .nav-links { display: none; }
+    .nav-toggle { display: flex; }
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      background: rgba(251, 248, 252, 0.98);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--paper-3);
+      padding: 8px 20px 20px;
+      box-shadow: 0 12px 32px rgba(12, 18, 34, 0.08);
+    }
+    .nav-links.is-open { display: flex; }
+    .nav-links a:not(.nav-cta) {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--paper-3);
+      font-size: 0.95rem;
+    }
+    .nav-links a.nav-cta {
+      margin-top: 12px;
+      text-align: center;
+      display: block;
+      padding: 12px 20px;
+    }
+  }
+  @media (max-width: 600px) {
     .float-badge { max-width: 118px; padding: 6px 8px; }
   }
   @media (max-width: 380px) {
@@ -751,7 +798,10 @@
   <a href="#" class="nav-logo" aria-label="Smart Invoicify home">
     <img src="branding/Horizontal-logo-wordmark.png" alt="Smart Invoicify" class="brand-logo">
   </a>
-  <div class="nav-links">
+  <button type="button" class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+    <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+  </button>
+  <div class="nav-links" id="navMenu">
     <a href="#how-it-works">How it works</a>
     <a href="#features">Features</a>
     <a href="#about">About</a>
@@ -1282,6 +1332,24 @@
 </footer>
 
 <script>
+  (function () {
+    const toggle = document.getElementById('navToggle');
+    const menu = document.getElementById('navMenu');
+    if (toggle && menu) {
+      const icon = toggle.querySelector('.material-symbols-outlined');
+      function setNavOpen(open) {
+        menu.classList.toggle('is-open', open);
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        if (icon) icon.textContent = open ? 'close' : 'menu';
+      }
+      toggle.addEventListener('click', () => setNavOpen(!menu.classList.contains('is-open')));
+      menu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => setNavOpen(false));
+      });
+    }
+  })();
+
   (function () {
     const track = document.getElementById('testiTrack');
     const wrap = document.getElementById('testiWrap');
