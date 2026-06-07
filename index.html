@@ -625,68 +625,94 @@
     animation: floatA 3s ease-in-out infinite;
   }
 
-  /* AI IMPORT */
-  .import-section { padding: 80px 0; background: var(--paper); border-top: 1px solid var(--paper-3); }
+  /* AI IMPORT — fit one viewport when anchored */
+  .import-section {
+    padding: 28px 0;
+    background: var(--paper);
+    border-top: 1px solid var(--paper-3);
+    min-height: calc(100svh - 4.5rem);
+    max-height: calc(100svh - 4.5rem);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
   .import-inner {
     max-width: 1100px; margin: 0 auto; padding: 0 32px;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center;
+    width: 100%;
+    display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 32px; align-items: center;
   }
-  .import-inner > div:first-child p { font-size: 0.95rem; color: var(--ink-2); line-height: 1.7; margin-bottom: 24px; max-width: 480px; }
-  .import-steps { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px; }
+  .import-section .section-label { margin-bottom: 8px; }
+  .import-section h2 { margin-bottom: 10px; font-size: clamp(1.45rem, 2.4vw, 2.15rem); line-height: 1.15; }
+  .import-intro { font-size: 0.88rem; color: var(--ink-2); line-height: 1.55; margin-bottom: 14px; max-width: 520px; }
+  .import-steps {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 14px;
+  }
   .import-step {
-    display: flex; gap: 14px; align-items: flex-start;
+    display: flex; flex-direction: column; gap: 8px; align-items: flex-start;
     background: var(--paper-2); border: 1px solid var(--paper-3);
-    border-radius: var(--r); padding: 14px 16px;
+    border-radius: var(--r); padding: 10px 12px;
+    min-height: 0;
   }
   .import-step-num {
-    width: 28px; height: 28px; border-radius: 50%;
+    width: 24px; height: 24px; border-radius: 50%;
     background: var(--accent); color: #fff;
-    font-size: 0.78rem; font-weight: 700;
+    font-size: 0.72rem; font-weight: 700;
     display: flex; align-items: center; justify-content: center; flex-shrink: 0;
   }
-  .import-step h4 { font-size: 0.88rem; font-weight: 600; margin-bottom: 3px; color: var(--ink); }
-  .import-step p { font-size: 0.8rem; color: var(--ink-3); line-height: 1.5; }
+  .import-step h4 { font-size: 0.8rem; font-weight: 600; margin-bottom: 0; color: var(--ink); line-height: 1.3; }
+  .import-step p { font-size: 0.72rem; color: var(--ink-3); line-height: 1.4; }
   .import-step strong { color: var(--accent); font-weight: 600; }
-  .import-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-  .import-badge {
-    display: inline-flex; align-items: center; gap: 6px;
-    font-size: 0.72rem; font-weight: 600; color: var(--accent-dark);
-    background: var(--accent-light); border-radius: 20px; padding: 5px 12px;
+  .import-action-row {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px;
   }
+  .import-action-row .btn-primary { padding: 10px 18px; font-size: 0.85rem; }
+  .import-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 0; }
+  .import-badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 0.68rem; font-weight: 600; color: var(--accent-dark);
+    background: var(--accent-light); border-radius: 20px; padding: 4px 10px;
+  }
+  .import-badge .material-symbols-outlined { font-size: 14px !important; }
   .import-mock {
     background: var(--paper-2); border: 1px solid var(--paper-3);
-    border-radius: var(--r-lg); padding: 20px;
-    box-shadow: 0 16px 48px rgba(12, 18, 34, 0.08);
+    border-radius: var(--r-lg); padding: 14px;
+    box-shadow: 0 12px 36px rgba(12, 18, 34, 0.07);
   }
   .import-mock-toolbar {
-    display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px;
-    padding-bottom: 14px; border-bottom: 1px solid var(--paper-3);
+    display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px;
+    padding-bottom: 10px; border-bottom: 1px solid var(--paper-3);
   }
   .import-mock-btn {
-    display: inline-flex; align-items: center; gap: 6px;
-    font-size: 0.72rem; font-weight: 600; padding: 8px 12px;
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 0.68rem; font-weight: 600; padding: 6px 10px;
     border-radius: 8px; border: 1px solid var(--paper-3);
     background: var(--paper); color: var(--ink-2);
   }
+  .import-mock-btn .material-symbols-outlined { font-size: 14px !important; }
   .import-mock-btn.primary {
     background: var(--accent); color: #fff; border-color: var(--accent);
   }
-  .import-mock-label { font-size: 0.68rem; font-weight: 600; color: var(--ink-3); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .import-mock-label { font-size: 0.62rem; font-weight: 600; color: var(--ink-3); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.06em; }
   .import-mock-json {
     background: var(--ink); color: #c8d6f0; border-radius: var(--r);
-    padding: 14px; font-family: ui-monospace, 'Cascadia Code', monospace;
-    font-size: 0.62rem; line-height: 1.55; overflow: hidden;
-    max-height: 220px; position: relative;
+    padding: 10px 12px; font-family: ui-monospace, 'Cascadia Code', monospace;
+    font-size: 0.58rem; line-height: 1.45; overflow: hidden;
+    max-height: 118px; position: relative;
   }
   .import-mock-json .json-key { color: #93b4f5; }
   .import-mock-json .json-str { color: #a8e6a1; }
   .import-mock-json .json-num { color: #f5c98a; }
   .import-mock-fix {
-    margin-top: 12px; display: flex; align-items: flex-start; gap: 8px;
-    font-size: 0.72rem; color: var(--green); background: var(--green-light);
-    border-radius: 8px; padding: 10px 12px; line-height: 1.45;
+    margin-top: 8px; display: flex; align-items: flex-start; gap: 6px;
+    font-size: 0.66rem; color: var(--green); background: var(--green-light);
+    border-radius: 8px; padding: 7px 10px; line-height: 1.35;
   }
-  .import-mock-fix .material-symbols-outlined { font-size: 18px; flex-shrink: 0; }
+  .import-mock-fix .material-symbols-outlined { font-size: 16px; flex-shrink: 0; }
 
   /* ABOUT */
   .about-section { padding: 80px 0; background: var(--paper-2); }
@@ -806,7 +832,6 @@
     .steps-grid { grid-template-columns: 1fr; }
     .pwa-inner { grid-template-columns: 1fr; padding: 0 20px; }
     .about-inner { grid-template-columns: 1fr; }
-    .import-inner { grid-template-columns: 1fr; gap: 36px; }
     .features-grid { grid-template-columns: 1fr; }
     .feature-item { border-right: none; }
     .stats-row { flex-direction: column; }
@@ -814,7 +839,32 @@
     .stat-item:last-child { border-bottom: none; }
     .section { padding: 60px 20px; }
   }
+  /* Tablet / narrow desktop — keep import in one viewport */
+  @media (max-width: 980px) and (min-width: 769px) {
+    .import-inner { gap: 24px; padding: 0 20px; }
+    .import-steps { gap: 8px; }
+    .import-step { padding: 8px 10px; }
+    .import-step h4 { font-size: 0.75rem; }
+    .import-step p { font-size: 0.68rem; }
+    .import-mock { padding: 12px; }
+    .import-mock-json { max-height: 100px; font-size: 0.54rem; }
+  }
+  @media (max-height: 720px) and (min-width: 769px) {
+    .import-section { padding: 16px 0; }
+    .import-section h2 { font-size: 1.35rem; margin-bottom: 6px; }
+    .import-intro { font-size: 0.82rem; margin-bottom: 10px; line-height: 1.45; }
+    .import-steps { margin-bottom: 10px; }
+    .import-mock-json { max-height: 84px; }
+  }
   @media (max-width: 768px) {
+    .import-inner { grid-template-columns: 1fr; gap: 20px; }
+    .import-section {
+      min-height: auto;
+      max-height: none;
+      overflow: visible;
+      padding: 48px 0;
+    }
+    .import-steps { grid-template-columns: 1fr; }
     nav { padding: 12px 20px; }
     .nav-toggle { display: flex; }
     .nav-links {
@@ -1033,37 +1083,39 @@
     <div>
       <div class="section-label">Bring old records</div>
       <h2>Already have quotes in Word or PDF? <em>Import them with AI.</em></h2>
-      <p>
-        You don't have to re-type years of old quotations. Copy our AI import prompt, paste your legacy document into ChatGPT, Gemini, or Grok, then paste the JSON back into Smart Invoicify — line items, terms, and totals land in the form in seconds.
+      <p class="import-intro">
+        Copy our AI import prompt, run your old quote through ChatGPT or Gemini, paste the JSON back — line items, terms, and totals fill the form in seconds.
       </p>
       <ol class="import-steps">
         <li class="import-step">
           <span class="import-step-num">1</span>
           <div>
             <h4><strong>Copy for AI import</strong></h4>
-            <p>On any new quotation, proposal, or invoice, tap Copy for AI import. You get a ready-made prompt plus a JSON template from your current form.</p>
+            <p>Ready-made prompt + JSON template from any new document.</p>
           </div>
         </li>
         <li class="import-step">
           <span class="import-step-num">2</span>
           <div>
-            <h4>Paste into your AI tool + old document</h4>
-            <p>Send the prompt and your old quote (PDF text, Word, WhatsApp export) to ChatGPT, Gemini, Grok, or Claude. The AI returns structured JSON matching our template.</p>
+            <h4>AI + old document</h4>
+            <p>Paste prompt and legacy quote into ChatGPT, Gemini, Grok, or Claude.</p>
           </div>
         </li>
         <li class="import-step">
           <span class="import-step-num">3</span>
           <div>
-            <h4><strong>Import JSON</strong> into the form</h4>
-            <p>Paste the JSON into Import JSON — we fix common AI mistakes (like unescaped inch marks in <code style="font-size:0.75em;background:var(--paper-3);padding:1px 5px;border-radius:3px;">32" smart LED</code>). Pick the client, review, and save.</p>
+            <h4><strong>Import JSON</strong></h4>
+            <p>Paste back — we auto-fix bad JSON. Pick client, review, save.</p>
           </div>
         </li>
       </ol>
-      <a href="https://demo-smart-invoicify.vercel.app/demo/request" class="btn-primary">Try it in the free demo</a>
-      <div class="import-badges">
-        <span class="import-badge"><span class="material-symbols-outlined" style="font-size:16px;">auto_fix_high</span> Auto-fixes bad JSON</span>
-        <span class="import-badge"><span class="material-symbols-outlined" style="font-size:16px;">content_paste</span> Paste or upload file</span>
-        <span class="import-badge"><span class="material-symbols-outlined" style="font-size:16px;">history</span> Old Word &amp; PDF quotes</span>
+      <div class="import-action-row">
+        <a href="https://demo-smart-invoicify.vercel.app/demo/request" class="btn-primary">Try free demo</a>
+        <div class="import-badges">
+          <span class="import-badge"><span class="material-symbols-outlined">auto_fix_high</span> Auto-fix JSON</span>
+          <span class="import-badge"><span class="material-symbols-outlined">content_paste</span> Paste or upload</span>
+          <span class="import-badge"><span class="material-symbols-outlined">history</span> Word &amp; PDF</span>
+        </div>
       </div>
     </div>
 
@@ -1075,17 +1127,12 @@
       <div class="import-mock-label">Import document JSON</div>
       <div class="import-mock-json">
         {<br>
-        &nbsp;&nbsp;<span class="json-key">"version"</span>: <span class="json-num">1</span>,<br>
-        &nbsp;&nbsp;<span class="json-key">"previewVariant"</span>: <span class="json-str">"quotation"</span>,<br>
-        &nbsp;&nbsp;<span class="json-key">"form"</span>: { <span class="json-key">"scope_of_work"</span>: <span class="json-str">"CCTV install…"</span>, … },<br>
-        &nbsp;&nbsp;<span class="json-key">"lineItems"</span>: [<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;{ <span class="json-key">"description"</span>: <span class="json-str">"32-inch smart LED"</span>, <span class="json-key">"quantity"</span>: <span class="json-num">1</span>, … }<br>
-        &nbsp;&nbsp;]<br>
+        &nbsp;&nbsp;<span class="json-key">"lineItems"</span>: [{ <span class="json-key">"description"</span>: <span class="json-str">"32-inch smart LED"</span>, … }]<br>
         }
       </div>
       <div class="import-mock-fix">
         <span class="material-symbols-outlined">check_circle</span>
-        <span>JSON auto-fixed — unescaped quotes in line descriptions repaired. Review before saving.</span>
+        <span>Auto-fixed unescaped quotes — review before saving.</span>
       </div>
     </div>
   </div>
